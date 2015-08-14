@@ -121,7 +121,7 @@ BRUSHED.layerSlider = function(){
             cbAnimStop : function(data) {
                 //alert('The current slide is: ' + data['curLayerIndex']);
                 if(data['curLayerIndex'] == 1){
-                   slideOneAnimation();
+                   //slideOneAnimation();
                     slideOneTimeLine.restart();
                     lightning();
                     rainGenerator();
