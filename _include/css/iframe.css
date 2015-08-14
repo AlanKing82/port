@@ -1,3 +1,4 @@
+/* $Rev: 6373 $ $Date: 2014-12-10 10:56:11 +0000 (Wed, 10 Dec 2014) $ $Author: jan $ */
 html
 {
 	height:100%;
@@ -394,7 +395,7 @@ ul
 	border:3px solid red;
 }
 
-#incorrect,#correct,.modalWindow #incorrect,.modalWindow #correct
+#incorrect,#correct,.modalWindow #incorrect,.modalWindow #correct, #attemptsOver
 {
 	background:no-repeat 10px;
 	display:none;
@@ -407,19 +408,19 @@ ul
 	text-align:center;
 }
 
-.modalWindow #incorrect,.modalWindow #correct
+.modalWindow #incorrect,.modalWindow #correct,.modalWindow #attemptsOver
 {
 	border:0;
 	display:block;
 	margin:0;
 }
 
-#incorrect span,#correct span
+#incorrect span,#correct span,#attemptsOver span, #attemptsOver
 {
 	color:#000;
 }
 
-#incorrect p,#correct p
+#incorrect p,#correct p,#attemptsOver p
 {
 	color:#000;
 	display:inline;
@@ -930,6 +931,7 @@ color:#ffffff;
 	overflow:hidden;
 }
 
+/* Sortable Tabs */
 #sort-list li
 {
 	background:#BDEDFF;
@@ -937,6 +939,181 @@ color:#ffffff;
 	list-style:none;
 	margin-bottom:10px;
 	padding:1px 10px;
+}
+
+div#sortWrap ol.itemHeightSmall li{
+    padding: 1px 35px 1px 28px;
+}
+
+div#sortWrap ol.itemHeightMedium li{
+    padding: 3px 35px 3px 28px;
+}
+
+div#sortWrap ol {
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+}
+
+div#sortWrap ol li{
+    position: relative;
+    padding: 4px 35px 5px 28px;
+    margin: 0px 20px 3px 20px; 
+    visibility: hidden;  
+    color: #000;
+    text-decoration: none;
+    border-radius: .5em;
+    transition: background-position .3s ease-out;
+    background: #ddd url(../img/iframeMedia/sortable.png) no-repeat 1.5% 50%;
+    *zoom:0 !important; /* ie6/ie7 first tab format fix */
+}
+
+div#sortWrap ol li:hover{
+    background: #d0d0d0 url(../img/iframeMedia/sortable_hover.png) no-repeat 1.5% 50%;
+}
+
+div#sortWrap ol li.sort{
+    counter-increment: li;
+}
+
+div#sortWrap ol li.numberStyle:before{
+    content: counter(li);
+    position: absolute; 
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #daeaef;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+}
+
+div#sortWrap ol li.itemCorrectStyle{
+    background: #daeaef url(../img/iframeMedia/tick_small.png) no-repeat 99% 50%;
+}
+
+div#sortWrap ol li.allCorrectStyle{
+    background-color: #daeaef;
+    background-image: none;
+}
+
+/* Two column sort to match (Image) */
+div#matchWrap ul li, 
+div#sortWrap.sortWrapImg ul li{
+    visibility:hidden;
+    border-radius: .5em;
+    float:left;
+    margin: 0px 2.5px;  
+}
+
+div#sortWrap.sortWrapImg ul {
+    display:block; 
+    overflow:hidden;
+    position:static; 
+    _width:100%; /* ie6 format on sort fix */
+}
+
+div#matchWrap ul li{ 
+    padding: 4px 4px 5px 4px;
+    color: #000;
+    background:#daeaef;
+    text-align: center;
+    display: block;
+    line-height: 125%;
+}
+
+div#sortWrap.sortWrapImg ul li{ 
+    padding: 16px 4px 16px 4px;
+    background: #ddd url(../img/iframeMedia/sortable_horizontal.png) no-repeat 50% 2%;
+}
+
+div#sortWrap.sortWrapImg ul li:hover{
+    background: #d0d0d0 url(../img/iframeMedia/sortable_horizontal_hover.png) no-repeat 50% 2%;
+}
+
+div#sortWrap.sortWrapImg ul li img { 
+    float: none;
+}
+
+div#sortWrap.sortWrapImg ul li p { 
+    text-align: center;
+    word-wrap: break-word;
+    font-weight: bold;
+    position: relative;
+    top: 0.8em;
+    padding: 0em;
+    line-height: 115%;
+}
+
+div#sortWrap.sortWrapImg ul li.itemCorrectStyle{ 
+    background-image:none;
+    background-color: #daeaef;
+    color:#000;
+}
+
+div#sortWrap.sortWrapImg ul li.allCorrectStyle{
+    background-image:none;
+    background-color: #daeaef;
+    color:#000;
+}
+
+/* Two column sort to match (Text) */
+div#sortWrap.sortWrapText ol li, 
+div#matchWrap.sortWrapText ul li { 
+    line-height: 120%;
+    margin: 0px 0px 3px 0px;
+    padding-left: 20px;
+} 
+
+div#sortWrap.sortWrapText{ 
+  position: relative;
+  float:left;
+  display: inline-block;
+}
+
+div#sortWrap.sortWrapText ul{ 
+    overflow: visible;
+} 
+
+div#matchWrap.sortWrapText{
+  position: relative;
+  float:left;   
+  display: inline-block;
+} 
+
+div#matchWrap.sortWrapText ul li 
+{
+    color: #000;
+    padding: 4px 10px 5px 10px;
+    text-align: left;
+    float:none;
+}
+
+/* Sort Container */
+#sortFrameContainer{
+    height:385px;
+    width:675px;
+}
+
+/* Sort submit button */
+.btn#sortSubmit {
+    position:relative;
+    float:right;
+    margin-right:25px;
+    visibility:hidden;
+    z-index: 1;
+}
+
+/* margin for button */
+#matchWrap.sortWrapImg ul#match-list{
+    margin-bottom: 5px;
+    padding: 1px 5px 1px 0px;
+    display: inline-block;
 }
 
 /* Note small */
@@ -1063,12 +1240,7 @@ img.question { margin-top: 20px; position:relative}
 	background-image:url(../img/iframeMedia/correct2.gif)!important;
 }
 
-
-
-
-
-  
- /* Click object/person to reveal Activity */ 
+/* Click object/person to reveal Activity */ 
 dt #side_image{
 	border:none; MARGIN-TOP: 0px; padding-LEFT: 60px; 
 	FLOAT: left;   MARGIN-left: 0px;  TEXT-ALIGN: center
@@ -1480,11 +1652,6 @@ border-style:dashed;
 	top:5px;
 }
 
-.feedBWindow span
-{
-	background-image:url(../img/iframeMedia/feedB_exit.gif);
-}
-
 .hotspotMinorCloseWindow span:hover, .closeWindow span:hover 
 {
     background-image:url(../img/iframeMedia/box_exit_hover.png);
@@ -1765,7 +1932,8 @@ display:inline;
 
 .whiteBox h1,
 .whiteBox p,
-.whiteBox ul {
+.whiteBox ul, 
+.whiteBox ol {
 	 margin:0px; /* margins will blow out backgrounds, leaving whitespace. */
 	 padding:0.5em 5px 0.5em 0px;
 	 position:relative;
@@ -1809,7 +1977,7 @@ display:inline;
  
 .whiteboxFeedback{line-height: 1.6em;} /* for styling elements outside whiteboxBox div */
 
-.whiteboxFeedback #incorrect,.whiteboxFeedback #correct  /* question feedback in grey roundedbox*/
+.whiteboxFeedback #incorrect,.whiteboxFeedback #correct,.whiteboxFeedback #attemptsOver  /* question feedback in grey roundedbox*/
 {
 	background:no-repeat 10px;
 	display:none;
@@ -1835,7 +2003,7 @@ display:inline;
 	font-size: 120%;
 }
 
-.whiteboxFeedback #incorrect span
+.whiteboxFeedback #incorrect span, .whiteboxFeedback #attemptsOver span
 {
 	color:#E51E23;
 	font-weight: bold;
@@ -1852,21 +2020,9 @@ display:inline;
 	background-image:url(../img/iframeMedia/correct2.gif)!important;
 }
 
- /* question feedback for selected incorrect answers */
-.whiteboxFeedback #incorrect div#feedback span,
-.whiteboxFeedback #incorrect div#feedback .prompt
+.whiteboxFeedback #attemptsOver /* pop-up box if all attempts used */
 {
-    display:none;
-    color: #444;
-	height:auto;
-    font-size: 100%;
-	font-weight: normal;
-}
-
- /* text to inform user to close box */
-.whiteboxFeedback #incorrect div#feedback .prompt
-{
-    display:block;
+    padding:12px 16px 12px 16px;
 }
 
 /* Cannot select the background / #15598 */
@@ -1898,21 +2054,43 @@ img#bg { z-index:-1; top:0px; }
     position:absolute;
 }
 
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
+/* general button styling */
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-    #whiteBoxWrap{
-        display:none
-    }
+.btn {
+  display: inline-block;
+  padding: 3px 14px;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  background-imcolor: #ddd;
+  border: 1px solid transparent;
+  border-radius: .5em;
+  color: #555; 
+}
+	
+.btn:hover {
+    background-color: #d7d7d7; 
 }
 
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) { ... }
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { ... }
+	
+
+
+
+
+
 
 
 
