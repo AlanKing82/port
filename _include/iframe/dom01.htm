@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <meta http-equiv="Author" content="Alan King" />
+    <meta http-equiv="Description" content="Online training course" />
+    <meta name="Keywords" content="3D interactive graphics" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Chair components</title>
+    <script src="../js/script.min.js"></script>
+    <link rel="stylesheet" href="../css/iframe.css" type="text/css" media="screen" />
+</head>
+
+<body id="screenBody" onload="parent.onFrameLoad();">
+
+    <img src="../img/iframeMedia/dominos01.gif" alt="forearm animation" title="forearm animation" class="icon2 iconImage notDisplay preloader" style="top: 97px; left: 14px; position: absolute;" />
+    <img src="../img/iframeMedia/dominos01.gif" alt="forearm animation" title="forearm animation" class="icon3 iconImage notDisplay preloader hide2" style="top: 97px; left: 14px; position: absolute;" />
+
+    <img src="../img/iframeMedia/dom_label01.jpg" style="top: 142px; left: 15px;" id="label01" class="introFx fx3"/>
+    <img src="../img/iframeMedia/dom_label02.jpg" style="top: 129px; left: 112px;" id="label02" class="introFx fx4"/>
+    <img src="../img/iframeMedia/dom_label03.jpg" style="top: 106px; left: 193px;" id="label03" class="introFx fx5"/>
+
+    <div id="whiteBoxWrap" class="introFx fx2 width100">
+        <div class="whiteBox width40 whiteBoxRight">
+            <div class="boxContent">
+                <div class="t"></div>
+                <h1>The domino theory</h1>
+                <p>The Domino Theory suggests that an accident is the result of a series of linked causes. One event leads to another in a chain reaction that culminates in an accident.</p>
+                <p>The chain effect of linked causes is compared to a row of falling dominoes.</p>
+                <dl class="noteExpand expandShort">
+                    <dd class="interact_img"></dd>
+                    <dt>Interact</dt>
+                    <dd>Click on the first domino for
+                        <br />more information.</dd>
+                </dl>
+            </div>
+            <div class="b">
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <dl class="icons iconsLight">
+    
+    <dt style="top: 194px; left: 70px;" class="introFx fx6">
+    <a href="javascript:void(0);" id="icon2"> 
+    <span class="fader"> 
+    <img src="../img/iframeMedia/dom_up.jpg" title="Dominoes on a table." alt="Dominoes on a table." /> 
+    <img src="../img/iframeMedia/dom_hover.jpg" class="ImgHover" /> 
+    
+    <img src="../img/iframeMedia/dom_down.jpg" class="ImgDown" /> 
+    </span></a></dt>
+    
+    
+    <dt style="top: 330px; left: 13px;" id="replay">
+    
+    <a href="javascript:void(0);" id="icon3"> 
+    
+    <span class="fader"> 
+    
+    <img src="../img/iframeMedia/play_up.png" title="replay" alt="replay" /> 
+    
+    <img src="../img/iframeMedia/play_hover.gif" class="ImgHover" /> 
+    
+    <img src="../img/iframeMedia/play_down.png" class="ImgDown" /> </span> </a></dt>
+    </dl>
+    <img src="../img/iframeMedia/dominosBg.jpg" id="bg" height="390" width="675" class="introFx fx1"/>
+    <div class="left25" id="loading">Loading GIF...</div>
+    <script type="text/javascript">
+        if ($) {
+            
+            $('.introFx').introFx({
+                afterFx: function() {
+                    $('.icons a').icons({'itemsToClick':'3','hideAllImg': false});
+                }
+            });
+
+
+            $("#replay").css({
+                'display': 'none',
+                'position': 'absolute'
+            });
+
+
+            $("#icon2").click(function() {
+                $(this).hide();
+                hideStuff();
+            });
+
+            function hideStuff() {
+
+                    $("#label01, #label02, #label03, #combine").hide(0);
+                    $("#replay").delay(3000).show(500, function() {
+
+                });
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

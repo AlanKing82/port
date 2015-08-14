@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Author" content="Alan King" />
+<meta http-equiv="Description" content="Online training course" />
+<meta name="Keywords" content="3D interactive graphics" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Chair components</title>
+<script src="../js/script.min.js"></script>
+<link rel="stylesheet" href="../css/iframe.css" type="text/css" media="screen" />
+</head>
+<body id="screenBody" onload="parent.onFrameLoad();">
+
+<img src="../img/iframeMedia/chair_seat_back.gif" alt="seat back animation" title="seat back animation" class="icon2 iconImage notDisplay showSpinner preloader hide3" style="top: 2px; left: 508px; position: absolute;" /> 
+<img src="../img/iframeMedia/chair_seat.gif" alt="height adjustable" title="height adjustable" class="icon3 iconImage notDisplay showSpinner preloader hide2 hide4" style="top: 20px; left: 422px; position: absolute;" /> 
+<img src="../img/iframeMedia/chair_base.gif" alt="stable chair" title="stable chair" class="icon4 iconImage notDisplay showSpinner preloader hide3" style="top: 245px; left: 392px; position: absolute;" />
+
+<div id="whiteBoxWrap" class="width50 introFx fx2">
+<div class="whiteBox">
+<div class="boxContent">
+<div class="t"></div>
+<h1>Chair components</h1>
+<p>The chair you use must be suitable for workstation use and should:</p>
+<dl class="noteExpand expandShort">
+<div class="interact_img"></div>
+<dt>Interact</dt><dd>Click on each number for<br />more information.</dd></dl></div>
+<div class="b">
+<div></div>
+</div>
+</div>
+</div>
+<dl class="icons iconsLight whiteboxFeedback">
+<dt style="left: 575px; top: 20px;" class="introFx fx3 click">
+<a href="javascript:void(0);" id="icon2">
+<span class="fader"> 
+<img src="../img/iframeMedia/no_01_up.png" /> 
+<img src="../img/iframeMedia/no_01_hover.gif" class="ImgHover" /> 
+<img src="../img/iframeMedia/no_01_down.png" class="ImgDown" /> 
+</span>
+</a>
+</dt>
+<dd style="left: 25px; top: 200px; width: 200px;" class="rounded">
+<div class="closeWindow" title="Close">close<span></span></div>
+Have a seat back that is adjustable in both height and tilt.
+</dd>
+
+<dt style="left: 470px; top: 145px;" class="introFx fx4 click">
+<a href="javascript:void(0);" id="icon3">
+<span class="fader"> 
+<img src="../img/iframeMedia/no_02_up.png" /> 
+<img src="../img/iframeMedia/no_02_hover.gif" class="ImgHover" /> 
+<img src="../img/iframeMedia/no_02_down.png" class="ImgDown" /> 
+</span>
+</a>
+</dt>
+<dd style="left: 25px; top: 200px; width: 200px;" class="rounded">
+<div class="closeWindow" title="Close">close<span></span></div>
+Have a height adjustable seat.</dd>
+<dt style="left: 430px; top: 258px;" class="introFx fx5 click">
+<a href="javascript:void(0);" id="icon4">
+<span class="fader"> 
+<img src="../img/iframeMedia/no_03_up.png" /> 
+<img src="../img/iframeMedia/no_03_hover.gif" class="ImgHover" /> 
+<img src="../img/iframeMedia/no_03_down.png" class="ImgDown" /> 
+</span>
+</a>
+</dt>
+<dd style="left: 25px; top: 200px; width: 200px;" class="rounded">
+<div class="closeWindow" title="Close">close<span></span></div>
+Be stable and allow the user easy freedom of movement.</dd>
+</dl>
+<img src="../img/iframeMedia/seat_bg.jpg" alt="An office chair." id="bg" title="An office chair." height="390" width="675" class="introFx fx1"/>
+<div class="left75" id="loading">Loading GIF...</div>
+<script type="text/javascript">// <![CDATA[
+
+if ($) {
+      $('.introFx').introFx({
+            afterFx: function() {
+                $('.icons a').icons({'itemsToClick':'3'});
+                $('.click').css({width:'40px'});
+            }
+        });
+}
+// ]]></script>
+</body>
+</html>
