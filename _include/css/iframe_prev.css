@@ -1,4 +1,4 @@
-/* $Rev: 6814 $ $Date: 2015-06-17 10:09:16 +0100 (Wed, 17 Jun 2015) $ $Author: jan $ */
+/* $Rev: 6373 $ $Date: 2014-12-10 10:56:11 +0000 (Wed, 10 Dec 2014) $ $Author: jan $ */
 html
 {
 	height:100%;
@@ -45,14 +45,14 @@ h1.withBackground {
     background: url(../img/iframeMedia/header_background.png) no-repeat 0 0; 
     line-height: 1.7em;
     padding-left: 15px;
-    color: #6192B2;
+    color: #fff;
 }
 
 h1.withBackgroundShort { 
     background: url(../img/iframeMedia/header_background_short.png) no-repeat 0 0; 
     line-height: 1.7em;
     padding-left: 15px;
-    color: #6192B2;
+    color: #fff;
 }
 
 h2,h3,h4,h5
@@ -958,7 +958,7 @@ div#sortWrap ol {
 div#sortWrap ol li{
     position: relative;
     padding: 4px 35px 5px 28px;
-    margin: 0px 40px 3px 40px; 
+    margin: 0px 20px 3px 20px; 
     visibility: hidden;  
     color: #000;
     text-decoration: none;
@@ -1104,7 +1104,7 @@ div#matchWrap.sortWrapText ul li
 .btn#sortSubmit {
     position:relative;
     float:right;
-    margin-right:45px;
+    margin-right:25px;
     visibility:hidden;
     z-index: 1;
 }
@@ -1114,10 +1114,6 @@ div#matchWrap.sortWrapText ul li
     margin-bottom: 5px;
     padding: 1px 5px 1px 0px;
     display: inline-block;
-}
-
-.attemptText{
-    display:none;
 }
 
 /* Note small */
@@ -1173,7 +1169,7 @@ div#matchWrap.sortWrapText ul li
 .noteInteract p { padding: 12px 43px 6px 16px !important; }
 .noteShortInteract p { padding: 12px 43px 6px 16px !important; }
 
-.roundedBox { background-color: #ececec; padding: 8px 16px 8px 16px; }
+.roundedBox { background-color: #E9EAEC; padding: 8px 16px 8px 16px; }
 .roundedBox span { display: block; font-weight: bold; padding: 5px 0 5px 0; }
 
 /* QUESTIONS v2 */
@@ -1765,13 +1761,7 @@ display:inline;
 - move freame up 40px
 */
 .goog-te-banner-frame{display:none !important;}
-#screenBody {
-	top:0px !important;
-
-	/* google translate body styles insertion fix eventum #3249 */
-	min-height:1px !important;
-    position:static !important;
-}
+#screenBody{top:0px !important;}
 
 /*Expandable noteboxes*/
 
@@ -1818,10 +1808,10 @@ display:inline;
 
 .expandShort{
 	width: 190px;
-	background: #ececec url(../img/iframeMedia/notebox_small_bottom.jpg) no-repeat bottom left;
+	background: #daeaef url(../img/iframeMedia/notebox_small_bottom.jpg) no-repeat bottom left;
 }
 
-.expandShort dt{background: #969696 url(../img/iframeMedia/notebox_small_top.jpg) no-repeat top left;}
+.expandShort dt{background: #5e93b1 url(../img/iframeMedia/notebox_small_top.jpg) no-repeat top left;}
 
 
 .expandShort .info_img{left:152px;}
@@ -1831,11 +1821,11 @@ display:inline;
 
 .expandMiddle{
 	width: 240px;
-	background: #ececec url(../img/iframeMedia/notebox_medium_bottom.jpg) no-repeat bottom left;
+	background: #daeaef url(../img/iframeMedia/notebox_medium_bottom.jpg) no-repeat bottom left;
 }
 
 .expandMiddle dt{
-  background: #969696 url(../img/iframeMedia/notebox_medium_top.jpg) no-repeat top left;
+  background: #5e93b1 url(../img/iframeMedia/notebox_medium_top.jpg) no-repeat top left;
 }
 
 .expandMiddle dd {
@@ -1851,10 +1841,10 @@ display:inline;
 
 .expandLong{
 	width: 330px;
-	background: #ececec url(../img/iframeMedia/notebox_wide_bottom.jpg) no-repeat bottom left;
+	background: #daeaef url(../img/iframeMedia/notebox_wide_bottom.jpg) no-repeat bottom left;
 }
 
-.expandLong dt{background: #969696 url(../img/iframeMedia/notebox_wide_top.jpg) no-repeat top left;}
+.expandLong dt{background: #5e93b1 url(../img/iframeMedia/notebox_wide_top.jpg) no-repeat top left;}
 
 .expandLong .info_img{left:290px;}
 .expandLong .interact_img{left:290px;}
@@ -1942,7 +1932,7 @@ display:inline;
 
 .whiteBox h1,
 .whiteBox p,
-.whiteBox ul,
+.whiteBox ul, 
 .whiteBox ol {
 	 margin:0px; /* margins will blow out backgrounds, leaving whitespace. */
 	 padding:0.5em 5px 0.5em 0px;
@@ -2065,6 +2055,7 @@ img#bg { z-index:-1; top:0px; }
 }
 
 /* general button styling */
+
 .btn {
   display: inline-block;
   padding: 3px 14px;
@@ -2092,3 +2083,17 @@ img#bg { z-index:-1; top:0px; }
 .btn:hover {
     background-color: #d7d7d7; 
 }
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
