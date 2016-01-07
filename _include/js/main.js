@@ -632,13 +632,14 @@ BRUSHED.layerSlider = function(){
            
                 var aniX = null;
                 var aniy = null;
+                var head = $("#head");
                 $(document).ready(function(){
                     aniX = $("#head").offset().left;
                     aniY = $("#head").offset().top;
                     
                     $(document).mousedown(function(event){
                         var mousePos = new Array(event.pageX, event.pageY);
-                        interact(mousePos, ["-920px", "-1200px", "-1500px"]);
+                        interact(mousePos, ["-900px", "-1200px", "-1500px"]);
                     });
                     $(document).mouseup(function(event){
                         var mousePos = new Array(event.pageX, event.pageY);
@@ -651,24 +652,26 @@ BRUSHED.layerSlider = function(){
                 });
 
                 function interact(mouseCord, aniCord){
-                    if (mouseCord[0] < aniX && mouseCord[1] < aniY){ // Box-1
-                        $("#head").css("background-position", aniCord[0]+" 0px");
-                    } else if (mouseCord[0] > aniX && mouseCord[0] < aniX+300 && mouseCord[1] < aniY){ // Box-2
-                        $("#head").css("background-position", aniCord[1]+" 0px");
+                    if (mouseCord[0] < aniX-600 && mouseCord[1] < aniY){ // Box-1
+//                        console.log(mouseCord[0]);
+//                        console.log(aniX-600);
+                        head.css("background-position", aniCord[0]+" 0px");
+                    } else if (mouseCord[0] > aniX-600 && mouseCord[0] < aniX+300 && mouseCord[1] < aniY){ // Box-2
+                        head.css("background-position", aniCord[1]+" 0px");
                     } else if (mouseCord[0] > aniX+300 && mouseCord[1] < aniY){ // Box-3
-                        $("#head").css("background-position", aniCord[2]+" 0px");
-                    } else if (mouseCord[0] < aniX && mouseCord[1] > aniY && mouseCord[1] < aniY+300){ // Box-4
-                        $("#head").css("background-position", aniCord[0]+" -300px");
-                    } else if (mouseCord[0] > aniX && mouseCord[0] < aniX+300 && mouseCord[1] > aniY && mouseCord[1] < aniY+300){ // Box-5
-                        $("#head").css("background-position", aniCord[1]+" -300px");
+                        head.css("background-position", aniCord[2]+" 0px");
+                    } else if (mouseCord[0] < aniX-600 && mouseCord[1] > aniY && mouseCord[1] < aniY+300){ // Box-4
+                        head.css("background-position", aniCord[0]+" -300px");
+                    } else if (mouseCord[0] > aniX-300 && mouseCord[0] < aniX+300 && mouseCord[1] > aniY && mouseCord[1] < aniY+300){ // Box-5
+                        head.css("background-position", aniCord[1]+" -300px");
                     }else if (mouseCord[0] > aniX+300 && mouseCord[1] > aniY && mouseCord[1] < aniY+300){ // Box-6
-                        $("#head").css("background-position", aniCord[2]+" -300px");
-                    } else if (mouseCord[0] < aniX && mouseCord[1] > aniY+300){ // Box-7
-                        $("#head").css("background-position", aniCord[0]+" -300px");
-                    } else if (mouseCord[0] > aniX && mouseCord[0] < aniX+300 && mouseCord[1] > aniY+300){ // Box-8
-                        $("#head").css("background-position", aniCord[1]+" -300px");
+                        head.css("background-position", aniCord[2]+" -300px");
+                    } else if (mouseCord[0] < aniX-600 && mouseCord[1] > aniY+300){ // Box-7
+                        head.css("background-position", aniCord[0]+" -300px");
+                    } else if (mouseCord[0] > aniX-600 && mouseCord[0] < aniX+300 && mouseCord[1] > aniY+300){ // Box-8
+                        head.css("background-position", aniCord[1]+" -300px");
                     } else if (mouseCord[0] > aniX+300 && mouseCord[1] > aniY+300){ // Box-9
-                        $("#head").css("background-position", aniCord[2]+" -300px");
+                        head.css("background-position", aniCord[2]+" -300px");
                     }
                 }
         }

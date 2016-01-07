@@ -1030,6 +1030,7 @@ div#matchWrap ul li{
 div#sortWrap.sortWrapImg ul li{ 
     padding: 16px 4px 16px 4px;
     background: #ddd url(../img/iframeMedia/sortable_horizontal.png) no-repeat 50% 2%;
+    position:relative;
 }
 
 div#sortWrap.sortWrapImg ul li:hover{
@@ -1056,10 +1057,26 @@ div#sortWrap.sortWrapImg ul li.itemCorrectStyle{
     color:#000;
 }
 
+/*
+div#sortWrap.sortWrapImg ul li.itemCorrectStyle img{
+    opacity: 0.6;
+} 
+*/
+
 div#sortWrap.sortWrapImg ul li.allCorrectStyle{
     background-image:none;
     background-color: #daeaef;
     color:#000;
+}
+
+/* Appended div to display tick above image */
+div#sortWrap.sortWrapImg ul li div.sortCorrectTick{
+    background: url(../img/iframeMedia/tick_small_img.png) no-repeat;
+    position:absolute;
+    height:23px;
+    width:23px;
+    right:7px;
+    bottom:20px;
 }
 
 /* Two column sort to match (Text) */
@@ -1119,6 +1136,19 @@ div#matchWrap.sortWrapText ul li
 .attemptText{
     display:none;
 }
+
+div.whiteboxFeedback .dragGrabIcon{
+    background: url(../img/iframeMedia/drag_grab.gif) no-repeat;
+    width:28px;
+    height:7px;
+    top: 4px;
+    position: absolute;
+    left:45%;
+}
+
+div.whiteboxFeedback:hover .dragGrabIcon{
+    background: url(../img/iframeMedia/drag_grab_hover.gif) no-repeat;
+} 
 
 /* Note small */
 .note {
@@ -1236,12 +1266,12 @@ img.question { margin-top: 20px; position:relative}
 
 .activityFeedback #incorrect
 {
-	background-image:url(../img/iframeMedia/incorrect.gif)!important;
+	background-image:url(../img/iframeMedia/incorrect.png)!important;
 }
 
 .activityFeedback #correct
 {
-	background-image:url(../img/iframeMedia/correct2.gif)!important;
+	background-image:url(../img/iframeMedia/correct2.png)!important;
 }
 
 /* Click object/person to reveal Activity */ 
@@ -2022,12 +2052,12 @@ display:inline;
 
 .whiteboxFeedback #incorrect
 {
-	background-image:url(../img/iframeMedia/incorrect.gif)!important;
+	background-image:url(../img/iframeMedia/incorrect.png)!important;
 }
 
 .whiteboxFeedback #correct
 {
-	background-image:url(../img/iframeMedia/correct2.gif)!important;
+	background-image:url(../img/iframeMedia/correct2.png)!important;
 }
 
 .whiteboxFeedback #attemptsOver /* pop-up box if all attempts used */
@@ -2039,6 +2069,7 @@ display:inline;
 img#bg { z-index:-1; top:0px; }
 
 /* Image preloader */
+/*
 #loading{
     background-image:url(../img/iframeMedia/spinner.gif);
     height:32px;
@@ -2049,10 +2080,35 @@ img#bg { z-index:-1; top:0px; }
     z-index:9999;
     display:none;
 }
+*/
 
+#loading div {
+    width: 44px;
+    height: 44px;
+    background: url('../img/iframeMedia/fancybox_loading.gif') center center no-repeat;
+}
+
+#loading {
+    display:none;
+    background-image: url('../img/iframeMedia/fancybox_sprite.png');
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -22px;
+    margin-left: -22px;
+    background-position: 0 -108px;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 8060;
+}
+
+    
+
+/*
 .left25{left:25%;}
 .left50{left:50%;}
 .left75{left:75%;}
+*/
 
 .iconOpacity img{
     opacity:0.3;
@@ -2092,3 +2148,6 @@ img#bg { z-index:-1; top:0px; }
 .btn:hover {
     background-color: #d7d7d7; 
 }
+
+/* added Alan Sep 2015*/
+.deactivate .iconText{opacity:0.3}
