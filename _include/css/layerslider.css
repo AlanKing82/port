@@ -902,14 +902,16 @@ body * .ls-container .ls-webkit-hack,
 /* added amendments */
 #rain img{position:absolute}
 
-#head{
-    background-image: url("../img/layerSlider/headlayout_300px_02.png");
-    background-position: -300px -299px;
+#logoSprite{
+    background-image: url("../img/layerSlider/logo_sprite.png");
+    background-position: -280px -160px;
     background-repeat: no-repeat;
-    height: 300px;
+    height: 160px;
     margin: 20% auto;
-    width: 300px;
+    width: 280px;
 }
+
+
 
 #layerslider .texte .titre {
   position: relative;
@@ -956,6 +958,9 @@ body * .ls-container .ls-webkit-hack,
 #layerslider img.bubble img:first-child, #layerslider div.bubble img:first-child {
   top: 0%;
 }
+
+/*bird*/
+img.ls-l.bird.ls-preloaded{margin-left:150px}
 
 
 

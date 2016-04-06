@@ -236,17 +236,7 @@ BRUSHED.layerSlider = function(){
                         scaleX: 1,
                         rotation: 0,
                         ease: Back.easeOut
-                    }, "-=0.3").fromTo(layerSliderContainer.find(".shadow1"), 1, {
-                        opacity: 0
-                    }, {
-                        opacity: 1,
-                        ease: Quad.easeOut
-                    }, "-=1").fromTo(layerSliderContainer.find(".shadow2"), 1, {
-                        opacity: 0
-                    }, {
-                        opacity: 1,
-                        ease: Quad.easeOut
-                    }, "-=0.5").fromTo(layerSliderContainer.find(".mountain4"), .5, {
+                    }, "-=0.3").fromTo(layerSliderContainer.find(".mountain4"), .5, {
                         top: 651,
                         scaleX: 0,
                         rotation: -15,
@@ -279,54 +269,46 @@ BRUSHED.layerSlider = function(){
                         rotation: 0,
                         opacity: 1,
                         ease: Back.easeOut
-                    }, "-=0.4").fromTo(layerSliderContainer.find(".branch_shadow"), .5, {
-                        opacity: 0
-                    }, {
-                        opacity: 1,
-                        ease: Quad.easeOut
-                    }, "-=0.5").fromTo(layerSliderContainer.find(".branch"), .5, {
-                        width: 203,
-                        height: 0
-                    }, {
-                        width: 203,
-                        height: 150,
-                        ease: Back.easeOut
-                    }, "-=0.3").fromTo(layerSliderContainer.find(".body"), .3, {
-                   
-                        top: 311,
-                        opacity: 0,
-                        rotation: 15
-                    }, {
-                      
-                        top: 350,
-                        opacity: 1,
-                        rotation: 0,
-                        ease: Quad.easeOut
-                    }).fromTo(layerSliderContainer.find("#head"), .3, {
-                        
-                        top: 121,
-                        opacity: 0,
-                        rotation: 15
-                    }, {
-                        top: 260,
-                        opacity: 1,
-                        rotation: 0,
-                        ease: Quad.easeOut
-                    }, "-=0.3").fromTo(layerSliderContainer.find(".blackDiamond"), .5, {
+                    }, "-=0.4").fromTo(layerSliderContainer.find(".whiteCircle"), .5, {
                         scale: 0,
                         opacity: 0
                     }, {
                         scale: 1,
                         opacity: 1,
                         ease: Back.easeOut
-                    }, "-=0.1").fromTo(layerSliderContainer.find(".logo"), .5, {
-                        top: -200,
+                    }, "-=0.1").fromTo(layerSliderContainer.find(".shadow"), 1, {
+                       
+                        scale: 0,
                         opacity: 0
                     }, {
-                        top: 100,
+                      
+                        scale: 1,
                         opacity: 1,
-                        ease: Back.easeOut
-                    }, "-=0.3").fromTo(layerSliderContainer.find("h2"), .5, {
+                        ease: Quad.easeOut
+                    }, "-=1").fromTo(layerSliderContainer.find("#logoSprite"), .3, {
+                        
+                        top: 121,
+                        opacity: 0,
+                        rotation: 15
+                    }, {
+                        top: 360,
+                        opacity: 1,
+                        rotation: 0,
+                        ease: Quad.easeOut
+                    }, "-=0.3").fromTo(layerSliderContainer.find(".bird"), 1.3, {
+                        marginLeft:0,
+                        top: 0,
+                        opacity: 0,
+                        rotation: 15
+                        
+                    }, {
+                        marginLeft:120,
+                        top: 250,
+                        opacity: 1,
+                        rotation: 0,
+                        ease: Quad.easeOut
+                        
+                    }).fromTo(layerSliderContainer.find("h2"), .5, {
                         top: 200,
                         opacity: 0
                     }, {
@@ -632,46 +614,45 @@ BRUSHED.layerSlider = function(){
            
                 var aniX = null;
                 var aniy = null;
-                var head = $("#head");
+                var sprite = $("#logoSprite");
                 $(document).ready(function(){
-                    aniX = $("#head").offset().left;
-                    aniY = $("#head").offset().top;
+                    aniX = $("#logoSprite").offset().left;
+                    aniY = $("#logoSprite").offset().top;
                     
                     $(document).mousedown(function(event){
                         var mousePos = new Array(event.pageX, event.pageY);
-                        interact(mousePos, ["-900px", "-1200px", "-1500px"]);
+                        interact(mousePos, ["-840px", "-1120px", "-1400px"]);
                     });
-                    $(document).mouseup(function(event){
-                        var mousePos = new Array(event.pageX, event.pageY);
-                        interact(mousePos, ["-1px", "-300px", "-600px"]);
-                    });
+//                    $(document).mouseup(function(event){
+//                        var mousePos = new Array(event.pageX, event.pageY);
+//                        interact(mousePos, ["-1px", "-300px", "-600px"]);
+//                    });
                     $(document).mousemove(function(event) {
                         var mousePos = new Array(event.pageX, event.pageY);
-                        interact(mousePos, ["-1px", "-300px", "-600px"]);
+                        interact(mousePos, ["0px", "-280px", "-560px"]);
                     });
                 });
 
                 function interact(mouseCord, aniCord){
                     if (mouseCord[0] < aniX-600 && mouseCord[1] < aniY){ // Box-1
-//                        console.log(mouseCord[0]);
-//                        console.log(aniX-600);
-                        head.css("background-position", aniCord[0]+" 0px");
+
+                        sprite.css("background-position", aniCord[0]+" 0px");
                     } else if (mouseCord[0] > aniX-600 && mouseCord[0] < aniX+300 && mouseCord[1] < aniY){ // Box-2
-                        head.css("background-position", aniCord[1]+" 0px");
+                        sprite.css("background-position", aniCord[1]+" 0px");
                     } else if (mouseCord[0] > aniX+300 && mouseCord[1] < aniY){ // Box-3
-                        head.css("background-position", aniCord[2]+" 0px");
+                        sprite.css("background-position", aniCord[2]+" 0px");
                     } else if (mouseCord[0] < aniX-600 && mouseCord[1] > aniY && mouseCord[1] < aniY+300){ // Box-4
-                        head.css("background-position", aniCord[0]+" -300px");
+                        sprite.css("background-position", aniCord[0]+" -160px");
                     } else if (mouseCord[0] > aniX-300 && mouseCord[0] < aniX+300 && mouseCord[1] > aniY && mouseCord[1] < aniY+300){ // Box-5
-                        head.css("background-position", aniCord[1]+" -300px");
+                        sprite.css("background-position", aniCord[1]+" -160px");
                     }else if (mouseCord[0] > aniX+300 && mouseCord[1] > aniY && mouseCord[1] < aniY+300){ // Box-6
-                        head.css("background-position", aniCord[2]+" -300px");
+                        sprite.css("background-position", aniCord[2]+" -160px");
                     } else if (mouseCord[0] < aniX-600 && mouseCord[1] > aniY+300){ // Box-7
-                        head.css("background-position", aniCord[0]+" -300px");
+                        sprite.css("background-position", aniCord[0]+" -160px");
                     } else if (mouseCord[0] > aniX-600 && mouseCord[0] < aniX+300 && mouseCord[1] > aniY+300){ // Box-8
-                        head.css("background-position", aniCord[1]+" -300px");
+                        sprite.css("background-position", aniCord[1]+" -160px");
                     } else if (mouseCord[0] > aniX+300 && mouseCord[1] > aniY+300){ // Box-9
-                        head.css("background-position", aniCord[2]+" -300px");
+                        sprite.css("background-position", aniCord[2]+" -160px");
                     }
                 }
         }
