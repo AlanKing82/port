@@ -101,7 +101,10 @@ BRUSHED.layerSlider = function(){
     var layerSliderContainer = $('#layerslider');
     var slideOneTimeLine = new TimelineLite;
     var v = 3100;
-    var idIconActive = 1; //default Bubble icon data 
+    var idIconActive = 1; //default Bubble icon data
+    var TOP_DISTANCE = 250;
+    var MARGIN_DISTANCE = 0;
+  
     
         // Calling LayerSlider on the target element
         layerSliderContainer.layerSlider({
@@ -175,26 +178,26 @@ BRUSHED.layerSlider = function(){
     // greensock - layerslider elements - slide 1
      
             TweenMax.fromTo(layerSliderContainer.find("#cloud1"), 1, {
-                        top: 31
+                        top: TOP_DISTANCE - 90
                     }, {
-                        top: 21,
+                        top: TOP_DISTANCE - 100,
                         ease: Quad.easeInOut,
                         yoyo: !0,
                         repeat: -1
                     }), 
             TweenMax.fromTo(layerSliderContainer.find("#cloud2"), 1, {
-                        top: 157
+                        top: TOP_DISTANCE + 37
                     }, {
-                        top: 147,
+                        top: TOP_DISTANCE + 27,
                         ease: Quad.easeInOut,
                         yoyo: !0,
                         repeat: -1,
                         delay: .3
                     }), 
             TweenMax.fromTo(layerSliderContainer.find("#cloud3"), 1, {
-                        top: 47
+                        top: TOP_DISTANCE - 73
                     }, {
-                        top: 37,
+                        top: TOP_DISTANCE - 83,
                         ease: Quad.easeInOut,
                         yoyo: !0,
                         repeat: -1,
@@ -204,72 +207,76 @@ BRUSHED.layerSlider = function(){
             
                     
             slideOneTimeLine.fromTo(layerSliderContainer.find("#mountain1"), .5, {
-                        top: 403,
+                        top: TOP_DISTANCE + 183,
                         opacity: 0,
                         scaleX: 0,
                         rotation: -15
                     }, {
-                        top: 203,
+                        top: TOP_DISTANCE - 17,
                         opacity: 1,
                         scaleX: 1,
                         rotation: 0,
                         ease: Back.easeOut
                     }, "+=1").fromTo(layerSliderContainer.find("#mountain3"), .5, {
-                        top: 430,
+                        top: TOP_DISTANCE + 110,
                         opacity: 0,
                         scaleX: 0,
                         rotation: 15
                     }, {
-                        top: 230,
+                        top: TOP_DISTANCE + 10,
                         opacity: 1,
                         scaleX: 1,
                         rotation: 0,
                         ease: Back.easeOut
                     }, "-=0.3").fromTo(layerSliderContainer.find("#mountain2"), .5, {
-                        top: 223,
+                        top: TOP_DISTANCE - 100,
                         opacity: 0,
                         scaleX: 0,
                         rotation: 25
                     }, {
-                        top: 37,
+                        top: TOP_DISTANCE - 106,
                         opacity: 1,
                         scaleX: 1,
                         rotation: 0,
                         ease: Back.easeOut
                     }, "-=0.3").fromTo(layerSliderContainer.find(".mountain4"), .5, {
-                        top: 651,
+                        marginLeft: MARGIN_DISTANCE - 190,
+                        top: TOP_DISTANCE + 630,
                         scaleX: 0,
                         rotation: -15,
                         opacity: 0
                     }, {
-                        top: 451,
+                        top: TOP_DISTANCE + 430,
                         scaleX: 1,
                         rotation: 0,
                         opacity: 1,
                         ease: Back.easeOut
                     }, "-=0.8").fromTo(layerSliderContainer.find(".mountain6"), .5, {
-                        top: 631,
+                        marginLeft: MARGIN_DISTANCE - 160,
+                        top: TOP_DISTANCE + 510,
                         scaleX: 0,
                         rotation: 15,
                         opacity: 0
                     }, {
-                        top: 431,
+                        top: TOP_DISTANCE + 410,
                         scaleX: 1,
                         rotation: 0,
                         opacity: 1,
                         ease: Back.easeOut
                     }, "-=0.6").fromTo(layerSliderContainer.find(".mountain5"), .5, {
-                        top: 597,
+                        marginLeft: MARGIN_DISTANCE - 180,
+                        top: TOP_DISTANCE + 580,
                         scaleX: 0,
                         rotation: 15,
                         opacity: 0
                     }, {
-                        top: 397,
+                        top: TOP_DISTANCE + 380,
                         scaleX: 1,
                         rotation: 0,
                         opacity: 1,
                         ease: Back.easeOut
                     }, "-=0.4").fromTo(layerSliderContainer.find(".whiteCircle"), .5, {
+                        top: TOP_DISTANCE + 130,
                         scale: 0,
                         opacity: 0
                     }, {
@@ -285,31 +292,32 @@ BRUSHED.layerSlider = function(){
                         scale: 1,
                         opacity: 1,
                         ease: Quad.easeOut
-                    }, "-=1").fromTo(layerSliderContainer.find("#logoSprite"), .3, {
+                    }, "-=1").fromTo(layerSliderContainer.find("#logoSprite"), .6, {
                         
-                        top: 121,
+                        top: TOP_DISTANCE,
                         opacity: 0,
                         rotation: 15
                     }, {
-                        top: 360,
+                        top: TOP_DISTANCE + 240,
                         opacity: 1,
                         rotation: 0,
                         ease: Quad.easeOut
                     }, "-=0.3").fromTo(layerSliderContainer.find(".bird"), 1.3, {
-                        marginLeft:0,
+                        marginLeft: MARGIN_DISTANCE + 300,
                         top: 0,
                         opacity: 0,
                         rotation: 15
                         
+                        
                     }, {
-                        marginLeft:120,
-                        top: 250,
+                        marginLeft:MARGIN_DISTANCE + 120,
+                        top: TOP_DISTANCE + 130,
                         opacity: 1,
                         rotation: 0,
                         ease: Quad.easeOut
                         
                     }).fromTo(layerSliderContainer.find("h2"), .5, {
-                        top: 200,
+                        top: TOP_DISTANCE + 80,
                         opacity: 0
                     }, {
                         top: 0,
@@ -343,178 +351,193 @@ BRUSHED.layerSlider = function(){
                         scale: 1,
                         opacity: 1,
                         ease: Back.easeOut
-                    }, "-=0.1").fromTo(layerSliderContainer.find(".plume1"), 1.5, {
-                        opacity: 0
-                    }, {
-                        opacity: 1,
-                        ease: Quad.easeOut
-                    }, "-=1.5").fromTo(layerSliderContainer.find(".plume3"), 1.5, {
-                        opacity: 0
-                    }, {
-                        opacity: 1,
-                        ease: Quad.easeOut
-                    }, "-=1").fromTo(layerSliderContainer.find(".plume2"), 1.5, {
-                        opacity: 0
-                    }, {
-                        opacity: 1,
-                        ease: Quad.easeOut
-                    }, "-=1");
+                    }, "-=0.1");
+    
+    
+    slideOneTimeLine.eventCallback("onComplete", changeBird);
+    
+    function changeBird(){
+   
+        $('.wings').css({'background-position-x':'-260px'});
+        $('#logoSprite').delay(600).queue(function (next) { 
+            $(this).css({'background-position':'-1400px 0px'});
+            next(); 
+        });
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+                    
                     var c = new TimelineLite;
-                    c.fromTo(layerSliderContainer.find(".plume4"), 1.5, {
-                        left: 232,
-                        top: 395,
+                    c.fromTo(layerSliderContainer.find(".feather2"), 1.5, {
+                        marginLeft: MARGIN_DISTANCE + 72,
+                        top: TOP_DISTANCE + 315,
                         rotation: -10,
                         opacity: 0
                     }, {
                         bezier: {
                             type: "cubic",
                             values: [{
-                                left: 232,
-                                top: 395,
+                                marginLeft: MARGIN_DISTANCE + 72,
+                                top: TOP_DISTANCE + 315,
                                 rotation: -10,
                                 opacity: 0
                             }, {
-                                left: 302,
-                                top: 445,
+                                marginLeft: MARGIN_DISTANCE + 142,
+                                top: TOP_DISTANCE + 265,
                                 rotation: 0,
                                 opacity: .4
                             }, {
-                                left: 332,
-                                top: 440,
+                                marginLeft: MARGIN_DISTANCE + 172,
+                                top: TOP_DISTANCE + 360,
                                 rotation: 5,
                                 opacity: 1
                             }, {
-                                left: 372,
-                                top: 435,
+                                marginLeft: MARGIN_DISTANCE + 212,
+                                top: TOP_DISTANCE + 355,
                                 rotation: 10,
                                 opacity: 1
                             }]
                         },
                         ease: Quad.easeInOut,
                         delay: 3.5
-                    }), c.to(layerSliderContainer.find(".plume4"), 1.5, {
+                    }), c.to(layerSliderContainer.find(".feather2"), 1.5, {
                         bezier: {
                             type: "cubic",
                             values: [{
-                                left: 372,
-                                top: 435,
+                                marginLeft: MARGIN_DISTANCE + 212,
+                                top: TOP_DISTANCE + 355,
                                 rotation: 10
                             }, {
-                                left: 322,
-                                top: 475,
+                                marginLeft: MARGIN_DISTANCE + 162,
+                                top: TOP_DISTANCE + 395,
                                 rotation: 0
                             }, {
-                                left: 282,
-                                top: 470,
+                                marginLeft: MARGIN_DISTANCE + 122,
+                                top: TOP_DISTANCE + 390,
                                 rotation: -5
                             }, {
-                                left: 272,
-                                top: 465,
+                                marginLeft: MARGIN_DISTANCE + 112,
+                                top: TOP_DISTANCE + 385,
                                 rotation: -10
                             }]
                         },
                         ease: Quad.easeInOut
-                    }), c.to(layerSliderContainer.find(".plume4"), 1.5, {
+                    }), c.to(layerSliderContainer.find(".feather2"), 1.5, {
                         bezier: {
                             type: "cubic",
                             values: [{
-                                left: 272,
-                                top: 465,
+                                marginLeft: MARGIN_DISTANCE + 112,
+                                top: TOP_DISTANCE + 385,
                                 rotation: -10
                             }, {
-                                left: 300,
-                                top: 480,
+                                marginLeft: MARGIN_DISTANCE + 120,
+                                top: TOP_DISTANCE + 400,
                                 rotation: -5
                             }, {
-                                left: 307,
-                                top: 485,
+                                marginLeft: MARGIN_DISTANCE + 147,
+                                top: TOP_DISTANCE + 405,
                                 rotation: -2
                             }, {
-                                left: 312,
-                                top: 485,
+                                marginLeft: MARGIN_DISTANCE + 152,
+                                top: TOP_DISTANCE + 405,
                                 rotation: 0
                             }]
                         },
                         ease: Quad.easeInOut
                     });
                     var d = new TimelineLite;
-                    d.fromTo(layerSliderContainer.find(".plume5"), 1.5, {
-                        left: 350,
-                        top: 284,
+                    d.fromTo(layerSliderContainer.find(".feather3"), 1.5, {
+                        marginLeft: 150,
+                        top: TOP_DISTANCE + 234,
                         rotation: 10,
                         opacity: 0
                     }, {
                         bezier: {
                             type: "cubic",
                             values: [{
-                                left: 350,
-                                top: 384,
+                                marginLeft: MARGIN_DISTANCE + 150,
+                                top: TOP_DISTANCE + 334,
                                 rotation: 10,
                                 opacity: 0
                             }, {
-                                left: 280,
-                                top: 434,
+                                marginLeft: MARGIN_DISTANCE + 80,
+                                top: TOP_DISTANCE + 384,
                                 rotation: 0,
                                 opacity: .4
                             }, {
-                                left: 250,
-                                top: 429,
+                                marginLeft: MARGIN_DISTANCE + 50,
+                                top: TOP_DISTANCE + 379,
                                 rotation: -5,
                                 opacity: 1
                             }, {
-                                left: 210,
-                                top: 424,
+                                marginLeft: MARGIN_DISTANCE + 10,
+                                top: TOP_DISTANCE + 374,
                                 rotation: -10,
                                 opacity: 1
                             }]
                         },
                         ease: Quad.easeInOut,
                         delay: 5.8
-                    }), d.to(layerSliderContainer.find(".plume5"), 1.5, {
+                    }), d.to(layerSliderContainer.find(".feather3"), 1.5, {
                         bezier: {
                             type: "cubic",
                             values: [{
-                                left: 210,
-                                top: 424,
+                                marginLeft: MARGIN_DISTANCE + 10,
+                                top: TOP_DISTANCE + 374,
                                 rotation: -10
                             }, {
-                                left: 260,
-                                top: 464,
+                                marginLeft: MARGIN_DISTANCE + 60,
+                                top: TOP_DISTANCE + 414,
                                 rotation: 0
                             }, {
-                                left: 300,
-                                top: 459,
+                                marginLeft: MARGIN_DISTANCE + 100,
+                                top: TOP_DISTANCE + 409,
                                 rotation: 5
                             }, {
-                                left: 310,
-                                top: 454,
+                                marginLeft: MARGIN_DISTANCE + 110,
+                                top: TOP_DISTANCE + 404,
                                 rotation: 10
                             }]
                         },
                         ease: Quad.easeInOut
-                    }), d.to(layerSliderContainer.find(".plume5"), 1.5, {
+                    }), d.to(layerSliderContainer.find(".feather3"), 1.5, {
                         bezier: {
                             type: "cubic",
                             values: [{
-                                left: 310,
-                                top: 454,
+                                marginLeft: MARGIN_DISTANCE + 110,
+                                top: TOP_DISTANCE + 404,
                                 rotation: 10
                             }, {
-                                left: 280,
-                                top: 469,
+                                marginLeft: MARGIN_DISTANCE + 80,
+                                top: TOP_DISTANCE + 419,
                                 rotation: 5
                             }, {
-                                left: 275,
-                                top: 474,
+                                marginLeft: MARGIN_DISTANCE + 75,
+                                top: TOP_DISTANCE + 424,
                                 rotation: 2
                             }, {
-                                left: 270,
-                                top: 474,
+                                marginLeft: MARGIN_DISTANCE + 50,
+                                top: TOP_DISTANCE + 424,
                                 rotation: 0
                             }]
                         },
                         ease: Quad.easeInOut
-                    });
+                    }).fromTo(layerSliderContainer.find(".feather1"), 1.5, {
+                        marginLeft: MARGIN_DISTANCE + 110,
+                        top: TOP_DISTANCE + 404,
+                        opacity: 0
+                    }, {
+                        marginLeft: MARGIN_DISTANCE + 110,
+                        top: TOP_DISTANCE + 404,
+                        opacity: 1,
+                        ease: Quad.easeOut
+                    }, "-=1");
         
             
         

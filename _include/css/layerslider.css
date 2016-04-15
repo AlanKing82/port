@@ -959,8 +959,19 @@ body * .ls-container .ls-webkit-hack,
   top: 0%;
 }
 
-/*bird*/
-img.ls-l.bird.ls-preloaded{margin-left:150px}
+.bird{
+  background: url(../img/layerSlider/bird.png) left top no-repeat;
+  width: 226px;
+  height: 138px;
+}
+
+.wings{
+  background: url(../img/layerSlider/wings.png) left top no-repeat;
+  width: 226px;
+  height: 138px;
+}
+
+
 
 
 
