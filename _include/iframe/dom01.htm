@@ -8,6 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Chair components</title>
     <script src="../js/script.min.js"></script>
+    <script src="../js/main.js"></script>
     <link rel="stylesheet" href="../css/iframe.css" type="text/css" media="screen" />
 </head>
 
@@ -68,6 +69,10 @@
     <script type="text/javascript">
         if ($) {
             
+          
+          
+            
+            
             $('.introFx').introFx({
                 afterFx: function() {
                     $('.icons a').icons({'itemsToClick':'3','hideAllImg': false});
@@ -84,9 +89,18 @@
             $("#icon2").click(function() {
                 $(this).hide();
                 hideStuff();
+                //parent.$(".fancybox-nav span").show(1000);
+                //parent.$(".fancybox-nav").attr('data-fancybox-group','3d');
+                //parent.$.fancybox.update();
+                
+                parent.$.fancybox.showNavButtons();
+                
+               
+               
             });
+            
 
-            function hideStuff() {
+           function hideStuff() {
 
                     $("#label01, #label02, #label03, #combine").hide(0);
                     $("#replay").delay(3000).show(500, function() {

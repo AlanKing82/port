@@ -899,7 +899,7 @@ body * .ls-container .ls-webkit-hack,
   height: auto;    // Scale the height according to the width, otherwise you get stretching
 }
 
-/* added amendments */
+/* added amendments -  slide 1 */
 #rain img{position:absolute}
 
 #logoSprite{
@@ -913,26 +913,37 @@ body * .ls-container .ls-webkit-hack,
 
 
 
-#layerslider .texte .titre {
+#layerslider .text .title {
   position: relative;
-  font-family: bold 30px/30px 'FEB';
-  src:url('fonts/futurastd-extrabold-webfont.woff');
-  color: #202020;
+  font-family: bold 45px/45px 'FEB';
+/*  src:url('fonts/futurastd-extrabold-webfont.woff');*/
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: -2px;
   font-weight:bold;
   font-size:130%;
+    
+
 }
 
-#layerslider .texte .titre span {
+/*
+#layerslider .text .title span {
   position: relative;
   display: block;
   padding-top: 5px;
-  font-size: 60px;
-  line-height: 60px;
-  color: #f1ebe5;
+  font-size: 40px;
+  line-height: 40px;
+  color: #9d9c9d;
   text-shadow: 0 13.36px 8.896px #c4b59d,0 -2px 1px #fff;
   letter-spacing: -3px;
+}
+*/
+
+#layerslider .text .subTitle {
+    position: relative;
+    padding: 5px 0;
+    font: italic 14px/16px Georgia;
+    color: #5fc8ff;
 }
 
 /* bubble icons */
@@ -959,16 +970,44 @@ body * .ls-container .ls-webkit-hack,
   top: 0%;
 }
 
+.bugContainer{
+
+  width: 150px;
+  height: 138px;
+}
+
 .bird{
   background: url(../img/layerSlider/bird.png) left top no-repeat;
   width: 226px;
   height: 138px;
 }
 
-.wings{
-  background: url(../img/layerSlider/wings.png) left top no-repeat;
-  width: 226px;
-  height: 138px;
+.bug{
+  background: url(../img/layerSlider/bug.png) left top no-repeat;
+  width: 120px;
+  height: 135px;
+}
+
+
+
+.wing_left{
+  background: url(../img/layerSlider/wing_left.png) left top no-repeat;
+  width: 121px;
+  height: 160px;
+}
+
+.wing_right{
+  background: url(../img/layerSlider/wing_right.png) left top no-repeat;
+  width: 121px;
+  height: 160px;
+}
+
+
+/* added amendments -  slide 2 */
+.iconText{
+    width:50%;
+    left:25%;
+    text-align:center;
 }
 
 

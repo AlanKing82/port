@@ -7,7 +7,7 @@
 	* Plugin web:			http://kreaturamedia.com/
 	* licenses:				http://codecanyon.net/licenses/
     *
-    * amendments made to nav - Alan King
+    * amendments made to nav - Alan King (search .control-nav)
 */
 
 
