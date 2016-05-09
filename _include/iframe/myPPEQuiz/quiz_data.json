@@ -1,0 +1,55 @@
+[
+	{
+		"question" : "The purpose of PPE in the workplace is to:",
+		"answers"  : [
+			{"id" : 0, "text" : "Eliminate the hazard by removing it completely"},
+			{"id" : 1, "text" : "Protect the whole workforce by reducing the workplace risk"},
+			{"id" : 2, "text" : "Provide protection from the residual risk when all other control measures have been considered"}
+		],
+        "background" : "images/bg_01.jpg",
+		"correct" : 2
+	},
+		{
+		"question" : "Which one of the following will protect your head against materials falling from a height?",
+		"answers"  : [
+			{"id"  : 0, "image" : "images/close_up_01.jpg" },
+			{"id"  : 1, "image" : "images/close_up_02.jpg" },
+			{"id"  : 2, "image" : "images/close_up_03.jpg" },
+			{"id"  : 3, "image" : "images/close_up_04.jpg" }
+		],
+        "background" : "images/bg_02.jpg",
+		"correct"  : 3
+	},
+	{
+		"question" : "Before using PPE, which of the following should you receive from your employer?",
+		"answers"  : [
+			{"id"  : 0, "text" : "An inspection certificate"},
+			{"id"  : 1, "text" : "Information, training and instruction"},
+			{"id"  : 2, "text" : "A list of suppliers"},
+			{"id"  : 3, "text" : "All of the above"}
+		],
+        "background" : "images/bg_03.jpg",
+		"correct"  : 1
+	},
+	{
+		"question" : "Which one of the following is an example of PPE?",
+		"answers"  : [
+			{"id"  : 0, "image" : "images/close_up_01.jpg" },
+			{"id"  : 1, "image" : "images/close_up_02.jpg" },
+			{"id"  : 2, "image" : "images/close_up_03.jpg" },
+			{"id"  : 3, "image" : "images/close_up_04.jpg" }
+		],
+        "background" : "images/bg_04.jpg",
+		"correct"  : 4,
+		"feedback" : "Safety gloves are an example of PPE and protect against sharp edges, chemical burns, electric shock, skin irritation, low and high temperatures."
+	},
+	{
+		"question" : "Employers should provide PPE without first assessing the hazards and implementing other control processes.",
+		"answers"  : [
+			{"id"  : 0, "text" : "True"},
+			{"id"  : 1, "text" : "False"}
+		],
+        "background" : "images/bg_05.jpg",
+		"correct"  : 1
+	}
+]
