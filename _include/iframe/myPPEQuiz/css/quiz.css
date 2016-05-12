@@ -9,33 +9,46 @@ body { background-color: #fff; padding: 0px; margin:0px;}
    position:relative;
    overflow:hidden;
    color:#000;
-/*   background: #000 url(../images/bg_01.jpg) no-repeat 0px 0px;*/
+   background: #000 url(../images/background.jpg) no-repeat 0px 0px;
 /*       background: no-repeat 0px 0px;*/
 }
 
 #myQuiz h1{
-	font-weight: 100;
+/*	font-weight: 100;*/
 	font-size:2em;
-	text-transform:uppercase;
+/*	text-transform:uppercase;*/
 	margin:0px;
 	position:absolute;
 	top:40px;
-	left:36px;
+	left:100px;
 /*    background: rgba(54, 25, 25, .5);*/
     padding:8px;
-    opacity:0.8;
+/*    opacity:0.8;*/
+    color:#fff;
 }
 
 #myQuiz h1 span{
     display: block;
-    font-weight: 300;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 1.1em;
-    line-height: 25px;
+    font-weight: 100;
+/*    font-family: 'Titillium Web', sans-serif;*/
+    font-size: 0.6em;
+    line-height: 20px;
+    color: #ffe533;
+    font-weight: normal;
 }
 
-#myQuiz h2 {font-size: 3em; margin: 0px; font-weight:100;}
-#myQuiz h3 {font-size: 2.4em; margin: 0px; font-weight:100;}
+#myQuiz h2 {
+    font-size: 2em;
+    margin: 0px;
+    /* font-weight: 100; */
+    color: #ff5a00;
+}
+#myQuiz h3 {
+    font-size: 1.4em; 
+    margin: 10px 0px 10px 0px;
+    color: #ff5a00;
+/*    font-weight:100;*/
+}
 #myQuiz p {margin: 0px 0px 14px 0px;}
 #myQuiz .btn{
 	display:inline-block; cursor:pointer; background-color:#ff5a00;
@@ -88,17 +101,26 @@ body { background-color: #fff; padding: 0px; margin:0px;}
 
 /* Questions */
 #myQuiz .question{width:550px; position:absolute; top:225px; left:660px;} 
-#myQuiz .question .txt{font-size: 1.6em; margin: 0px 0px 20px 0px;} 
+#myQuiz .question .txt {
+    font-size: 1em;
+    margin: 0px 0px 60px 0px;
+    background-color: rgba(95, 193, 234, .9);
+    color: #fff;
+    padding: 15px 15px 15px 150px;
+    margin-left: 10px;
+    border-radius: 12px;
+    margin-top: -97px;
+}
 #myQuiz .question .ans{
 	display: inline-block;
-	font-size:1.1em;
+	font-size:1em;
 	width:100%;
-	border:2px solid rgba(238, 189, 102, .4);
-	border-radius: 6px; padding:10px; margin:0px 15px 15px 0px; position:relative;
+	border:2px solid rgba(255,90,0, .4);
+	border-radius: 6px; padding:10px; margin:0px 10px 10px 0px; position:relative;
 
 }
 
-#myQuiz .question .ans.selected{border-color:#be4b16;}
+#myQuiz .question .ans.selected{border-color:#EA1303;}
 #myQuiz .question .ans.correct{border-color:#459a2e;}
 
 #myQuiz .question .ans::after{
@@ -112,7 +134,7 @@ body { background-color: #fff; padding: 0px; margin:0px;}
 #myQuiz .question .ans.correct::after{background-image: url(../images/icon_correct.svg);}
 
 #myQuiz .question.unanswered .ans{cursor:pointer;}
-#myQuiz .question.unanswered .ans:hover{background-color: rgba(238,189,102,.2);}
+#myQuiz .question.unanswered .ans:hover{background-color: rgba(255,90,0,.2);}
 
 #myQuiz .question.answered .ans:hover{cursor:default;}
 
@@ -168,6 +190,10 @@ body { background-color: #fff; padding: 0px; margin:0px;}
 
 #myQuiz .intro.inactive, #myQuiz .intro.inactive.answered{left: -1350px;}
 
+#myQuiz .results a.btn.retake{
+    font-size: 0.7em;
+    background-color:#59adeb;
+}
 /*
 @media screen and (max-width: 650px){
     body{padding:0px; margin:0px}

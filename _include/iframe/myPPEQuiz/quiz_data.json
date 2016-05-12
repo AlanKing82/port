@@ -6,7 +6,7 @@
 			{"id" : 1, "text" : "Protect the whole workforce by reducing the workplace risk"},
 			{"id" : 2, "text" : "Provide protection from the residual risk when all other control measures have been considered"}
 		],
-        "background" : "images/bg_01.jpg",
+        "questionImage" : "images/qImage01.png",
 		"correct" : 2
 	},
 		{
@@ -17,7 +17,7 @@
 			{"id"  : 2, "image" : "images/close_up_03.jpg" },
 			{"id"  : 3, "image" : "images/close_up_04.jpg" }
 		],
-        "background" : "images/bg_02.jpg",
+        "questionImage" : "images/qImage02.png",
 		"correct"  : 3
 	},
 	{
@@ -28,20 +28,20 @@
 			{"id"  : 2, "text" : "A list of suppliers"},
 			{"id"  : 3, "text" : "All of the above"}
 		],
-        "background" : "images/bg_03.jpg",
+        "questionImage" : "images/qImage03.png",
 		"correct"  : 1
 	},
 	{
-		"question" : "Which one of the following is an example of PPE?",
+		"question" : "Which of these safety signs indicates the requirment to wear slip resistant shoes? ",
 		"answers"  : [
 			{"id"  : 0, "image" : "images/close_up_01.jpg" },
 			{"id"  : 1, "image" : "images/close_up_02.jpg" },
 			{"id"  : 2, "image" : "images/close_up_03.jpg" },
 			{"id"  : 3, "image" : "images/close_up_04.jpg" }
 		],
-        "background" : "images/bg_04.jpg",
-		"correct"  : 4,
-		"feedback" : "Safety gloves are an example of PPE and protect against sharp edges, chemical burns, electric shock, skin irritation, low and high temperatures."
+        "questionImage" : "images/qImage04.png",
+		"correct"  : 3,
+		"feedback" : "Safety signs may need some interpretation to decide what PPE is required."
 	},
 	{
 		"question" : "Employers should provide PPE without first assessing the hazards and implementing other control processes.",
@@ -49,7 +49,7 @@
 			{"id"  : 0, "text" : "True"},
 			{"id"  : 1, "text" : "False"}
 		],
-        "background" : "images/bg_05.jpg",
+        "questionImage" : "images/qImage05.png",
 		"correct"  : 1
 	}
 ]

@@ -8,8 +8,9 @@
 	</head>
 	<body>
 
-		<div id="myQuiz" ng-controller="QuizController" 
-      ng-style="{'background-image':'url(' + myQuestions[activeQuestion + 1].background + ')'}">
+		<div id="myQuiz" ng-controller="QuizController">
+		<div>
+<!--      <div ng-style="{'background-image':'url(' + myQuestions[activeQuestion + 1].questionImage + ')'}"></div>-->
        
 
 				<h1>Test Your Knowledge: <span>Personal protective equipment</span></h1>
@@ -17,27 +18,33 @@
 					<div class="
 				    {{($index === activeQuestion) ? 'on' : 'off'}}
 				    {{(q.questionState === 'answered') ? 'answered' : 'unanswered'}} 
-				    {{(q.correctness === 'correct') ? 'correct' : 'incorrect'}}  
+				    {{(q.correctness === 'correct') && (q.questionState === 'answered') ? 'correct' : 'incorrect'}}  
 				      
 					" ng-repeat="q in myQuestions"></div>
 				</div>
 				<div class="intro {{(activeQuestion > -1) ? 'inactive' : 'active'}}">
 					<h2>PPE Quiz</h2>
 					<img src="./images/intro.png" alt="">
-					<p>This course was designed to highlight the type, selection and use of PPE items in the workplace and the benefits and limitations of PPE.</p>
+					<p>This course was designed to highlight the type, selection and use of PPE items in the workplace and the benefits and limitations of PPE. You must score greater than <strong>{{passRate}}%</strong> to pass.</p>
 					
 					<p>Click begin to test your knowledge of PPE </p>
 					<p class="btn" ng-click="activeQuestion = 0">Begin</p>
+					
+					
 				</div>
 				<div class="question 
 					{{ $index === activeQuestion ? 'active' : 'inactive'}}
                     {{  q.questionState === 'answered' ? 'answered' : 'unanswered'}}
 				" ng-repeat="q in myQuestions">
-					<p class="txt">{{q.question}}</p>
+				    <div class="qImage">
+				        <img ng-src="{{q.questionImage}}" alt="">
+				    </div>
+					<p class="txt" ng-style="{ 'margin-top' : setMarginTop(q.question.length) }">{{q.question}}</p>
 					<p class="ans"
                     ng-class="{ image: Answer.image,
-                                selected: isSelected($parent.$index, $index), 
-                                correct: isCorrect($parent.$index, $index)}"
+                                selected: isSelected($parent.$index, $index) && (q.questionState === 'answered'), 
+                                correct: isCorrect($parent.$index, $index) && (q.questionState === 'answered')
+                              }"
                     ng-style="{'background-image':'url({{Answer.image}})'}"
 					ng-click="selectAnswer($parent.$index, $index)" 
 					ng-repeat="Answer in myQuestions[$index].answers">
@@ -53,14 +60,28 @@
 					</div>
 				</div>
 				<div class="results {{(totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
-					<h3>Results</h3>
-					<p>You scored {{percentage}}% by correctly answering {{score}} of the total {{totalQuestions}} questions</p>
-					<p>Use the links below to challange your friends</p>
+					<h3>Results - 
+					    <span ng-show="percentage >= passRate">Pass</span>
+					    <span ng-show="percentage < passRate">Fail</span> 
+					</h3>
+
+				
+				
+					
+					<p>You scored {{percentage}}% by correctly answering<br>{{score}} of the total {{totalQuestions}} questions </p>
+					<a ng-show="percentage < passRate" href="#" class="btn retake" ng-click="resetQuiz()">Retake</a>
+<!--					<p>Use the links below to challange your friends</p>-->
 					<div class="share" ng-bind-html="createShareLinks(percentage)">
+                        
+                        <a href="#" class="btn twitter">Tweet</a>
 <!--
 						<a href="#" class="btn email">Email</a>
 						<a href="#" class="btn twitter">Tweet</a>
 -->
+					</div>
+					<div ng-style="{'margin-top': '45px'}">
+                        <img src="./images/ppe_pass.png" alt="" ng-show="percentage >= passRate">
+                        <img src="./images/ppe_fail.png" alt="" ng-show="percentage < passRate">
 					</div>
 				</div>
 				<div ng-style="{'background-image':'url(' + myQuestions[activeQuestion + 1].background + ')'}" style="width:300px; height:200px"></div>

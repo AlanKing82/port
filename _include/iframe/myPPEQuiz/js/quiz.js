@@ -8,6 +8,8 @@
 	 	$scope.activeQuestion = -1;
 	 	$scope.activeQuestionAnswered = 0;
 	 	$scope.percentage = 0;
+        $scope.passRate = 60;
+       
 
 	 	$http.get('quiz_data.json').then(function(quizData){
 	 		
@@ -15,6 +17,22 @@
 			$scope.totalQuestions = $scope.myQuestions.length;
             
         });
+         
+         $scope.setMarginTop = function(stringSize){
+         
+             $scope.marginTop = '-98px';
+             
+            if(stringSize > 51){
+                $scope.marginTop = '-105px';
+            }
+             
+            if(stringSize > 102){
+                $scope.marginTop = '-116px';
+            }
+             
+             return $scope.marginTop;
+         }
+         
          
 
 	 	$scope.selectAnswer = function(qIndex, aIndex){
@@ -55,12 +73,42 @@
         }
         
         $scope.selectContinue = function(){
+            
+            if($scope.activeQuestion === $scope.totalQuestions-1){
+                $scope.showNavButtons();
+            }
+            
             return $scope.activeQuestion +=1;
-            $scope.updateBgImage();
         }
         
-        $scope.updateBgImage = function(){
+        $scope.showNavButtons = function(){
+            parent.$.fancybox.showNavButtons();
+        }
+        
+        $scope.resetQuiz = function(){
+            $scope.score = 0;
+            $scope.activeQuestion = -1;
+            $scope.activeQuestionAnswered = 0;
+            $scope.percentage = 0;
             
+            
+       
+            var log = [];
+            
+            angular.forEach($scope.myQuestions, function(value, key) {
+            //this.questionState = '';
+              this.push(key + ': ' + value.questionState);
+              value.questionState = '';
+            }, log);
+            
+            console.log(log);
+           
+            // expect(log).toEqual(['name: misko', 'gender: male']);
+            
+
+       //$scope.myQuestions[qIndex].questionState = 'answered';
+            
+
         }
         
         
@@ -70,15 +118,15 @@
         
         
         
-        $scope.createShareLinks = function(percentage){
-            var url = 'http://codifydesign.com';
-            
-            var emailLink = '<a class="btn email" href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored '+percentage+'% on this quiz. Try to beat my score at '+url+'">Email a friend</a>';
-            var twitterLink = '<a class="btn twitter" href="http://twitter.com/share?text=I scored '+percentage+'% on this quiz. Try to beat my score at&amp;hashtags=Quiz&amp;url='+url+'" target="_blank">Tweet your score</a>';
-            var newMarkup = emailLink + twitterLink;
-            
-            return $sce.trustAsHtml(newMarkup);
-        }
+//        $scope.createShareLinks = function(percentage){
+//            var url = 'http://codifydesign.com';
+//            
+//            var emailLink = '<a class="btn email" href="mailto:?subject=Try to beat my quiz score!&amp;body=I scored '+percentage+'% on this quiz. Try to beat my score at '+url+'">Email a friend</a>';
+//            var twitterLink = '<a class="btn twitter" href="http://twitter.com/share?text=I scored '+percentage+'% on this quiz. Try to beat my score at&amp;hashtags=Quiz&amp;url='+url+'" target="_blank">Tweet your score</a>';
+//            var newMarkup = emailLink + twitterLink;
+//            
+//            return $sce.trustAsHtml(newMarkup);
+//        }
 
 
 	 }]);
