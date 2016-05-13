@@ -139,7 +139,7 @@ body { background-color: #fff; padding: 0px; margin:0px;}
 #myQuiz .question.answered .ans:hover{cursor:default;}
 
 #myQuiz .question .ans.image{
-    min-height: 60px;
+    min-height: 80px;
     padding:0px;
     background-repeat:no-repeat;
     background-position: 0px 0px;
@@ -150,12 +150,12 @@ body { background-color: #fff; padding: 0px; margin:0px;}
 #myQuiz .feedback{
 	visibility:hidden; 
 	opacity:0; 
-	color: #efbe5e; 
+	color: #000; 
 	margin-top: 50px; 
 	transition: opacity 1.5s, margin-top 1.5s;
 }
 #myQuiz .feedback .btn{margin-top:5px;}
-#myQuiz .feedback strong{color:#fff}
+#myQuiz .feedback strong{color:#459a2e}
 
 #myQuiz .answered .feedback{
 	visibility:visible; 
@@ -193,6 +193,11 @@ body { background-color: #fff; padding: 0px; margin:0px;}
 #myQuiz .results a.btn.retake{
     font-size: 0.7em;
     background-color:#59adeb;
+}
+
+#resultContainer{
+    position: absolute;
+    top: 85px;
 }
 /*
 @media screen and (max-width: 650px){

@@ -32,16 +32,15 @@
 		"correct"  : 1
 	},
 	{
-		"question" : "Which of these safety signs indicates the requirment to wear slip resistant shoes? ",
+		"question" : "Which of these safety signs indicates the requirment to wear respiratory protective equipment? ",
 		"answers"  : [
-			{"id"  : 0, "image" : "images/close_up_01.jpg" },
-			{"id"  : 1, "image" : "images/close_up_02.jpg" },
-			{"id"  : 2, "image" : "images/close_up_03.jpg" },
-			{"id"  : 3, "image" : "images/close_up_04.jpg" }
+			{"id"  : 0, "image" : "images/sign_04.jpg" },
+			{"id"  : 1, "image" : "images/sign_02.jpg" },
+			{"id"  : 2, "image" : "images/sign_03.jpg" },
+			{"id"  : 3, "image" : "images/sign_01.jpg" }
 		],
         "questionImage" : "images/qImage04.png",
-		"correct"  : 3,
-		"feedback" : "Safety signs may need some interpretation to decide what PPE is required."
+		"correct"  : 0
 	},
 	{
 		"question" : "Employers should provide PPE without first assessing the hazards and implementing other control processes.",
@@ -50,6 +49,7 @@
 			{"id"  : 1, "text" : "False"}
 		],
         "questionImage" : "images/qImage05.png",
-		"correct"  : 1
+		"correct"  : 1,
+		"feedback" : "Some actions are the responsibility of the employer, whilst others are down to you, as you are the one using the PPE. Some responsibilities require you and the employer to co-operate. Let your employer know if you have any problems or questions about your PPE."
 	}
 ]

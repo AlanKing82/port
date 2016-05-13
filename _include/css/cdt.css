@@ -42,14 +42,14 @@ h1
 }
 
 h1.withBackground { 
-    background: url(../img/iframeMedia/header_background.png) no-repeat 0 0; 
+    background: url(../common_images/header_background.png) no-repeat 0 0; 
     line-height: 1.7em;
     padding-left: 15px;
     color: #6192B2;
 }
 
 h1.withBackgroundShort { 
-    background: url(../img/iframeMedia/header_background_short.png) no-repeat 0 0; 
+    background: url(../common_images/header_background_short.png) no-repeat 0 0; 
     line-height: 1.7em;
     padding-left: 15px;
     color: #6192B2;
@@ -69,7 +69,7 @@ img
 
 ul li
 {
-	background:url(../img/iframeMedia/list_item_bullet.gif) 0 .2em no-repeat;
+	background:url(../common_images/list_item_bullet.gif) 0 .2em no-repeat;
 	list-style:none;
 	/*padding-left:20px;*/
 	padding: 0px 0px 8px 20px;
@@ -137,7 +137,7 @@ ul
 
 .textLong,.text,.textRight, .content
 {
-	/*background:transparent url(../img/iframeMedia/text_bg.gif) repeat-x top left;*/
+	/*background:transparent url(../common_images/text_bg.gif) repeat-x top left;*/
 	padding:20px 20px 0;
 }
 
@@ -296,7 +296,7 @@ ul
 /* Transparent image is a hack for IE 6/7 browsers to make the spot area clickable */
 .hotspots a
 {
-	background: url(../img/iframeMedia/transparent.gif) repeat top left;
+	background: url(../common_images/transparent.gif) repeat top left;
 	display:block;
 	position:absolute;
 	z-index:400;
@@ -328,7 +328,7 @@ ul
 
 .hotspotCheck
 {
-	background-image:url(../img/iframeMedia/correct2.gif);
+	background-image:url(../common_images/correct2.gif);
 	height:50px;
 	position:absolute;
 	width:47px;
@@ -336,7 +336,7 @@ ul
 
 .hotspotCheckFalse
 {
-	background-image:url(../img/iframeMedia/incorrect.gif);
+	background-image:url(../common_images/incorrect.gif);
 	height:50px;
 	position:absolute;
 	width:47px;
@@ -356,7 +356,7 @@ ul
 
 .hotspotCloseWindow span
 {
-	background-image:url(../img/iframeMedia/close.gif);
+	background-image:url(../common_images/close.gif);
 	left:0;
 	position:absolute;
 	top:0;
@@ -430,12 +430,12 @@ ul
 
 #incorrect
 {
-	background-image:url(../img/iframeMedia/incorrect.gif) !important;
+	background-image:url(../common_images/incorrect.gif) !important;
 }
 
 #correct
 {
-	background-image:url(../img/iframeMedia/correct2.gif) !important;
+	background-image:url(../common_images/correct2.gif) !important;
 }
 
 .questionsAgree
@@ -514,7 +514,7 @@ ul
 }
 
 .questionIcon {
-	background-image:url(../img/iframeMedia/question_icon.png);
+	background-image:url(../common_images/question_icon.png);
 	height:90px;
 	position:absolute;
 	width:109px;
@@ -600,11 +600,11 @@ td.questionNumber
 }
 
 .optionsListCorrectImg{
-    background-image:url(../img/iframeMedia/tick_small.png);
+    background-image:url(../common_images/tick_small.png);
 }
 
 .optionsListIncorrectImg{
-    background-image:url(../img/iframeMedia/x_small.png);
+    background-image:url(../common_images/x_small.png);
 }
 
 .bulbs dd
@@ -656,7 +656,7 @@ td.questionNumber
 
 .bulbsLight dt a
 {
-	background:transparent url(../img/iframeMedia/tip.png) no-repeat 0 0;
+	background:transparent url(../common_images/tip.png) no-repeat 0 0;
 	display:block;
 	height:32px;
 	width:32px;
@@ -731,7 +731,7 @@ p.bulbImage
 
 .largetabsLight dt a
 {
-	background:transparent url(../img/iframeMedia/tip2.png) no-repeat 0 0;
+	background:transparent url(../common_images/tip2.png) no-repeat 0 0;
 	display:block;
 	font-size:15px;
 	font-weight:700;
@@ -793,7 +793,7 @@ p.largetabImage
 	left:360px;
 	top:0px;
 	width:100%;
-	BACKGROUND: url(../img/iframeMedia/notepad_bg.jpg) no-repeat;
+	BACKGROUND: url(../common_images/notepad_bg.jpg) no-repeat;
 	width:210px;
 	height:195px; 
 	padding:15px 15px 0px 30px;
@@ -809,7 +809,7 @@ p.largetabImage
 
 .tabsRounded dt a
 {
-	background:transparent url(../img/iframeMedia/tab_01.jpg) no-repeat 0 0;
+	background:transparent url(../common_images/tab_01.jpg) no-repeat 0 0;
 	display:block;
 	width:295px;
     height:31px;
@@ -821,7 +821,7 @@ p.largetabImage
 }
 
 .tabsRounded  dt a:hover {
-BACKGROUND: url(../img/iframeMedia/tab_01_hover.jpg) no-repeat;
+BACKGROUND: url(../common_images/tab_01_hover.jpg) no-repeat;
     display:block;
     width:295px;
     height:31px;
@@ -845,7 +845,7 @@ padding:7px 0 0 25px;
 
 
 .accord dt a {
-    background:transparent url(../img/iframeMedia/accordion_tab_03.jpg) no-repeat 0 0;
+    background:transparent url(../common_images/accordion_tab_03.jpg) no-repeat 0 0;
     display:block;
     width:620px;
     height:20px;
@@ -871,11 +871,11 @@ color:#ffffff;
 
 .objectivesBody
 {
-	background:#fff url(../img/iframeMedia/objectives_bg.jpg) no-repeat top right;
+	background:#fff url(../common_images/objectives_bg.jpg) no-repeat top right;
 }
 .summaryBody
 {
-	background:#fff url(../img/iframeMedia/summary_bg.jpg) no-repeat top right;
+	background:#fff url(../common_images/summary_bg.jpg) no-repeat top right;
 }
 
 #objectives
@@ -893,7 +893,7 @@ color:#ffffff;
 
 #objectives li
 {
-	background:url(../img/iframeMedia/list_item_bullet.gif) 0 .2em no-repeat;
+	background:url(../common_images/list_item_bullet.gif) 0 .2em no-repeat;
 	list-style:none;
 	list-style-image:none;
 	padding: 0px 0px 8px 20px;
@@ -987,18 +987,18 @@ div#sortWrap ol {
 div#sortWrap ol li{
     position: relative;
     padding: 4px 35px 5px 28px;
-    margin: 0px 40px 3px 40px; 
+    margin: 0px 20px 3px 20px; 
     visibility: hidden;  
     color: #000;
     text-decoration: none;
     border-radius: .5em;
     transition: background-position .3s ease-out;
-    background: #ddd url(../img/iframeMedia/sortable.png) no-repeat 1.5% 50%;
+    background: #ddd url(../common_images/sortable.png) no-repeat 1.5% 50%;
     *zoom:0 !important; /* ie6/ie7 first tab format fix */
 }
 
 div#sortWrap ol li:hover{
-    background: #d0d0d0 url(../img/iframeMedia/sortable_hover.png) no-repeat 1.5% 50%;
+    background: #d0d0d0 url(../common_images/sortable_hover.png) no-repeat 1.5% 50%;
 }
 
 div#sortWrap ol li.sort{
@@ -1023,7 +1023,7 @@ div#sortWrap ol li.numberStyle:before{
 }
 
 div#sortWrap ol li.itemCorrectStyle{
-    background: #daeaef url(../img/iframeMedia/tick_small.png) no-repeat 99% 50%;
+    background: #daeaef url(../common_images/tick_small.png) no-repeat 99% 50%;
 }
 
 div#sortWrap ol li.allCorrectStyle{
@@ -1058,12 +1058,12 @@ div#matchWrap ul li{
 
 div#sortWrap.sortWrapImg ul li{ 
     padding: 16px 4px 16px 4px;
-    background: #ddd url(../img/iframeMedia/sortable_horizontal.png) no-repeat 50% 2%;
+    background: #ddd url(../common_images/sortable_horizontal.png) no-repeat 50% 2%;
     position:relative;
 }
 
 div#sortWrap.sortWrapImg ul li:hover{
-    background: #d0d0d0 url(../img/iframeMedia/sortable_horizontal_hover.png) no-repeat 50% 2%;
+    background: #d0d0d0 url(../common_images/sortable_horizontal_hover.png) no-repeat 50% 2%;
 }
 
 div#sortWrap.sortWrapImg ul li img { 
@@ -1086,12 +1086,6 @@ div#sortWrap.sortWrapImg ul li.itemCorrectStyle{
     color:#000;
 }
 
-/*
-div#sortWrap.sortWrapImg ul li.itemCorrectStyle img{
-    opacity: 0.6;
-} 
-*/
-
 div#sortWrap.sortWrapImg ul li.allCorrectStyle{
     background-image:none;
     background-color: #daeaef;
@@ -1100,10 +1094,10 @@ div#sortWrap.sortWrapImg ul li.allCorrectStyle{
 
 /* Appended div to display tick above image */
 div#sortWrap.sortWrapImg ul li div.sortCorrectTick{
-    background: url(../img/iframeMedia/tick_small.png) no-repeat;
+    background: url(../common_images/tick_small.png) no-repeat;
     position:absolute;
-    height:23px;
-    width:23px;
+    height:21px;
+    width:21px;
     right:7px;
     bottom:20px;
 }
@@ -1150,7 +1144,7 @@ div#matchWrap.sortWrapText ul li
 .btn#sortSubmit {
     position:relative;
     float:right;
-    margin-right:45px;
+    margin-right:25px;
     visibility:hidden;
     z-index: 1;
 }
@@ -1165,19 +1159,6 @@ div#matchWrap.sortWrapText ul li
 .attemptText{
     display:none;
 }
-
-div.whiteboxFeedback .dragGrabIcon{
-    background: url(../img/iframeMedia/drag_grab.gif) no-repeat;
-    width:28px;
-    height:7px;
-    top: 4px;
-    position: absolute;
-    left:45%;
-}
-
-div.whiteboxFeedback:hover .dragGrabIcon{
-    background: url(../img/iframeMedia/drag_grab_hover.gif) no-repeat;
-} 
 
 /* Note small */
 .note {
@@ -1194,38 +1175,38 @@ div.whiteboxFeedback:hover .dragGrabIcon{
 .noteShort {	
 	width: 260px;
 	height: 107px;
-	background: url(../img/iframeMedia/note_small.png) no-repeat 0 0;
+	background: url(../common_images/note_small.png) no-repeat 0 0;
 }
 
 .noteWide {
 	width: 368px;
 	height: 93px;
-	background: url(../img/iframeMedia/note_wide.png) no-repeat 0 0;
+	background: url(../common_images/note_wide.png) no-repeat 0 0;
 }
 
 .noteSmaller {	
 	width: 217px;
 	height: 87px;
-	background: url(../img/iframeMedia/note_smaller.png) no-repeat 0 0;
+	background: url(../common_images/note_smaller.png) no-repeat 0 0;
 }
 
 .noteLong {
 	width: 261px;
 	height: 145px;
-	background: url(../img/iframeMedia/note_long.png) no-repeat 0 0;
+	background: url(../common_images/note_long.png) no-repeat 0 0;
 }
 
 .noteInteract {
 
 	width: 260px;
 	height: 86px;
-	background: url(../img/iframeMedia/note_interact.png) no-repeat 0 0;
+	background: url(../common_images/note_interact.png) no-repeat 0 0;
 }
 
 .noteShortInteract {
 	width: 216px;
 	height: 86px;
-	background: url(../img/iframeMedia/noteshort_interact.jpg) no-repeat 0 0;
+	background: url(../common_images/noteshort_interact.jpg) no-repeat 0 0;
 }
 
 .note p { padding: 17px 24px 6px 16px; }
@@ -1295,12 +1276,12 @@ img.question { margin-top: 20px; position:relative}
 
 .activityFeedback #incorrect
 {
-	background-image:url(../img/iframeMedia/incorrect.png)!important;
+	background-image:url(../common_images/incorrect.gif)!important;
 }
 
 .activityFeedback #correct
 {
-	background-image:url(../img/iframeMedia/correct2.png)!important;
+	background-image:url(../common_images/correct2.gif)!important;
 }
 
 /* Click object/person to reveal Activity */ 
@@ -1339,7 +1320,7 @@ dt #center_image {
  /* Notebook frame */ 
 
 .notebookBody{
-	background:transparent url(../img/iframeMedia/notebook_bg.gif) no-repeat top left;
+	background:transparent url(../common_images/notebook_bg.gif) no-repeat top left;
 	height:390px;
 	padding:0;
 	margin:0;
@@ -1360,10 +1341,10 @@ h1.blueFade,h1.blueFadeShort {
 }
 
 h1.blueFade {
-	background:transparent url(../img/iframeMedia/header_bluefade_01.jpg) no-repeat top left;
+	background:transparent url(../common_images/header_bluefade_01.jpg) no-repeat top left;
 }
 h1.blueFadeShort {
-	background:transparent url(../img/iframeMedia/header_bluefade_short.jpg) no-repeat top left;
+	background:transparent url(../common_images/header_bluefade_short.jpg) no-repeat top left;
 }
 
 .notebook{
@@ -1391,7 +1372,7 @@ h1.notebookHeader{
  
  .notebookBullet li
 {
-	background:url(../img/iframeMedia/notebook_bullet.gif) 0 .2em no-repeat;
+	background:url(../common_images/notebook_bullet.gif) 0 .2em no-repeat;
 	list-style:none;
 	/*padding-left:20px;*/
 	padding: 0px 0px 8px 20px;
@@ -1408,7 +1389,7 @@ h1.notebookHeader{
 
 
 .notebookBody  #questionWrapper{
-	background:url(../img/iframeMedia/notebook_question.jpg) no-repeat right top;
+	background:url(../common_images/notebook_question.jpg) no-repeat right top;
 	height:390px;
 	float:left;
 	width:263px;
@@ -1471,12 +1452,12 @@ h1.notebookHeader{
 
 .notebookFeedback #incorrect
 {
-	background-image:url(../img/iframeMedia/incorrect.gif)!important;
+	background-image:url(../common_images/incorrect.gif)!important;
 }
 
 .notebookFeedback #correct
 {
-	background-image:url(../img/iframeMedia/correct2.gif)!important;
+	background-image:url(../common_images/correct2.gif)!important;
 }
 
  /* Question Layout for Notebook frame */ 
@@ -1523,7 +1504,7 @@ h1.notebookHeader{
 
 ul #bullet1{
 
-	background:url(../img/iframeMedia/bullet_no1.jpg) no-repeat;
+	background:url(../common_images/bullet_no1.jpg) no-repeat;
 	list-style:none;
 	padding: 0px 0px 8px 25px;
 }
@@ -1531,24 +1512,24 @@ ul #bullet1{
 ul #bullet2{
 list-style:none;
 padding: 0px 0px 8px 25px;
-background: url(../img/iframeMedia/bullet_no2.jpg) no-repeat;
+background: url(../common_images/bullet_no2.jpg) no-repeat;
 }
 
 ul #bullet3{
 list-style:none;
 padding: 0px 0px 8px 25px;
-background: url(../img/iframeMedia/bullet_no3.jpg) no-repeat;
+background: url(../common_images/bullet_no3.jpg) no-repeat;
 }
 
 ul #bullet4{
 list-style:none;
 padding: 0px 0px 8px 25px;
-background: url(../img/iframeMedia/bullet_no4.jpg) no-repeat;
+background: url(../common_images/bullet_no4.jpg) no-repeat;
 }
 
 ul #bullet5{
 
-background:url(../img/iframeMedia/bullet_no5.jpg) no-repeat;
+background:url(../common_images/bullet_no5.jpg) no-repeat;
 list-style:none;
 padding: 0px 0px 8px 25px;
 }
@@ -1556,25 +1537,25 @@ padding: 0px 0px 8px 25px;
 ul #bullet6{
 list-style:none;
 padding: 0px 0px 8px 25px;
-background: url(../img/iframeMedia/bullet_no6.jpg) no-repeat;
+background: url(../common_images/bullet_no6.jpg) no-repeat;
 }
 
 ul #bullet7{
 list-style:none;
 padding: 0px 0px 8px 25px;
-background: url(../img/iframeMedia/bullet_no7.jpg) no-repeat;
+background: url(../common_images/bullet_no7.jpg) no-repeat;
 }
 
 ul #bullet8{
 list-style:none;
 padding: 0px 0px 8px 25px;
-background: url(../img/iframeMedia/bullet_no8.jpg) no-repeat;
+background: url(../common_images/bullet_no8.jpg) no-repeat;
 }
 
 ul #bullet9{
 list-style:none;
 padding: 0px 0px 8px 25px;
-background: url(../img/iframeMedia/bullet_no9.jpg) no-repeat;
+background: url(../common_images/bullet_no9.jpg) no-repeat;
 }
 
 #hotspotsMinorContainer{
@@ -1598,7 +1579,7 @@ padding:20px 20px 0;
     position: absolute;
     display: block;
     z-index: 400;
-    background: url(../img/iframeMedia/transparent.gif) repeat top left;
+    background: url(../common_images/transparent.gif) repeat top left;
 }
 
 .hotspotsMinor dd {
@@ -1641,7 +1622,7 @@ padding:20px 20px 0;
 }
  
 .revealButton li a {
-	background:transparent url(../img/iframeMedia/reveal.png) no-repeat top left;
+	background:transparent url(../common_images/reveal.png) no-repeat top left;
 	display:block;
 	float:left;
 	height:24px;
@@ -1672,8 +1653,6 @@ border-style:dashed;
 	top:2px;
 	z-index:450;
 }
-
-
 
 #hotspotMinorWindow,#hotspotMinorHelpWindow
 {
@@ -1709,7 +1688,7 @@ border-style:dashed;
 
 .hotspotMinorCloseWindow span, .closeWindow span
 {
-	background-image:url(../img/iframeMedia/box_exit.png);
+	background-image:url(../common_images/box_exit.png);
 	right:5px;
 	position:absolute;
 	top:5px;
@@ -1717,12 +1696,12 @@ border-style:dashed;
 
 .hotspotMinorCloseWindow span:hover, .closeWindow span:hover 
 {
-    background-image:url(../img/iframeMedia/box_exit_hover.png);
+    background-image:url(../common_images/box_exit_hover.png);
 }
 
 .hotspotMinorCheck
 {
-	background-image:url(../img/iframeMedia/tickspot.gif);
+	background-image:url(../common_images/tickspot.gif);
 	height:33px;
 	position:absolute;
 	width:34px;
@@ -1730,7 +1709,7 @@ border-style:dashed;
 
 .hotspotMinorCheckFalse
 {
-	background-image:url(../img/iframeMedia/incorrect.gif);
+	background-image:url(../common_images/incorrect.gif);
 	height:50px;
 	position:absolute;
 	width:47px;
@@ -1740,7 +1719,7 @@ border-style:dashed;
 
 .rule{ 
 height: 6px; 
-background: url(../img/iframeMedia/hor_rule.gif) no-repeat scroll center;
+background: url(../common_images/hor_rule.gif) no-repeat scroll center;
 width:325px;
 margin:0px 0px 10px -23px;
 padding:0;
@@ -1858,7 +1837,7 @@ display:inline;
 .noteExpand .info_img{
 	position:absolute;
 	top:3px;
-	background: transparent url(../img/iframeMedia/notebox_info.jpg)  
+	background: transparent url(../common_images/notebox_info.jpg)  
 	no-repeat top left;
 	width:33px;
 	height:33px;
@@ -1867,7 +1846,7 @@ display:inline;
 .noteExpand .interact_img{
 	position:absolute;
 	top:3px;
-	background: transparent url(../img/iframeMedia/notebox_interact.jpg)  
+	background: transparent url(../common_images/notebox_interact.jpg)  
 	no-repeat top left;
 	width:33px;
 	height:33px;
@@ -1877,10 +1856,10 @@ display:inline;
 
 .expandShort{
 	width: 190px;
-	background: #ececec url(../img/iframeMedia/notebox_small_bottom.jpg) no-repeat bottom left;
+	background: #ececec url(../common_images/notebox_small_bottom.jpg) no-repeat bottom left;
 }
 
-.expandShort dt{background: #969696 url(../img/iframeMedia/notebox_small_top.jpg) no-repeat top left;}
+.expandShort dt{background: #969696 url(../common_images/notebox_small_top.jpg) no-repeat top left;}
 
 
 .expandShort .info_img{left:152px;}
@@ -1890,11 +1869,11 @@ display:inline;
 
 .expandMiddle{
 	width: 240px;
-	background: #ececec url(../img/iframeMedia/notebox_medium_bottom.jpg) no-repeat bottom left;
+	background: #ececec url(../common_images/notebox_medium_bottom.jpg) no-repeat bottom left;
 }
 
 .expandMiddle dt{
-  background: #969696 url(../img/iframeMedia/notebox_medium_top.jpg) no-repeat top left;
+  background: #969696 url(../common_images/notebox_medium_top.jpg) no-repeat top left;
 }
 
 .expandMiddle dd {
@@ -1910,10 +1889,10 @@ display:inline;
 
 .expandLong{
 	width: 330px;
-	background: #ececec url(../img/iframeMedia/notebox_wide_bottom.jpg) no-repeat bottom left;
+	background: #ececec url(../common_images/notebox_wide_bottom.jpg) no-repeat bottom left;
 }
 
-.expandLong dt{background: #969696 url(../img/iframeMedia/notebox_wide_top.jpg) no-repeat top left;}
+.expandLong dt{background: #969696 url(../common_images/notebox_wide_top.jpg) no-repeat top left;}
 
 .expandLong .info_img{left:290px;}
 .expandLong .interact_img{left:290px;}
@@ -1939,8 +1918,8 @@ display:inline;
 .whiteBox .t,
 .whiteBox .b,
 .whiteBox .b div {
-	 background:transparent url(../img/iframeMedia/white_textbox.png) no-repeat top right;
-	  _background-image:url(../img/iframeMedia/white_textbox.gif);
+	 background:transparent url(../common_images/white_textbox.png) no-repeat top right;
+	  _background-image:url(../common_images/white_textbox.gif);
 }
 
 .whiteBox .boxContent {
@@ -2022,7 +2001,7 @@ display:inline;
 	/* header */
 	font-size: 1.4em; 
 	font-weight: lighter;
-	background:url('../img/iframeMedia/header_invert.jpg') no-repeat right top;
+	background:url('../common_images/header_invert.jpg') no-repeat right top;
 	border:none;
 	padding:6px 0;
 	overflow:hidden;
@@ -2081,12 +2060,12 @@ display:inline;
 
 .whiteboxFeedback #incorrect
 {
-	background-image:url(../img/iframeMedia/incorrect.png)!important;
+	background-image:url(../common_images/incorrect.gif)!important;
 }
 
 .whiteboxFeedback #correct
 {
-	background-image:url(../img/iframeMedia/correct2.png)!important;
+	background-image:url(../common_images/correct2.gif)!important;
 }
 
 .whiteboxFeedback #incorrect.warning, .whiteboxFeedback #correct.warning
@@ -2112,9 +2091,8 @@ display:inline;
 img#bg { z-index:-1; top:0px; }
 
 /* Image preloader */
-/*
 #loading{
-    background-image:url(../img/iframeMedia/spinner.gif);
+    background-image:url(../common_images/spinner.gif);
     height:32px;
     width:32px;
     text-indent:-9999px;
@@ -2123,35 +2101,10 @@ img#bg { z-index:-1; top:0px; }
     z-index:9999;
     display:none;
 }
-*/
 
-#loading div {
-    width: 44px;
-    height: 44px;
-    background: url('../img/iframeMedia/fancybox_loading.gif') center center no-repeat;
-}
-
-#loading {
-    display:none;
-    background-image: url('../img/iframeMedia/fancybox_sprite.png');
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -22px;
-    margin-left: -22px;
-    background-position: 0 -108px;
-    opacity: 0.8;
-    cursor: pointer;
-    z-index: 8060;
-}
-
-    
-
-/*
 .left25{left:25%;}
 .left50{left:50%;}
 .left75{left:75%;}
-*/
 
 .iconOpacity img{
     opacity:0.3;
@@ -2192,9 +2145,6 @@ img#bg { z-index:-1; top:0px; }
     background-color: #d7d7d7; 
 }
 
-/* added Alan Sep 2015*/
-.deactivate .iconText{opacity:0.3}
-
 /* Vimeo countdown timer */
 p#timer {
     color:#ff9933;
@@ -2218,3 +2168,4 @@ p#timer .clickForward,
 p#timer .paused {
     display:none;
 }
+
