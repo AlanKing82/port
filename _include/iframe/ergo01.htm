@@ -52,12 +52,10 @@
 if ($) {
     $('.introFx').introFx({
             afterFx: function() {
-                $('.icons a').icons().click(function(){
-                    parent.$.fancybox.showNavButtons();
-                });
+                $('.icons a').icons();
+            $('.click').css({'width':'250px'});
             }
     });
-    $('.click').css({'width':'250px'});
 }
 </script>
 </body>

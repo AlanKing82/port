@@ -74,15 +74,11 @@ Be stable and allow the user easy freedom of movement.</dd>
 <script type="text/javascript">// <![CDATA[
 
 if ($) {
-    var itemsToClick = 3;
+   
       $('.introFx').introFx({
             afterFx: function() {
-                $('.icons a').icons({'itemsToClick':'3'})
-                    .click(function(){
-                        if($('.clicked').length === itemsToClick){
-                            parent.$.fancybox.showNavButtons();
-                        }
-                    });
+                $('.icons a').icons({'itemsToEnable':'3'});
+                  
                 $('.click').css({width:'40px'});
             }
         });
