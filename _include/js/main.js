@@ -114,21 +114,37 @@ jQuery(function($) {
     /* ==================================================
    layerSlider Options
 ================================================== */
+    
+
+    
+
 
     // Running the code when the document is ready
     AK.layerSlider = function() {
 
         var layerSliderContainer = $('#layerslider');
+        
+        var logoContainer = $('#logoContainer'),
+            hexContainer = $('#hexContainer'),
+            bugContainer = $('#bugContainer'),
+            mountainContainer = $('#mountainContainer'),
+            cloudContainer = $('#cloudContainer');
+        
         var slideOne = layerSliderContainer.find('#slide-1');
         var slideTwo = layerSliderContainer.find('#slide-2');
         var slideOneTimeLine = new TimelineLite;
         var slideTwoTimeLine = new TimelineLite;
+        var bugFlyTimeLine = new TimelineLite;
+        var logoTimeLine = new TimelineLite;
         var v = 3100;
         var idIconActive = 1; //default Bubble icon data
+        var introSlideFlag = false;
 
-
+        
         var MARGIN_DISTANCE = 0;
+        
 
+        
 
         // Calling LayerSlider on the target element
         layerSliderContainer.layerSlider({
@@ -142,36 +158,344 @@ jQuery(function($) {
             // Slider options goes here,
             // please check the 'List of slider options' section in the documentation
             autoStart: false,
-            firstLayer: 2,
+            firstLayer: 1,
+            //navButtons: true,
+            //navPrevNext: true,
             navButtons: true,
-            navPrevNext: true,
             navStartStop: false,
             skin: 'fullwidthdark',
             skinsPath: '_include/img/layerSlider/skins/',
-            cbAnimStop: function(data) {
-                //alert('The current slide is: ' + data['curLayerIndex']);
-                if (data['curLayerIndex'] == 1) {
-                    //slideOneAnimation();
-                    slideOneTimeLine.restart();
+            cbInit: function(data){
+   
+                    
                     lightning();
                     rainGenerator();
-                    changeHead();
-                    slideTwoTimeLine.pause(0);
+                    
+                
+
+            },
+            cbAnimStart: function(data){
+                
+                
+                
+                if(introSlideFlag){
+                    
+                console.log(introSlideFlag + ' fired');
+             
+                    
+                    if (data['nextLayerIndex'] == 1) {
+                        console.log('s2 fired: data ' + data['curLayerIndex']);
+                        fixedContentSlideOne();
+                     }
+
+                    if (data['nextLayerIndex'] == 2) {
+                        console.log('s3 fired: data ' + data['curLayerIndex']);
+                        fixedContentSlideTwo();
+                     }
+
+                    if (data['nextLayerIndex'] == 3) {
+                        console.log('s1 fired: data ' + data['curLayerIndex']);
+                        //fixedContentSlideThree();
+                    }
+                }else{
+                    sliderOneIntro();
                 }
-
-                if (data['curLayerIndex'] == 2) {
-                    slideTwoTimeLine.restart();
-                    slideOneTimeLine.pause(0);
-
-                }
-
-                if (data['curLayerIndex'] == 3) {
-
-                    slideOneTimeLine.pause(0);
-
-                }
+                
+                
+               
             }
+//            cbPrev: function(data){
+//                
+//                if (data['curLayerIndex'] == 1) {
+//                    console.log('s3 fired: data ' + data['curLayerIndex']);
+//                    //fixedContentSlideThree();
+//                }
+//                if (data['curLayerIndex'] == 2) {
+//                    fixedContentSlideOne();
+//                 }
+//                
+//                if (data['curLayerIndex'] == 3) {
+//                    console.log('s2 fired: data ' + data['curLayerIndex']);
+//                    fixedContentSlideTwo();
+//                 }
+//               
+//            }
         });
+        
+      
+        
+
+        
+        //var logo = $('#logo');
+        function fixedContentSlideOne(){
+            var s1TimeLine = new TimelineLite;
+            s1TimeLine
+            .to(hexContainer.find(".hex_blue"), .5, {
+                top: TOP_DISTANCE,
+                marginLeft: MARGIN_DISTANCE - 250,
+                scale: 1,
+                opacity: 0,
+                rotation: 360
+            })
+            .to(hexContainer.find(".hex_pink"), .5, {
+                top: TOP_DISTANCE,
+                marginLeft: MARGIN_DISTANCE - 250,
+                scale: 1,
+                rotation: -360,
+                ease: Back.easeOut
+            }, "-=0.2")
+            .to(hexContainer.find(".hex_purple"), .5, {
+                top: TOP_DISTANCE,
+                marginLeft: MARGIN_DISTANCE - 250,
+                scale: 1,
+                rotation: -360,
+                ease: Back.easeOut
+            }, "-=0.3")
+            
+            .to(logoContainer.find(".shadow"), 0.6, {
+                    marginLeft: MARGIN_DISTANCE - 30,
+                    top: TOP_DISTANCE + 343,
+                    ease: Quad.easeOut
+            })
+            
+            .to(logoContainer.find("#ak_logo"), 0.6, {
+                marginLeft: MARGIN_DISTANCE - 140,
+                top: TOP_DISTANCE + 205,
+             
+                scale: 1,
+                ease: Quad.easeOut
+            }, "-=0.5")
+            
+            .to(logoContainer.find(".shadow"), 0.6, {
+                    marginLeft: MARGIN_DISTANCE - 30,
+                    top: TOP_DISTANCE + 343,
+                    ease: Quad.easeOut
+            }, "-=0.5")
+            
+            
+            .to(logoContainer.find("#tag_forward_slash"), .5, {
+                    top: TOP_DISTANCE + 208,
+                    marginLeft: MARGIN_DISTANCE + 150,
+                    scale: 1
+            }, "-=0.5")
+            
+            .to(logoContainer.find("#tag_left"), .5, {
+                    top: TOP_DISTANCE + 208,
+                    marginLeft: MARGIN_DISTANCE - 235,
+                    scale: 1,
+           
+                    ease: Bounce.easeOut
+             
+                }, "-=0.5")
+            .to(logoContainer.find("#tag_right"), .5, {
+                   top: TOP_DISTANCE + 208,
+                    marginLeft: MARGIN_DISTANCE + 230,
+                    scale: 1,
+                
+                    ease: Bounce.easeOut,
+                    onComplete: bugFlyTimeLine.restart()
+               
+                }, "-=0.5");
+        }
+        
+        function fixedContentSlideTwo(){
+            
+            bugFlyTimeLine.reverse();
+            
+            var s2TimeLine = new TimelineLite;
+            
+            s2TimeLine.to(hexContainer.find(".hex_blue"), .5, {
+                scale: 0,
+            
+                ease: Back.easeOut
+            }).to(hexContainer.find(".hex_pink"), .5, {
+                scale: 0,
+            
+                rotation: -10,
+                ease: Back.easeOut
+            }, "-=0.3")
+            .to(hexContainer.find(".hex_purple"), .5, {
+                scale: 0.4,
+                rotation: -3,
+                ease: Back.easeOut
+            }, "-=0.3")
+            .to(logoContainer.find("#ak_logo"), 0.6,  {
+                top: TOP_DISTANCE - 100,
+                opacity: 1,
+                scale: 0.7,
+                ease: Bounce.easeOut
+            })
+
+            .to(logoContainer.find("#tag_forward_slash"), 0.6, {
+                top: TOP_DISTANCE - 95,
+                marginLeft: MARGIN_DISTANCE + 80,
+                scale: 0.7,
+                ease: Bounce.easeOut
+            }, "-=0.7")
+            
+            .to(logoContainer.find("#tag_left"), .5, {
+                top: TOP_DISTANCE - 100,
+                marginLeft: MARGIN_DISTANCE - 180,
+                scale: 0.7,
+                ease: Bounce.easeOut
+            }, "-=0.7")
+            .to(logoContainer.find("#tag_right"), .5, {
+                marginLeft: MARGIN_DISTANCE + 100,
+                top: TOP_DISTANCE - 100,
+                scale: 0.7,
+                ease: Bounce.easeOut
+            }, "-=0.7").to(mountainContainer.find("#mountain1"), .5, {
+                top: TOP_DISTANCE - 180,
+                marginLeft: MARGIN_DISTANCE + 150,
+                scale: 0.5,
+                ease: Back.easeOut
+            }, "-=1").to(mountainContainer.find("#mountain2"), .5, {
+                top: TOP_DISTANCE - 220,
+                scale: 0.5,       
+                ease: Back.easeOut
+            }, "-=1").to(mountainContainer.find("#mountain3"), .5, {
+                top: TOP_DISTANCE - 180,
+                scale: 0.5,
+                ease: Back.easeOut
+            }, "-=1").to(logoContainer.find(".shadow"), 0.6, {
+                    top: TOP_DISTANCE + 19,
+                    marginLeft: MARGIN_DISTANCE - 225,
+                    scale: 0.7,
+                    ease: Bounce.easeOut
+            }, "-=0.3")
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            slideTwoTimeLine.restart();
+        }
+        
+        function bugFly(){
+       
+            bugFlyTimeLine.add("bugLabel", "-=0.5")
+                .fromTo(bugContainer, 1.3, {
+                    marginLeft: MARGIN_DISTANCE + 300,
+                    top: 0,
+                    opacity: 0,
+                    rotation: 15,
+                }, {
+                    marginLeft: MARGIN_DISTANCE,
+                    top: TOP_DISTANCE + 95,
+                    opacity: 1,
+                    rotation: 0,
+                    ease: Sine.easeOut,
+                    y: 0
+                }, "bugLabel")
+                .fromTo(bugContainer.find(".wing_left"), 0.03, {
+                    top: -45,
+                    marginLeft: MARGIN_DISTANCE - 75,
+                    rotation: 30,
+                    transformOrigin: "200px 120px"
+                }, {
+                    yoyo: !0,
+                    repeat: 60,
+                    rotation: 0,
+                    ease: Quad.easeOut
+                }, "bugLabel")
+                .fromTo(bugContainer.find(".wing_right"), 0.03, {
+                    top: -45,
+                    marginLeft: MARGIN_DISTANCE + 90,
+                    rotation: -30,
+                    transformOrigin: "1px 200px"
+                }, {
+                    yoyo: !0,
+                    repeat: 60,
+                    rotation: 0,
+                    ease: Quad.easeOut
+                }, "bugLabel")
+                    .fromTo(bugContainer.find(".bug"), 1.3, {
+                        top: 0,
+                }, {
+                        ease: Quad.easeOut
+                }, "bugLabel").to(bugContainer.find(".bug"), 0, {
+                    backgroundPosition: "-120px"
+                }, "-=0.1")
+                    .to([bugContainer.find(".wing_right"), bugContainer.find(".wing_left")], 0, {
+                        display: "none"
+                }, "-=0.1")
+        }
+        
+        function logoIntro(){
+        
+                logoTimeLine.fromTo(logoContainer.find("#ak_logo"), .6, {
+                    top: TOP_DISTANCE - 100,
+                    opacity: 0,
+                    rotation: 15
+                }, {
+                    marginLeft: MARGIN_DISTANCE - 140,
+                    top: TOP_DISTANCE + 205,
+                    opacity: 1,
+                    rotation: 0,
+                    ease: Quad.easeOut
+                })
+                .fromTo(logoContainer.find(".shadow"), 0.3, {
+                    marginLeft: MARGIN_DISTANCE - 30,
+                    top: TOP_DISTANCE + 420,
+                    scale: 0,
+                    opacity: 0
+                }, {
+                    marginLeft: MARGIN_DISTANCE - 30,
+                    top: TOP_DISTANCE + 343,
+                    scale: 1,
+                    opacity: 1,
+                    ease: Quad.easeOut
+                }, "-=1")
+                .fromTo(logoContainer.find("#tag_forward_slash"), .5, {
+                    top: TOP_DISTANCE + 208,
+                    marginLeft: MARGIN_DISTANCE,
+                    opacity: 0,
+                    rotation: 15
+                }, {
+                    marginLeft: MARGIN_DISTANCE + 150,
+                    opacity: 1,
+                    rotation: 0,
+                    ease: Bounce.easeOut,
+                    y: 0
+                })
+                .add("tagLabel", "-=0.5")
+                .fromTo(logoContainer.find("#tag_left"), .5, {
+                    top: TOP_DISTANCE + 208,
+                    marginLeft: MARGIN_DISTANCE,
+                    opacity: 0,
+                    rotation: 15
+                }, {
+                    marginLeft: MARGIN_DISTANCE - 235,
+                    opacity: 1,
+                    rotation: 0,
+                    ease: Bounce.easeOut,
+                    y: 0
+                }, "tagLabel")
+                .fromTo(logoContainer.find("#tag_right"), .5, {
+                    top: TOP_DISTANCE + 208,
+                    marginLeft: MARGIN_DISTANCE,
+                    opacity: 0,
+                    rotation: 15
+                }, {
+                    marginLeft: MARGIN_DISTANCE + 230,
+                    opacity: 1,
+                    rotation: 0,
+                    ease: Bounce.easeOut,
+                    y: 0,
+                    onComplete: bugFly
+                }, "tagLabel")
+
+        
+        }
+        
+
 
 
         $('ul#menu-nav li').find("a").on("mouseenter", function() {
@@ -205,7 +529,7 @@ jQuery(function($) {
 
         // greensock - layerslider elements - slide 1
 
-        TweenMax.fromTo(slideOne.find("#cloud1"), 1, {
+        TweenMax.fromTo(cloudContainer.find("#cloud1"), 1, {
             top: TOP_DISTANCE - 30
         }, {
             top: TOP_DISTANCE - 40,
@@ -213,7 +537,7 @@ jQuery(function($) {
             yoyo: !0,
             repeat: -1
         }),
-        TweenMax.fromTo(slideOne.find("#cloud2"), 1, {
+        TweenMax.fromTo(cloudContainer.find("#cloud2"), 1, {
             top: TOP_DISTANCE - 80
         }, {
             top: TOP_DISTANCE - 70,
@@ -222,7 +546,7 @@ jQuery(function($) {
             repeat: -1,
             delay: .3
         }),
-        TweenMax.fromTo(slideOne.find("#cloud3"), 1, {
+        TweenMax.fromTo(cloudContainer.find("#cloud3"), 1, {
             top: TOP_DISTANCE - 73
         }, {
             top: TOP_DISTANCE - 83,
@@ -233,8 +557,9 @@ jQuery(function($) {
         });
 
 
-
-        slideOneTimeLine.fromTo(slideOne.find("#mountain1"), .5, {
+function sliderOneIntro(){
+        introSlideFlag = true;
+        slideOneTimeLine.fromTo(mountainContainer.find("#mountain1"), .5, {
             top: TOP_DISTANCE + 183,
             opacity: 0,
             scaleX: 0,
@@ -245,18 +570,18 @@ jQuery(function($) {
             scaleX: 1,
             rotation: 0,
             ease: Back.easeOut
-        }, "+=1").fromTo(slideOne.find("#mountain3"), .5, {
+        }, "+=1").fromTo(mountainContainer.find("#mountain3"), .5, {
             top: TOP_DISTANCE + 110,
             opacity: 0,
             scaleX: 0,
             rotation: 15
         }, {
-            top: TOP_DISTANCE + 10,
+            top: TOP_DISTANCE + 30,
             opacity: 1,
             scaleX: 1,
             rotation: 0,
             ease: Back.easeOut
-        }, "-=0.3").fromTo(slideOne.find("#mountain2"), .5, {
+        }, "-=0.3").fromTo(mountainContainer.find("#mountain2"), .5, {
             top: TOP_DISTANCE - 100,
             opacity: 0,
             scaleX: 0,
@@ -268,21 +593,21 @@ jQuery(function($) {
             rotation: 0,
             ease: Back.easeOut
         }, "-=0.3")
-
-
-        .fromTo(slideOne.find(".hex_blue"), .5, {
-            top: TOP_DISTANCE,
-            scale: 0,
-            opacity: 0,
-            rotation: 0
-        }, {
-            scale: 1,
-            opacity: 1,
-            rotation: 360,
-            ease: Back.easeOut
-        }, "-=0.1")
-            .fromTo(slideOne.find(".hex_pink"), .5, {
+            .fromTo(hexContainer.find(".hex_blue"), .5, {
                 top: TOP_DISTANCE,
+                marginLeft: MARGIN_DISTANCE - 250,
+                scale: 0,
+                opacity: 0,
+                rotation: 0
+            }, {
+                scale: 1,
+                opacity: 1,
+                rotation: 360,
+                ease: Back.easeOut
+            }, "-=0.1")
+            .fromTo(hexContainer.find(".hex_pink"), .5, {
+                top: TOP_DISTANCE,
+                marginLeft: MARGIN_DISTANCE - 250,
                 scale: 0,
                 opacity: 0,
                 rotation: 0
@@ -292,8 +617,9 @@ jQuery(function($) {
                 rotation: -360,
                 ease: Back.easeOut
             }, "-=0.2")
-            .fromTo(slideOne.find(".hex_purple"), .5, {
+            .fromTo(hexContainer.find(".hex_purple"), .5, {
                 top: TOP_DISTANCE,
+                marginLeft: MARGIN_DISTANCE - 250,
                 scale: 0,
                 opacity: 0,
                 rotation: 0
@@ -301,137 +627,15 @@ jQuery(function($) {
                 scale: 1,
                 opacity: 1,
                 rotation: -360,
-                ease: Back.easeOut
+                ease: Back.easeOut,
+                onComplete: logoIntro
             }, "-=0.3")
-
-
-        .fromTo(slideOne.find("#logoSprite"), .6, {
-
-            top: TOP_DISTANCE - 100,
-            opacity: 0,
-            rotation: 15
-        }, {
-            marginLeft: MARGIN_DISTANCE - 30,
-            top: TOP_DISTANCE + 200,
-            opacity: 1,
-            rotation: 0,
-            ease: Quad.easeOut
-        }, "-=0.3")
-
-        .fromTo(slideOne.find(".shadow"), 0.3, {
-            marginLeft: MARGIN_DISTANCE - 30,
-            top: TOP_DISTANCE + 420,
-            scale: 0,
-            opacity: 0
-        }, {
-            top: TOP_DISTANCE + 343,
-            scale: 1,
-            opacity: 1,
-            ease: Quad.easeOut
-        }, "-=1")
-            .fromTo(slideOne.find("#tag_forward_slash"), .5, {
-                top: TOP_DISTANCE + 208,
-                marginLeft: MARGIN_DISTANCE,
-                opacity: 0,
-                rotation: 15
-
-            }, {
-
-                marginLeft: MARGIN_DISTANCE + 137,
-                opacity: 1,
-                rotation: 0,
-                ease: Bounce.easeOut,
-                y: 0
-            })
-
-        .add("tagLabel", "-=0.5")
-
-        .fromTo(slideOne.find("#tag_left"), .5, {
-            top: TOP_DISTANCE + 208,
-            marginLeft: MARGIN_DISTANCE,
-            opacity: 0,
-            rotation: 15
-
-        }, {
-
-            marginLeft: MARGIN_DISTANCE - 205,
-            opacity: 1,
-            rotation: 0,
-            ease: Bounce.easeOut,
-            y: 0
-        }, "tagLabel")
-            .fromTo(slideOne.find("#tag_right"), .5, {
-                top: TOP_DISTANCE + 208,
-                marginLeft: MARGIN_DISTANCE,
-                opacity: 0,
-                rotation: 15
-
-            }, {
-
-                marginLeft: MARGIN_DISTANCE + 220,
-                opacity: 1,
-                rotation: 0,
-                ease: Bounce.easeOut,
-                y: 0
-            }, "tagLabel")
-
-
-
-        .add("bugLabel", "-=0.5")
-
-        .fromTo(slideOne.find(".bugContainer"), 1.3, {
-            marginLeft: MARGIN_DISTANCE + 300,
-            top: 0,
-            opacity: 0,
-            rotation: 15,
-
-
-
-        }, {
-            marginLeft: MARGIN_DISTANCE + 90,
-            top: TOP_DISTANCE + 95,
-            opacity: 1,
-            rotation: 0,
-
-            ease: Sine.easeOut,
-            y: 0
-
-        }, "bugLabel")
-
-        .fromTo(slideOne.find(".wing_left"), 0.03, {
-            top: -45,
-            marginLeft: MARGIN_DISTANCE - 75,
-            rotation: 30,
-            transformOrigin: "200px 120px"
-        }, {
-            yoyo: !0,
-            repeat: 60,
-            rotation: 0,
-            ease: Quad.easeOut
-
-        }, "bugLabel")
-            .fromTo(slideOne.find(".wing_right"), 0.03, {
-                top: -45,
-                marginLeft: MARGIN_DISTANCE + 90,
-                rotation: -30,
-                transformOrigin: "1px 200px"
-            }, {
-                yoyo: !0,
-                repeat: 60,
-                rotation: 0,
-                ease: Quad.easeOut
-
-            }, "bugLabel")
-            .fromTo(slideOne.find(".bug"), 1.3, {
-                top: 0,
-
-            }, {
-
-                ease: Quad.easeOut
-
-            }, "bugLabel")
-
-
+     
+        
+        
+        
+        
+        
         .fromTo(slideOne.find(".mountain4"), .5, {
             marginLeft: MARGIN_DISTANCE - 100,
             top: TOP_DISTANCE + 665,
@@ -472,17 +676,12 @@ jQuery(function($) {
             opacity: 1,
             ease: Back.easeOut
         }, "-=0.4")
-
-
-
-
-        .to(slideOne.find(".bug"), 0, {
-            backgroundPosition: "-120px"
-        }, "-=0.1")
-            .to([slideOne.find(".wing_right"), slideOne.find(".wing_left")], 0, {
-                display: "none"
-            }, "-=0.1")
-
+//        .to(slideOne.find(".bug"), 0, {
+//            backgroundPosition: "-120px"
+//        }, "-=0.1")
+//            .to([slideOne.find(".wing_right"), slideOne.find(".wing_left")], 0, {
+//                display: "none"
+//            }, "-=0.1")
         .fromTo(slideOne.find("h2"), .5, {
             marginLeft: MARGIN_DISTANCE + 25,
             top: TOP_DISTANCE + 450,
@@ -510,26 +709,22 @@ jQuery(function($) {
             marginLeft: MARGIN_DISTANCE + 190,
             ease: Back.easeOut
         }, "-=0.1");
+        
+}
 
 
-        slideOneTimeLine.eventCallback("onComplete", changeBird);
-
-        function changeBird() {
-
-
-            $('#logoSprite').delay(600).queue(function(next) {
-                $(this).css({
-                    'background-position': '-1400px 0px'
-                });
-                next();
-            });
-
-
-
-
-
-
-        }
+//        slideOneTimeLine.eventCallback("onComplete", changeBird);
+//
+//        function changeBird() {
+//
+//
+//            $('#logoSprite').delay(600).queue(function(next) {
+//                $(this).css({
+//                    'background-position': '-1400px 0px'
+//                });
+//                next();
+//            });
+//        }
 
 
 
@@ -852,10 +1047,10 @@ jQuery(function($) {
 
 
 
-        slideTwoTimeLine.fromTo(slideTwo.find(".iconText"), .5, {
+        slideTwoTimeLine.fromTo(slideTwo.find(".iconText"), 0, {
             opacity: 0,
         }, {
-            opacity: 0,
+            opacity: 0
         })
 
 

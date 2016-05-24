@@ -976,19 +976,59 @@ body * .ls-container .ls-webkit-hack,
   height: 138px;
 }
 
+/*
 .bird{
   background: url(../img/layerSlider/bird.png) left top no-repeat;
   width: 226px;
   height: 138px;
+}
+*/
+
+
+
+#logoContainer img{
+    left:50%;
+    opacity:0;
+    position:absolute;
+    z-index:3
+}
+
+#hexContainer img{
+    left:50%;
+    opacity:0;
+    position:absolute;
+    z-index:3
+}
+
+#mountainContainer img{
+    left:50%; 
+    position:absolute;
+    z-index:3;
+}
+
+#cloudContainer img{
+    left:50%; 
+    position:absolute;
+    z-index:3;
+}
+
+
+#bugContainer{
+    left:50%; 
+    position:absolute;
+    z-index:4;
+}
+
+#bugContainer div{
+    position:absolute;
 }
 
 .bug{
   background: url(../img/layerSlider/bug.png) left top no-repeat;
   width: 120px;
   height: 135px;
+    z-index:4
 }
-
-
 
 .wing_left{
   background: url(../img/layerSlider/wing_left.png) left top no-repeat;
@@ -1009,6 +1049,16 @@ body * .ls-container .ls-webkit-hack,
     left:25%;
     text-align:center;
 }
+
+/*
+#layerslider img{
+    opacity:0;
+}
+
+#layerslider .ls-bg{
+    opacity:1;
+}
+*/
 
 
 
