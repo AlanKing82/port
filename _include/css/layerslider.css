@@ -1012,6 +1012,12 @@ body * .ls-container .ls-webkit-hack,
     z-index:3;
 }
 
+#flashContainer img{
+    left:50%; 
+    position:absolute;
+    z-index:3;
+}
+
 
 #bugContainer{
     left:50%; 

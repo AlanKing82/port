@@ -128,7 +128,8 @@ jQuery(function($) {
             hexContainer = $('#hexContainer'),
             bugContainer = $('#bugContainer'),
             mountainContainer = $('#mountainContainer'),
-            cloudContainer = $('#cloudContainer');
+            cloudContainer = $('#cloudContainer'),
+            flashContainer = $('#flashContainer');
         
         var slideOne = layerSliderContainer.find('#slide-1');
         var slideTwo = layerSliderContainer.find('#slide-2');
@@ -228,7 +229,18 @@ jQuery(function($) {
         
         //var logo = $('#logo');
         function fixedContentSlideOne(){
+            
+            var cloud1Top = 30,
+                cloud2Top = 80,
+                cloud3Top = 73,
+                cloud1LeftfromCenter = -220,
+                cloud2LeftfromCenter = 170,
+                cloud3LeftfromCenter = 50;
+            
+
+            
             var s1TimeLine = new TimelineLite;
+            
             s1TimeLine
             .to(hexContainer.find(".hex_blue"), .5, {
                 top: TOP_DISTANCE,
@@ -251,31 +263,17 @@ jQuery(function($) {
                 rotation: -360,
                 ease: Back.easeOut
             }, "-=0.3")
-            
-            .to(logoContainer.find(".shadow"), 0.6, {
-                    marginLeft: MARGIN_DISTANCE - 30,
-                    top: TOP_DISTANCE + 343,
-                    ease: Quad.easeOut
-            })
-            
+
             .to(logoContainer.find("#ak_logo"), 0.6, {
                 marginLeft: MARGIN_DISTANCE - 140,
-                top: TOP_DISTANCE + 205,
+                top: TOP_DISTANCE + 208,
              
                 scale: 1,
-                ease: Quad.easeOut
+                ease: Bounce.easeOut
             }, "-=0.5")
-            
-            .to(logoContainer.find(".shadow"), 0.6, {
-                    marginLeft: MARGIN_DISTANCE - 30,
-                    top: TOP_DISTANCE + 343,
-                    ease: Quad.easeOut
-            }, "-=0.5")
-            
-            
             .to(logoContainer.find("#tag_forward_slash"), .5, {
                     top: TOP_DISTANCE + 208,
-                    marginLeft: MARGIN_DISTANCE + 150,
+                    marginLeft: MARGIN_DISTANCE + 130,
                     scale: 1
             }, "-=0.5")
             
@@ -289,20 +287,99 @@ jQuery(function($) {
                 }, "-=0.5")
             .to(logoContainer.find("#tag_right"), .5, {
                    top: TOP_DISTANCE + 208,
-                    marginLeft: MARGIN_DISTANCE + 230,
+                    marginLeft: MARGIN_DISTANCE + 200,
                     scale: 1,
                 
                     ease: Bounce.easeOut,
                     onComplete: bugFlyTimeLine.restart()
                
-                }, "-=0.5");
+                }, "-=0.5")
+            
+            .to(mountainContainer.find("#mountain1"), .5, {
+                top: TOP_DISTANCE - 17,
+                marginLeft: MARGIN_DISTANCE - 190,
+                scale: 1,
+
+                ease: Back.easeOut
+            }, "-=0.5")
+            .to(mountainContainer.find("#mountain3"), .5,  {
+                top: TOP_DISTANCE + 30,
+                marginLeft: MARGIN_DISTANCE + 160,
+                scale: 1,
+
+                ease: Back.easeOut
+            }, "-=0.5").to(mountainContainer.find("#mountain2"), .5,  {
+                top: TOP_DISTANCE - 96,
+                marginLeft: MARGIN_DISTANCE - 60,
+                scale: 1,
+                ease: Back.easeOut
+            }, "-=0.5")
+            
+
+            
+            
+            .to(cloudContainer.find("#cloud1"), 1, {
+                top: TOP_DISTANCE - cloud1Top,
+                marginLeft: MARGIN_DISTANCE + cloud1LeftfromCenter,
+                scale: 1
+            },  "-=1")
+            .to(cloudContainer.find("#cloud2"), 1, {
+                top: TOP_DISTANCE - cloud2Top,
+                marginLeft: MARGIN_DISTANCE + cloud2LeftfromCenter,
+                scale: 1
+            },  "-=1")
+            .to(cloudContainer.find("#cloud3"), 1, {
+                top: TOP_DISTANCE - cloud3Top,
+                marginLeft: MARGIN_DISTANCE + cloud3LeftfromCenter,
+                scale: 1,
+                onComplete: slideOneBounceClouds
+            },  "-=1")
+
+            .fromTo(logoContainer.find(".shadow"), 0.6, {
+                    marginLeft: MARGIN_DISTANCE - 200,
+                    top: TOP_DISTANCE + 347,
+                    opacity: 1,
+                    scaleX: 0,
+                    ease: Quad.easeOut
+            },{
+                    marginLeft: MARGIN_DISTANCE - 200,
+                    top: TOP_DISTANCE + 347,
+                    opacity: 0,
+                    scaleX: 1,
+                    ease: Quad.easeOut
+            }, "-=0.5")
+            .to(logoContainer.find(".shadow"), 1, {
+                    opacity: 1,
+                    ease: Quad.easeOut
+             }, "-=0.3")
+            
+            
+            function slideOneBounceClouds(){
+                cloudBounce(cloudContainer.find("#cloud1"), cloud1Top, cloud1LeftfromCenter, 0);
+                cloudBounce(cloudContainer.find("#cloud2"), cloud2Top, cloud2LeftfromCenter, 0.3);
+                cloudBounce(cloudContainer.find("#cloud3"), cloud3Top, cloud3LeftfromCenter, 0.6);
+            }
+            
+
         }
+        
+        
+        
         
         function fixedContentSlideTwo(){
             
             bugFlyTimeLine.reverse();
             
+            var cloud1Top = 93,
+                cloud2Top = 140,
+                cloud3Top = 123,
+                cloud1LeftfromCenter = -230,
+                cloud2LeftfromCenter = 115,
+                cloud3LeftfromCenter = 40;
+            
             var s2TimeLine = new TimelineLite;
+            
+
             
             s2TimeLine.to(hexContainer.find(".hex_blue"), .5, {
                 scale: 0,
@@ -315,65 +392,88 @@ jQuery(function($) {
                 ease: Back.easeOut
             }, "-=0.3")
             .to(hexContainer.find(".hex_purple"), .5, {
-                scale: 0.4,
+                scale: 0.3,
                 rotation: -3,
                 ease: Back.easeOut
             }, "-=0.3")
+
             .to(logoContainer.find("#ak_logo"), 0.6,  {
                 top: TOP_DISTANCE - 100,
-                opacity: 1,
+   
                 scale: 0.7,
                 ease: Bounce.easeOut
             })
 
             .to(logoContainer.find("#tag_forward_slash"), 0.6, {
-                top: TOP_DISTANCE - 95,
-                marginLeft: MARGIN_DISTANCE + 80,
+                top: TOP_DISTANCE - 100,
+                marginLeft: MARGIN_DISTANCE + 75,
                 scale: 0.7,
                 ease: Bounce.easeOut
-            }, "-=0.7")
+            }, "-=0.5")
             
             .to(logoContainer.find("#tag_left"), .5, {
                 top: TOP_DISTANCE - 100,
                 marginLeft: MARGIN_DISTANCE - 180,
                 scale: 0.7,
                 ease: Bounce.easeOut
-            }, "-=0.7")
+            }, "-=0.5")
             .to(logoContainer.find("#tag_right"), .5, {
-                marginLeft: MARGIN_DISTANCE + 100,
+                marginLeft: MARGIN_DISTANCE + 115,
                 top: TOP_DISTANCE - 100,
                 scale: 0.7,
                 ease: Bounce.easeOut
-            }, "-=0.7").to(mountainContainer.find("#mountain1"), .5, {
-                top: TOP_DISTANCE - 180,
-                marginLeft: MARGIN_DISTANCE + 150,
+            }, "-=0.5").to(mountainContainer.find("#mountain1"), .5, {
+                top: TOP_DISTANCE - 170,
+                marginLeft: MARGIN_DISTANCE - 70,
                 scale: 0.5,
                 ease: Back.easeOut
-            }, "-=1").to(mountainContainer.find("#mountain2"), .5, {
-                top: TOP_DISTANCE - 220,
+            }, "-=0.5").to(mountainContainer.find("#mountain2"), .5, {
+                top: TOP_DISTANCE - 250,
+                marginLeft: MARGIN_DISTANCE - 80,
                 scale: 0.5,       
                 ease: Back.easeOut
-            }, "-=1").to(mountainContainer.find("#mountain3"), .5, {
-                top: TOP_DISTANCE - 180,
+            }, "-=0.5").to(mountainContainer.find("#mountain3"), .5, {
+                top: TOP_DISTANCE - 140,
+                marginLeft: MARGIN_DISTANCE + 60,
                 scale: 0.5,
                 ease: Back.easeOut
-            }, "-=1").to(logoContainer.find(".shadow"), 0.6, {
-                    top: TOP_DISTANCE + 19,
-                    marginLeft: MARGIN_DISTANCE - 225,
-                    scale: 0.7,
-                    ease: Bounce.easeOut
-            }, "-=0.3")
+            }, "-=0.5")
             
 
             
+            .to(cloudContainer.find("#cloud1"), 1, {
+                top: TOP_DISTANCE - cloud1Top,
+                marginLeft: MARGIN_DISTANCE + cloud1LeftfromCenter,
+                scale: 0.7
+            },  "-=1")
+            .to(cloudContainer.find("#cloud2"), 1, {
+                top: TOP_DISTANCE - cloud2Top,
+                marginLeft: MARGIN_DISTANCE + cloud2LeftfromCenter,
+                scale: 0.7
+            },  "-=1")
+            .to(cloudContainer.find("#cloud3"), 1, {
+                top: TOP_DISTANCE - cloud3Top,
+                marginLeft: MARGIN_DISTANCE + cloud3LeftfromCenter,
+                scale: 0.8,
+                onComplete: slideTwoBounceClouds
+            },  "-=1")
+            .fromTo(logoContainer.find(".shadow"), 1, {
+                    marginLeft: MARGIN_DISTANCE - 225,
+                    top: TOP_DISTANCE + 15,
+                    opacity: 0,
+                    scaleX: 0.7,
+                    ease: Quad.easeOut
+            },{
+                    opacity: 1,
+                    ease: Quad.easeOut
+            } , "-=0.1");
             
-            
-            
-            
-            
-            
-            
-            
+
+            function slideTwoBounceClouds(){
+                cloudBounce(cloudContainer.find("#cloud1"), cloud1Top, cloud1LeftfromCenter, 0);
+                cloudBounce(cloudContainer.find("#cloud2"), cloud2Top, cloud2LeftfromCenter, 0.3);
+                cloudBounce(cloudContainer.find("#cloud3"), cloud3Top, cloud3LeftfromCenter, 0.6);
+            }
             
             slideTwoTimeLine.restart();
         }
@@ -436,30 +536,30 @@ jQuery(function($) {
                     rotation: 15
                 }, {
                     marginLeft: MARGIN_DISTANCE - 140,
-                    top: TOP_DISTANCE + 205,
+                    top: TOP_DISTANCE + 208,
                     opacity: 1,
                     rotation: 0,
                     ease: Quad.easeOut
                 })
-                .fromTo(logoContainer.find(".shadow"), 0.3, {
-                    marginLeft: MARGIN_DISTANCE - 30,
-                    top: TOP_DISTANCE + 420,
-                    scale: 0,
+                .fromTo(logoContainer.find(".shadow"), 1.0, {
+                    marginLeft: MARGIN_DISTANCE - 200,
+                    top: TOP_DISTANCE + 347,
+                    scaleX: 0,
                     opacity: 0
                 }, {
-                    marginLeft: MARGIN_DISTANCE - 30,
-                    top: TOP_DISTANCE + 343,
-                    scale: 1,
+                    marginLeft: MARGIN_DISTANCE - 200,
+                    top: TOP_DISTANCE + 347,
+                    scaleX: 0.7,
                     opacity: 1,
-                    ease: Quad.easeOut
-                }, "-=1")
+                    ease: Bounce.easeOut
+                }, "-=0.5")
                 .fromTo(logoContainer.find("#tag_forward_slash"), .5, {
                     top: TOP_DISTANCE + 208,
                     marginLeft: MARGIN_DISTANCE,
                     opacity: 0,
                     rotation: 15
                 }, {
-                    marginLeft: MARGIN_DISTANCE + 150,
+                    marginLeft: MARGIN_DISTANCE + 130,
                     opacity: 1,
                     rotation: 0,
                     ease: Bounce.easeOut,
@@ -484,12 +584,18 @@ jQuery(function($) {
                     opacity: 0,
                     rotation: 15
                 }, {
-                    marginLeft: MARGIN_DISTANCE + 230,
+                    marginLeft: MARGIN_DISTANCE + 200,
                     opacity: 1,
                     rotation: 0,
                     ease: Bounce.easeOut,
                     y: 0,
                     onComplete: bugFly
+                }, "tagLabel")
+                .to(logoContainer.find(".shadow"), 1.5, {
+                    marginLeft: MARGIN_DISTANCE - 200,
+                    top: TOP_DISTANCE + 347,
+                    scaleX: 1,
+                    ease: Bounce.easeOut
                 }, "tagLabel")
 
         
@@ -527,40 +633,32 @@ jQuery(function($) {
 
 
 
-        // greensock - layerslider elements - slide 1
+      function cloudBounce(el, offsetHeight, offsetMargin, setDelay){
 
-        TweenMax.fromTo(cloudContainer.find("#cloud1"), 1, {
-            top: TOP_DISTANCE - 30
-        }, {
-            top: TOP_DISTANCE - 40,
-            ease: Quad.easeInOut,
-            yoyo: !0,
-            repeat: -1
-        }),
-        TweenMax.fromTo(cloudContainer.find("#cloud2"), 1, {
-            top: TOP_DISTANCE - 80
-        }, {
-            top: TOP_DISTANCE - 70,
-            ease: Quad.easeInOut,
-            yoyo: !0,
-            repeat: -1,
-            delay: .3
-        }),
-        TweenMax.fromTo(cloudContainer.find("#cloud3"), 1, {
-            top: TOP_DISTANCE - 73
-        }, {
-            top: TOP_DISTANCE - 83,
-            ease: Quad.easeInOut,
-            yoyo: !0,
-            repeat: -1,
-            delay: .6
-        });
+            TweenMax.fromTo(el, 1, {
+                top: TOP_DISTANCE - offsetHeight,
+                marginLeft: MARGIN_DISTANCE + offsetMargin
+            }, {
+                top: TOP_DISTANCE - offsetHeight + 10,
+                ease: Quad.easeInOut,
+                yoyo: !0,
+                repeat: -1,
+                delay: setDelay
+            })
+      }
 
 
 function sliderOneIntro(){
+        
+        cloudBounce(cloudContainer.find("#cloud1"), 30, -220, 0);
+        cloudBounce(cloudContainer.find("#cloud2"), 80, 170, 0.3);
+        cloudBounce(cloudContainer.find("#cloud3"), 73, 50, 0.6);
+    
+    
         introSlideFlag = true;
         slideOneTimeLine.fromTo(mountainContainer.find("#mountain1"), .5, {
             top: TOP_DISTANCE + 183,
+            marginLeft: MARGIN_DISTANCE - 190,
             opacity: 0,
             scaleX: 0,
             rotation: -15
@@ -572,6 +670,7 @@ function sliderOneIntro(){
             ease: Back.easeOut
         }, "+=1").fromTo(mountainContainer.find("#mountain3"), .5, {
             top: TOP_DISTANCE + 110,
+            marginLeft: MARGIN_DISTANCE + 160,
             opacity: 0,
             scaleX: 0,
             rotation: 15
@@ -582,12 +681,13 @@ function sliderOneIntro(){
             rotation: 0,
             ease: Back.easeOut
         }, "-=0.3").fromTo(mountainContainer.find("#mountain2"), .5, {
-            top: TOP_DISTANCE - 100,
+            top: TOP_DISTANCE - 90,
+            marginLeft: MARGIN_DISTANCE - 60,
             opacity: 0,
             scaleX: 0,
             rotation: 25
         }, {
-            top: TOP_DISTANCE - 106,
+            top: TOP_DISTANCE - 96,
             opacity: 1,
             scaleX: 1,
             rotation: 0,
@@ -897,33 +997,33 @@ function sliderOneIntro(){
 
 
         function lightning() {
-            var flash = slideOne.find("#flash1");
+            var flash = flashContainer.find("#flash1");
             TweenLite.fromTo(flash, .5, {
-
-                top: 100,
+                marginLeft: MARGIN_DISTANCE + 80,
+                top: TOP_DISTANCE - 20,
                 opacity: 1
             }, {
 
-                top: 130,
+                top: TOP_DISTANCE + 10,
                 opacity: 0,
                 ease: Expo.easeOut
             }), TweenLite.fromTo(flash, .5, {
 
-                top: 100,
+                top: TOP_DISTANCE - 20,
                 opacity: 1
             }, {
 
-                top: 130,
+                top: TOP_DISTANCE + 10,
                 opacity: 0,
                 ease: Expo.easeOut,
                 delay: .6
             }), TweenLite.fromTo(flash, .5, {
 
-                top: 100,
+                top: TOP_DISTANCE - 20,
                 opacity: 1
             }, {
 
-                top: 130,
+                top: TOP_DISTANCE + 10,
                 opacity: 0,
                 ease: Expo.easeOut,
                 delay: 1,
