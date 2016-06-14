@@ -124,12 +124,16 @@ jQuery(function($) {
 
         var layerSliderContainer = $('#layerslider');
         
-        var logoContainer = $('#logoContainer'),
-            hexContainer = $('#hexContainer'),
-            bugContainer = $('#bugContainer'),
-            mountainContainer = $('#mountainContainer'),
-            cloudContainer = $('#cloudContainer'),
-            flashContainer = $('#flashContainer');
+        var logoContainer = $('#logoContainer', '#slideOneOutside'),
+            hexContainer = $('#hexContainer', '#slideOneOutside'),
+            bugContainer = $('#bugContainer', '#slideOneOutside'),
+            mountainContainer = $('#mountainContainer', '#slideOneOutside'),
+            cloudContainer = $('#cloudContainer', '#slideOneOutside'),
+            flashContainer = $('#flashContainer', '#slideOneOutside'),
+            mountainSmallContainer = $('#mountainsSmall', '#slideOneOutside'),
+            bubbleContainer = $('#bubbleContainer', '#slideOneOutside');
+        
+        var hexIcons = $('.icon1, .icon2, .icon3', '#slideTwoOutside');
         
         var slideOne = layerSliderContainer.find('#slide-1');
         var slideTwo = layerSliderContainer.find('#slide-2');
@@ -159,6 +163,7 @@ jQuery(function($) {
             // Slider options goes here,
             // please check the 'List of slider options' section in the documentation
             autoStart: false,
+            // must start at one now since elements taken outside slider content
             firstLayer: 1,
             //navButtons: true,
             //navPrevNext: true,
@@ -181,21 +186,21 @@ jQuery(function($) {
                 
                 if(introSlideFlag){
                     
-                console.log(introSlideFlag + ' fired');
+                //console.log(introSlideFlag + ' fired');
              
                     
                     if (data['nextLayerIndex'] == 1) {
-                        console.log('s2 fired: data ' + data['curLayerIndex']);
+                        //console.log('s2 fired: data ' + data['curLayerIndex']);
                         fixedContentSlideOne();
                      }
 
                     if (data['nextLayerIndex'] == 2) {
-                        console.log('s3 fired: data ' + data['curLayerIndex']);
+                        //console.log('s3 fired: data ' + data['curLayerIndex']);
                         fixedContentSlideTwo();
                      }
 
                     if (data['nextLayerIndex'] == 3) {
-                        console.log('s1 fired: data ' + data['curLayerIndex']);
+                        //console.log('s1 fired: data ' + data['curLayerIndex']);
                         //fixedContentSlideThree();
                     }
                 }else{
@@ -317,6 +322,8 @@ jQuery(function($) {
             
 
             
+
+            
             
             .to(cloudContainer.find("#cloud1"), 1, {
                 top: TOP_DISTANCE - cloud1Top,
@@ -348,6 +355,23 @@ jQuery(function($) {
                     scaleX: 1,
                     ease: Quad.easeOut
             }, "-=0.5")
+            
+//            .fromTo(bubbleContainer, .3, {
+//                top: TOP_DISTANCE + 85,
+//                marginLeft: MARGIN_DISTANCE + 190,
+//                scale: 0,
+//                opacity: 0
+//            }, {
+//                top: TOP_DISTANCE + 185,
+//                scale: 1,
+//                opacity: 1,
+//                marginLeft: MARGIN_DISTANCE + 190,
+//                ease: Back.easeOut
+//            }, "-=0.1")
+            
+
+            
+            
             .to(logoContainer.find(".shadow"), 1, {
                     opacity: 1,
                     ease: Quad.easeOut
@@ -392,7 +416,7 @@ jQuery(function($) {
                 ease: Back.easeOut
             }, "-=0.3")
             .to(hexContainer.find(".hex_purple"), .5, {
-                scale: 0.3,
+                scale: 0,
                 rotation: -3,
                 ease: Back.easeOut
             }, "-=0.3")
@@ -466,7 +490,127 @@ jQuery(function($) {
             },{
                     opacity: 1,
                     ease: Quad.easeOut
-            } , "-=0.1");
+            } , "-=0.1")
+            
+            
+            // slide two content
+
+            
+            
+            
+            
+            
+            
+
+
+
+        .fromTo(".iconText", 0, {
+            opacity: 0,
+        }, {
+            opacity: 0
+        })
+
+
+        .fromTo(hexIcons, .5, {
+
+   
+            top: TOP_DISTANCE + 210,
+            marginLeft: MARGIN_DISTANCE - 50
+
+
+        },{
+        
+            top: TOP_DISTANCE + 210,
+            marginLeft: MARGIN_DISTANCE - 50,
+            ease: Quad.easeOut    
+        
+        })
+
+        .add("iconLabel", "-=0.5")
+
+        .to(".icon1", .5, {
+            marginLeft: MARGIN_DISTANCE - 300
+        }, "iconLabel")
+            .to(".icon3", .5, {
+                marginLeft: MARGIN_DISTANCE + 200
+        }, "iconLabel")
+
+
+
+
+
+
+
+        $("#slideTwoOutside .icon").hover(
+            function() {
+                hoverIconAnimation($(this).find("img:eq(0)"), $(this).find("img:eq(1)"));
+
+            }, function() {
+                hoverIconAnimation($(this).find("img:eq(1)"), $(this).find("img:eq(0)"));
+            }
+        );
+
+
+        $("#slideTwoOutside .icon").click(function() {
+            clickIconAnimation($(this));
+        });
+
+
+        function hoverIconAnimation(iconImg1, iconImg2) {
+
+
+            var d = new TimelineLite;
+            d.fromTo(iconImg1, .5, {
+                scale: 0.6,
+                opacity: 1
+            }, {
+                scale: 1.5,
+                opacity: 0,
+                ease: Expo.easeOut
+            }, "-=0.5")
+                .fromTo(iconImg2, .5, {
+                    scale: 0,
+                    opacity: 0
+                }, {
+                    scale: 1,
+                    opacity: 1,
+                    ease: Expo.easeOut
+                }, "-=0.5")
+        }
+
+        function clickIconAnimation(icon) {
+            var f = new TimelineLite;
+
+            f.fromTo(".iconText", .5, {
+
+                opacity: 0
+            }, {
+
+                opacity: 0,
+                ease: Expo.easeOut
+            }, "-=0.5")
+                .fromTo(icon.next("p"), .5, {
+                    top: TOP_DISTANCE + 600,
+                    opacity: 0
+                }, {
+                    top: TOP_DISTANCE + 400,
+                    opacity: 1,
+                    ease: Expo.easeOut
+                }, "-=0.5")
+
+        }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
 
             function slideTwoBounceClouds(){
@@ -526,6 +670,19 @@ jQuery(function($) {
                     .to([bugContainer.find(".wing_right"), bugContainer.find(".wing_left")], 0, {
                         display: "none"
                 }, "-=0.1")
+                
+                .staggerFromTo(bubbleContainer, 1, {
+                    scale:0, 
+                    marginLeft: MARGIN_DISTANCE + 125,
+                    top:TOP_DISTANCE, 
+                    opacity:0
+                }, {
+                    scale:1, 
+                    marginLeft: MARGIN_DISTANCE + 125,
+                    top:TOP_DISTANCE + 42, 
+                    opacity:1,
+                    ease:Power4.easeInOut
+                }, "-=0.5")
         }
         
         function logoIntro(){
@@ -613,9 +770,9 @@ jQuery(function($) {
 
             var c = a[0].getAttribute("data-bubble-icon"),
                 // current icon
-                d = slideOne.find(".bubble img:nth-child(" + c + ")"),
+                d = bubbleContainer.find("img:nth-child(" + c + ")"),
                 // former icon
-                e = slideOne.find(".bubble img:nth-child(" + idIconActive + ")");
+                e = bubbleContainer.find("img:nth-child(" + idIconActive + ")");
 
             // top 0% is showing
             return c == idIconActive ? !1 : (TweenLite.to(d, .3, {
@@ -736,7 +893,7 @@ function sliderOneIntro(){
         
         
         
-        .fromTo(slideOne.find(".mountain4"), .5, {
+        .fromTo(mountainSmallContainer.find("#mountain4"), .5, {
             marginLeft: MARGIN_DISTANCE - 100,
             top: TOP_DISTANCE + 665,
             scaleX: 0,
@@ -749,7 +906,7 @@ function sliderOneIntro(){
             rotation: 0,
             opacity: 1,
             ease: Back.easeOut
-        }, "-=0.8").fromTo(slideOne.find(".mountain6"), .5, {
+        }, "-=0.8").fromTo(mountainSmallContainer.find("#mountain6"), .5, {
             marginLeft: MARGIN_DISTANCE - 190,
             top: TOP_DISTANCE + 575,
             scaleX: 0,
@@ -762,7 +919,7 @@ function sliderOneIntro(){
             rotation: 0,
             opacity: 1,
             ease: Back.easeOut
-        }, "-=0.6").fromTo(slideOne.find(".mountain5"), .5, {
+        }, "-=0.6").fromTo(mountainSmallContainer.find("#mountain5"), .5, {
             marginLeft: MARGIN_DISTANCE - 150,
             top: TOP_DISTANCE + 630,
             scaleX: 0,
@@ -776,6 +933,12 @@ function sliderOneIntro(){
             opacity: 1,
             ease: Back.easeOut
         }, "-=0.4")
+        
+        
+
+        
+
+        
 //        .to(slideOne.find(".bug"), 0, {
 //            backgroundPosition: "-120px"
 //        }, "-=0.1")
@@ -798,17 +961,8 @@ function sliderOneIntro(){
             top: TOP_DISTANCE + 340,
             opacity: 1,
             ease: Expo.easeOut
-        }, "-=0.4").fromTo(slideOne.find(".bubble"), .3, {
-            top: TOP_DISTANCE + 85,
-            marginLeft: MARGIN_DISTANCE + 190,
-            scale: 0,
-            opacity: 0
-        }, {
-            scale: 1,
-            opacity: 1,
-            marginLeft: MARGIN_DISTANCE + 190,
-            ease: Back.easeOut
-        }, "-=0.1");
+        }, "-=0.4")
+
         
 }
 
@@ -1146,105 +1300,7 @@ function sliderOneIntro(){
 
 
 
-
-        slideTwoTimeLine.fromTo(slideTwo.find(".iconText"), 0, {
-            opacity: 0,
-        }, {
-            opacity: 0
-        })
-
-
-        .fromTo(slideTwo.find(".icon"), .5, {
-
-
-            top: TOP_DISTANCE + 100,
-            marginLeft: MARGIN_DISTANCE - 60,
-
-
-        }, {
-
-
-            top: TOP_DISTANCE + 100,
-            marginLeft: MARGIN_DISTANCE - 60,
-
-            ease: Expo.easeOut
-        })
-
-        .add("iconLabel", "-=0.5")
-
-        .to(slideTwo.find(".icon1"), .5, {
-            marginLeft: MARGIN_DISTANCE - 300
-        }, "iconLabel")
-            .to(slideTwo.find(".icon3"), .5, {
-                marginLeft: MARGIN_DISTANCE + 200
-            }, "iconLabel")
-
-
-
-
-
-
-
-        $("#slide-2 .icon").hover(
-            function() {
-                hoverIconAnimation($(this).find("img:eq(0)"), $(this).find("img:eq(1)"));
-
-            }, function() {
-                hoverIconAnimation($(this).find("img:eq(1)"), $(this).find("img:eq(0)"));
-            }
-        );
-
-
-        $("#slide-2 .icon").click(function() {
-            clickIconAnimation($(this));
-        });
-
-
-        function hoverIconAnimation(iconImg1, iconImg2) {
-
-
-            var d = new TimelineLite;
-            d.fromTo(iconImg1, .5, {
-                scale: 0.6,
-                opacity: 1
-            }, {
-                scale: 1.5,
-                opacity: 0,
-                ease: Expo.easeOut
-            }, "-=0.5")
-                .fromTo(iconImg2, .5, {
-                    scale: 0,
-                    opacity: 0
-                }, {
-                    scale: 1,
-                    opacity: 1,
-                    ease: Expo.easeOut
-                }, "-=0.5")
-        }
-
-        function clickIconAnimation(icon) {
-            var f = new TimelineLite;
-
-            f.fromTo(slideTwo.find(".iconText"), .5, {
-
-                opacity: 0
-            }, {
-
-                opacity: 0,
-                ease: Expo.easeOut
-            }, "-=0.5")
-                .fromTo(icon.next("p"), .5, {
-                    top: TOP_DISTANCE + 600,
-                    opacity: 0
-                }, {
-                    top: TOP_DISTANCE + 400,
-                    opacity: 1,
-                    ease: Expo.easeOut
-                }, "-=0.5")
-
-        }
-
-    }
+    }//close
 
 
     /* ==================================================

@@ -947,9 +947,7 @@ body * .ls-container .ls-webkit-hack,
 }
 
 /* bubble icons */
-#layerslider img.bubble, #layerslider div.bubble {
-  left: 748px;
-  top: 127px;
+#layerslider img#bubbleContainer, #layerslider div#bubbleContainer {
   width: 55px;
   height: 55px;
   background: url(../img/layerSlider/bubble.png) left top no-repeat;
@@ -958,7 +956,7 @@ body * .ls-container .ls-webkit-hack,
 
 
 
-#layerslider img.bubble img, #layerslider div.bubble img {
+#layerslider img#bubbleContainer img, #layerslider div#bubbleContainer img {
   top: -100%;
   position: absolute;
 }
@@ -966,7 +964,7 @@ body * .ls-container .ls-webkit-hack,
 
 
 
-#layerslider img.bubble img:first-child, #layerslider div.bubble img:first-child {
+#layerslider img#bubbleContainer img:first-child, #layerslider div#bubbleContainer img:first-child {
   top: 0%;
 }
 
@@ -986,54 +984,80 @@ body * .ls-container .ls-webkit-hack,
 
 
 
-#logoContainer img{
+#slideOneOutside #logoContainer img{
     left:50%;
     opacity:0;
     position:absolute;
     z-index:3
 }
 
-#hexContainer img{
+#slideOneOutside #hexContainer img{
     left:50%;
     opacity:0;
     position:absolute;
     z-index:3
 }
 
-#mountainContainer img{
+#slideOneOutside #mountainContainer img{
     left:50%; 
     position:absolute;
     z-index:3;
 }
 
-#cloudContainer img{
+#slideOneOutside #mountainsSmall img{
     left:50%; 
     position:absolute;
     z-index:3;
 }
 
-#flashContainer img{
+#slideOneOutside #cloudContainer img{
+    left:50%; 
+    position:absolute;
+    z-index:3;
+}
+
+#slideOneOutside #flashContainer img{
     left:50%; 
     position:absolute;
     z-index:3;
 }
 
 
-#bugContainer{
+
+/*
+#slideOneOutside #bubbleContainer img{
+
+    position:absolute;
+
+}
+*/
+
+#slideOneOutside #bubbleContainer{
     left:50%; 
     position:absolute;
     z-index:4;
 }
 
-#bugContainer div{
+
+#slideOneOutside #bugContainer{
+    left:50%; 
+    position:absolute;
+    z-index:4;
+}
+
+#slideOneOutside #bugContainer div{
     position:absolute;
 }
+
+
+
+
 
 .bug{
   background: url(../img/layerSlider/bug.png) left top no-repeat;
   width: 120px;
   height: 135px;
-    z-index:4
+  z-index:4
 }
 
 .wing_left{
@@ -1050,11 +1074,45 @@ body * .ls-container .ls-webkit-hack,
 
 
 /* added amendments -  slide 2 */
+@font-face {
+    font-family: prototype;
+    src: url(../fonts/Prototype.ttf);
+}
+
+#layerslider h2 {
+    font-family: prototype;
+    left:46%; 
+    position:absolute; 
+    color:#5c226d;
+    top:260px;
+    font-size:48px;
+}
+
 .iconText{
     width:50%;
     left:25%;
     text-align:center;
 }
+
+#slideTwoOutside a.icon span img{
+     position:absolute;
+    z-index:3
+}
+
+#slideTwoOutside a.icon{
+    position:absolute;
+    left: 50%;
+
+}
+
+#slideTwoOutside .iconText{
+    position:absolute;
+    z-index:3;
+
+}
+
+
+
 
 /*
 #layerslider img{
