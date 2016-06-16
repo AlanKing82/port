@@ -133,7 +133,11 @@ jQuery(function($) {
             mountainSmallContainer = $('#mountainsSmall', '#slideOneOutside'),
             bubbleContainer = $('#bubbleContainer', '#slideOneOutside');
         
-        var hexIcons = $('.icon1, .icon2, .icon3', '#slideTwoOutside');
+        var hexIcons = $('.icon', '#slideTwoOutside'),
+            iconText = $('.iconText', '#slideTwoOutside'),
+            iconHeader = $('.iconHeader', '#slideTwoOutside');
+          
+        
         
         var slideOne = layerSliderContainer.find('#slide-1');
         var slideTwo = layerSliderContainer.find('#slide-2');
@@ -504,101 +508,167 @@ jQuery(function($) {
 
 
 
-        .fromTo(".iconText", 0, {
+        .fromTo([iconText, iconHeader], 0, {
             opacity: 0,
         }, {
             opacity: 0
         })
-
-
+            
         .fromTo(hexIcons, .5, {
-
-   
-            top: TOP_DISTANCE + 210,
-            marginLeft: MARGIN_DISTANCE - 50
-
-
+            top: TOP_DISTANCE + 200,
+            marginLeft: MARGIN_DISTANCE - 95
         },{
-        
-            top: TOP_DISTANCE + 210,
-            marginLeft: MARGIN_DISTANCE - 50,
+            top: TOP_DISTANCE + 160,
+            marginLeft: MARGIN_DISTANCE - 95,
             ease: Quad.easeOut    
-        
         })
-
         .add("iconLabel", "-=0.5")
 
         .to(".icon1", .5, {
-            marginLeft: MARGIN_DISTANCE - 300
+            marginLeft: MARGIN_DISTANCE - 290
         }, "iconLabel")
             .to(".icon3", .5, {
-                marginLeft: MARGIN_DISTANCE + 200
+                marginLeft: MARGIN_DISTANCE + 100
         }, "iconLabel")
 
 
+//        .fromTo(hexIcons, .5, {
+//            top: TOP_DISTANCE + 200,
+//            marginLeft: MARGIN_DISTANCE - 60
+//        },{
+//            top: TOP_DISTANCE + 200,
+//            marginLeft: MARGIN_DISTANCE - 60,
+//            ease: Quad.easeOut    
+//        })
+//        .add("iconLabel", "-=0.5")
+//
+//        .to(".icon1", .5, {
+//            marginLeft: MARGIN_DISTANCE - 250
+//        }, "iconLabel")
+//            .to(".icon3", .5, {
+//                marginLeft: MARGIN_DISTANCE + 130
+//        }, "iconLabel")
 
 
 
 
 
-        $("#slideTwoOutside .icon").hover(
+
+
+        hexIcons.hover(
             function() {
-                hoverIconAnimation($(this).find("img:eq(0)"), $(this).find("img:eq(1)"));
+                hoverIconAnimation($(this), $(this).find("img:eq(0)"), $(this).find("img:eq(1)"));
 
             }, function() {
-                hoverIconAnimation($(this).find("img:eq(1)"), $(this).find("img:eq(0)"));
+                hoverIconAnimation($(this), $(this).find("img:eq(1)"), $(this).find("img:eq(0)"));
             }
         );
 
 
-        $("#slideTwoOutside .icon").click(function() {
+        hexIcons.click(function() {
             clickIconAnimation($(this));
         });
 
 
-        function hoverIconAnimation(iconImg1, iconImg2) {
+        function hoverIconAnimation(icon, iconImg1, iconImg2) {
 
-
-            var d = new TimelineLite;
-            d.fromTo(iconImg1, .5, {
-                scale: 0.6,
-                opacity: 1
-            }, {
-                scale: 1.5,
-                opacity: 0,
-                ease: Expo.easeOut
-            }, "-=0.5")
-                .fromTo(iconImg2, .5, {
+            if(!(icon.hasClass('active'))){
+                var d = new TimelineLite;
+                d.fromTo(iconImg1, .8, {
+                    scale: 0.6,
+                    opacity: 1
+                }, {
+                    scale: 1.5,
+                    opacity: 0,
+                    ease: Expo.easeOut
+                }, "-=0.8")
+                .fromTo(iconImg2, .8, {
                     scale: 0,
                     opacity: 0
                 }, {
                     scale: 1,
                     opacity: 1,
                     ease: Expo.easeOut
-                }, "-=0.5")
+                }, "-=0.8")
+            }
+        }
+            
+        function iconsResize(){
+                
+            var iconsSizeToggle = new TimelineLite;
+
+            iconsSizeToggle.to(hexIcons, .5, {
+                scale:0.7,
+                top: TOP_DISTANCE + 160,
+                marginLeft: MARGIN_DISTANCE - 60,
+             
+                ease: Quad.easeOut    
+            })
+            .add("iconResize", "-=0.5")
+
+            .to(".icon1", .5, {
+              
+                marginLeft: MARGIN_DISTANCE - 200
+            }, "iconResize")
+            .to(".icon3", .5, {
+                    marginLeft: MARGIN_DISTANCE + 80
+            }, "iconResize")
         }
 
+        var resizeFlag = true;    
+            //here
         function clickIconAnimation(icon) {
+            
+            if(resizeFlag){
+                iconsResize();
+                resizeFlag = false;
+            }
+         
+            
+
+            
+            
+            hexIcons.each(function(){
+                
+                $(this).removeClass('active');
+                
+                    if(!($(this).hasClass('active'))){
+                        $(this).find('img:eq(1)').css({'opacity':'0', 'scale':'1'})
+                    }
+                $(this).find('img:eq(0)').css({'opacity':'1', 'scale':'1'})
+            });
+            
+   
+            icon.addClass('active')
+            .find('img:eq(1)').css({'opacity':'1', 'scale':'1'})
+            //.find('img:eq(0)').css({'opacity':'0', 'scale':'1'})
+            
             var f = new TimelineLite;
-
-            f.fromTo(".iconText", .5, {
-
-                opacity: 0
-            }, {
-
+            
+            // text and header
+            f.to([iconText, iconHeader], .5, {
                 opacity: 0,
                 ease: Expo.easeOut
             }, "-=0.5")
-                .fromTo(icon.next("p"), .5, {
-                    top: TOP_DISTANCE + 600,
-                    opacity: 0
-                }, {
-                    top: TOP_DISTANCE + 400,
-                    opacity: 1,
-                    ease: Expo.easeOut
-                }, "-=0.5")
+            .fromTo(icon.next("p"), .5, {
+                top: TOP_DISTANCE + 600,
+                opacity: 0
+            }, {
+                top: TOP_DISTANCE + 400,
+                opacity: 1,
+                ease: Expo.easeOut
+            }, "-=0.5").fromTo(icon.prev("h2"), .5, {
+                top: TOP_DISTANCE + 100,
+                opacity: 0
+            }, {
+                top: TOP_DISTANCE + 110,
+                opacity: 1,
+                ease: Expo.easeOut
+            }, "-=0.5")
 
         }
+            
+
             
             
             

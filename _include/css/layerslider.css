@@ -1079,14 +1079,21 @@ body * .ls-container .ls-webkit-hack,
     src: url(../fonts/Prototype.ttf);
 }
 
-#layerslider h2 {
+@font-face {
+    font-family: mp;
+    src: url(../fonts/mp.ttf);
+}
+
+#layerslider h1#skills {
     font-family: prototype;
     left:46%; 
     position:absolute; 
     color:#5c226d;
-    top:260px;
-    font-size:48px;
+    top:240px;
+    font-size:52px;
 }
+
+
 
 .iconText{
     width:50%;
@@ -1102,13 +1109,27 @@ body * .ls-container .ls-webkit-hack,
 #slideTwoOutside a.icon{
     position:absolute;
     left: 50%;
-
+    z-index:3;
 }
 
 #slideTwoOutside .iconText{
     position:absolute;
     z-index:3;
+    opacity:0;
+}
 
+
+
+
+#layerslider div#slideTwoOutside h2 {
+    font-family: mp;
+    color:#5fc8ff;
+    font-size:28px;
+    position:absolute; 
+    left:45%; 
+    top:280px;
+    z-index: 3;
+    opacity:0;
 }
 
 
