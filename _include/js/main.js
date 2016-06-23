@@ -131,11 +131,13 @@ jQuery(function($) {
             cloudContainer = $('#cloudContainer', '#slideOneOutside'),
             flashContainer = $('#flashContainer', '#slideOneOutside'),
             mountainSmallContainer = $('#mountainsSmall', '#slideOneOutside'),
-            bubbleContainer = $('#bubbleContainer', '#slideOneOutside');
+            bubbleContainer = $('#bubbleContainer', '#slideOneOutside'),
+            slideOneText = $('#slideOneText', '#slideOneOutside');
         
         var hexIcons = $('.icon', '#slideTwoOutside'),
             iconText = $('.iconText', '#slideTwoOutside'),
-            iconHeader = $('.iconHeader', '#slideTwoOutside');
+            iconHeader = $('.iconHeader', '#slideTwoOutside'),
+            skills = $('#skills', '#slideTwoOutside');
           
         
         
@@ -151,6 +153,179 @@ jQuery(function($) {
 
         
         var MARGIN_DISTANCE = 0;
+        
+  
+
+        
+//          function rainGenerator(slideOne) {
+//            
+//            
+//            //var v = 100 * Math.random();
+//            var b = (Math.round(1 * Math.random()) + 1, Math.floor(222 * Math.random()) + 50),
+//                c = (Math.floor(171 * b / 272), v / 800),
+//                d = $("<img>");
+//
+//            d[0].className = "rain";
+//            var e = 1 + parseInt(4 * Math.random());
+//            //stop when window out of focus
+//            if (!window.blurred) {
+//                d[0].src = "_include/img/layerSlider/raindrop_" + e + ".png", $('#rain').append(d);
+//            }
+//            var f = (v - 540) / 2;
+//
+//            d[0].style.top = -f - 50 + "px", d[0].style.left = 100 * Math.random() + "%", TweenLite.to(d, c, {
+//                top: v,
+//                ease: Linear.easeIn,
+//                onComplete: function() {
+//                    d.remove()
+//                }
+//            });
+//
+//            var g = Math.round(1e3 * Math.random()) + Math.round(v / 400 * 200);
+//            var interval_id;
+//
+//
+//            if (!interval_id) {
+//                myFunction();
+//            }
+//
+//            function myFunction() {
+//
+//                interval_id = setTimeout(function() {
+//                    if (!window.blurred) {
+//                        clearTimeout(interval_id);
+//                    }
+//                    if(slideOne){
+//                        rainGenerator(slideOne)
+//                    }else{
+//
+//                    }
+//
+//
+//                }, g);
+//            }
+//
+//            // stop rain when window not active        
+//            window.onblur = function() {
+//                window.blurred = true;
+//            };
+//            window.onfocus = function() {
+//                window.blurred = false;
+//            };
+//
+//        }
+        
+        
+        
+//        var Alertku = (function() {
+//            var tid;
+//
+//            function start() {
+//              if (!tid)
+//                tid = setInterval((function(f) { f(); return f; })(tick), 1000);
+//            }
+//
+//            function tick() {
+//              var el = document.getElementById('rain');
+//
+//              (el.firstChild || el.appendChild(document.createTextNode(""))).nodeValue += ', run';
+//            }
+//
+//            function stop() {
+//              if (tid)
+//                  clearInterval(tid);
+//
+//              tid = null;
+//            }
+//
+//            return { start: start,
+//                     stop:  stop };
+//      })();
+        
+        
+                function rainGenerator() {
+            
+            
+            //var v = 100 * Math.random();
+            var b = (Math.round(1 * Math.random()) + 1, Math.floor(222 * Math.random()) + 50),
+                c = (Math.floor(171 * b / 272), v / 800),
+                d = $("<img>");
+
+            d[0].className = "rain";
+            var e = 1 + parseInt(4 * Math.random());
+            //stop when window out of focus
+            if (!window.blurred) {
+                //d[0].src = "_include/img/layerSlider/raindrop_" + e + ".png", $('#rain').append(d);
+                d[0].src = "_include/img/layerSlider/raindrop_" + e + ".png", slideOne.find('#rain').append(d);
+            }
+            var f = (v - 540) / 2;
+
+            d[0].style.top = -f - 50 + "px", d[0].style.left = 100 * Math.random() + "%", TweenLite.to(d, c, {
+                top: v,
+                ease: Linear.easeIn,
+                onComplete: function() {
+                    d.remove()
+                }
+            });
+
+            var g = Math.round(1e3 * Math.random()) + Math.round(v / 400 * 200);
+            var interval_id;
+
+
+            if (!interval_id) {
+                myFunction();
+            }
+
+            function myFunction() {
+
+                interval_id = setTimeout(function() {
+                    if (!window.blurred) {
+                        clearTimeout(interval_id);
+                    }
+                    if(slideOne){
+                        rainGenerator(slideOne)
+                    }else{
+
+                    }
+
+
+                }, g);
+            }
+
+            // stop rain when window not active        
+            window.onblur = function() {
+                window.blurred = true;
+            };
+            window.onfocus = function() {
+                window.blurred = false;
+            };
+
+        }
+        
+    var Alertku = (function() {
+            var tid;
+
+            function start() {
+              if (!tid)
+                tid = setInterval((function(f) { f(); return f; })(tick), 1000);
+            }
+
+            function tick() {
+              var el = document.getElementById('rain');
+
+              (el.firstChild || el.appendChild(document.createTextNode(""))).nodeValue += ', run';
+            }
+
+            function stop() {
+              if (tid)
+                  clearInterval(tid);
+
+              tid = null;
+            }
+
+            return { start: start,
+                     stop:  stop };
+      })();
         
 
         
@@ -180,7 +355,8 @@ jQuery(function($) {
                     
                     lightning();
                     rainGenerator();
-                    
+                    //Alertku.start();
+            
                 
 
             },
@@ -196,11 +372,15 @@ jQuery(function($) {
                     if (data['nextLayerIndex'] == 1) {
                         //console.log('s2 fired: data ' + data['curLayerIndex']);
                         fixedContentSlideOne();
+                        //Alertku.start();
                      }
 
                     if (data['nextLayerIndex'] == 2) {
                         //console.log('s3 fired: data ' + data['curLayerIndex']);
                         fixedContentSlideTwo();
+                        //rainGenerator();
+                        //Alertku.stop();
+
                      }
 
                     if (data['nextLayerIndex'] == 3) {
@@ -232,6 +412,8 @@ jQuery(function($) {
 //            }
         });
         
+
+        
       
         
 
@@ -251,13 +433,61 @@ jQuery(function($) {
             var s1TimeLine = new TimelineLite;
             
             s1TimeLine
+            
+            .to(flashContainer, 0, {
+                opacity: 1,
+            })
+            
+            .fromTo(skills, 0.5, {
+                opacity: 1,
+                marginLeft: MARGIN_DISTANCE - 75
+            },{
+                opacity: 0,
+                marginLeft: MARGIN_DISTANCE - 190,
+                ease: Back.easeOut
+            })
+            .fromTo([iconText, iconHeader], 0, {
+                opacity: 0,
+            }, {
+                opacity: 0
+            })
+            
+            .fromTo(hexIcons, .5, {
+                
+                top: TOP_DISTANCE + 160
+                //marginLeft: MARGIN_DISTANCE - 95
+            },{
+                
+                scale:1,
+                top: TOP_DISTANCE + 200,
+                //marginLeft: MARGIN_DISTANCE - 95,
+                ease: Quad.easeOut    
+            }, "iconLabel")
+            
+            .add("iconLabel", "-=0.5")
+
+            .fromTo(".icon1", .5, {
+                rotation: 360,
+                marginLeft: MARGIN_DISTANCE - 290
+            },{
+                rotation: -360,
+                marginLeft: MARGIN_DISTANCE - 95
+            }, "iconLabel")
+            .fromTo(".icon3", .5, {
+                rotation: 360,
+                marginLeft: MARGIN_DISTANCE + 100
+            },{
+                rotation: -360,
+                marginLeft: MARGIN_DISTANCE - 95
+            }, "iconLabel")
+
             .to(hexContainer.find(".hex_blue"), .5, {
                 top: TOP_DISTANCE,
                 marginLeft: MARGIN_DISTANCE - 250,
                 scale: 1,
                 opacity: 0,
                 rotation: 360
-            })
+            }, "-=0.2")
             .to(hexContainer.find(".hex_pink"), .5, {
                 top: TOP_DISTANCE,
                 marginLeft: MARGIN_DISTANCE - 250,
@@ -345,6 +575,68 @@ jQuery(function($) {
                 scale: 1,
                 onComplete: slideOneBounceClouds
             },  "-=1")
+            
+            .fromTo(mountainSmallContainer.find("#mountain4"), .5, {
+                marginLeft: MARGIN_DISTANCE - 140,
+                top: TOP_DISTANCE + 665,
+                scaleX: 0,
+                rotation: -15,
+                opacity: 0
+            }, {
+                top: TOP_DISTANCE + 425,
+                marginLeft: MARGIN_DISTANCE - 140,
+                scaleX: 1,
+                rotation: 0,
+                opacity: 1,
+                ease: Back.easeOut
+            }, "-=0.8").fromTo(mountainSmallContainer.find("#mountain6"), .5, {
+                marginLeft: MARGIN_DISTANCE - 230,
+                top: TOP_DISTANCE + 575,
+                scaleX: 0,
+                rotation: 15,
+                opacity: 0
+            }, {
+                top: TOP_DISTANCE + 415,
+                marginLeft: MARGIN_DISTANCE - 230,
+                scaleX: 1,
+                rotation: 0,
+                opacity: 1,
+                ease: Back.easeOut
+            }, "-=0.6").fromTo(mountainSmallContainer.find("#mountain5"), .5, {
+                marginLeft: MARGIN_DISTANCE - 215,
+                top: TOP_DISTANCE + 630,
+                scaleX: 0,
+                rotation: 15,
+                opacity: 0
+            }, {
+                top: TOP_DISTANCE + 370,
+                marginLeft: MARGIN_DISTANCE - 215,
+                scaleX: 1,
+                rotation: 0,
+                opacity: 1,
+                ease: Back.easeOut
+            }, "-=0.4")
+            
+            .fromTo(slideOneText.find("h2"), .5, {
+                marginLeft: MARGIN_DISTANCE - 100,
+                top: TOP_DISTANCE + 450,
+                opacity: 0
+            }, {
+                marginLeft: MARGIN_DISTANCE - 100,
+                top: TOP_DISTANCE + 370,
+                opacity: 1,
+                ease: Expo.easeOut
+            }, "-=0.5")
+            .fromTo(slideOneText.find("h3"), .5, {
+                marginLeft: MARGIN_DISTANCE - 100,
+                top: TOP_DISTANCE + 410,
+                opacity: 0
+            }, {
+                marginLeft: MARGIN_DISTANCE - 100,
+                top: TOP_DISTANCE + 345,
+                opacity: 1,
+                ease: Expo.easeOut
+            }, "-=0.4")
 
             .fromTo(logoContainer.find(".shadow"), 0.6, {
                     marginLeft: MARGIN_DISTANCE - 200,
@@ -360,18 +652,7 @@ jQuery(function($) {
                     ease: Quad.easeOut
             }, "-=0.5")
             
-//            .fromTo(bubbleContainer, .3, {
-//                top: TOP_DISTANCE + 85,
-//                marginLeft: MARGIN_DISTANCE + 190,
-//                scale: 0,
-//                opacity: 0
-//            }, {
-//                top: TOP_DISTANCE + 185,
-//                scale: 1,
-//                opacity: 1,
-//                marginLeft: MARGIN_DISTANCE + 190,
-//                ease: Back.easeOut
-//            }, "-=0.1")
+
             
 
             
@@ -380,6 +661,10 @@ jQuery(function($) {
                     opacity: 1,
                     ease: Quad.easeOut
              }, "-=0.3")
+            
+            
+            
+            hexIconsReset();
             
             
             function slideOneBounceClouds(){
@@ -391,7 +676,13 @@ jQuery(function($) {
 
         }
         
-        
+        function hexIconsReset(){ 
+            hexIcons.each(function(){
+                $(this).removeClass('active');
+                $(this).find('img:eq(1)').css({'opacity':'0', 'scale':'1'})
+                $(this).find('img:eq(0)').css({'opacity':'1', 'scale':'1'})
+            });
+        }
         
         
         function fixedContentSlideTwo(){
@@ -409,7 +700,15 @@ jQuery(function($) {
             
 
             
-            s2TimeLine.to(hexContainer.find(".hex_blue"), .5, {
+            s2TimeLine
+            
+
+            .to(flashContainer, 0, {
+                opacity: 0,
+            })
+         
+            
+            .to(hexContainer.find(".hex_blue"), .5, {
                 scale: 0,
             
                 ease: Back.easeOut
@@ -418,12 +717,55 @@ jQuery(function($) {
             
                 rotation: -10,
                 ease: Back.easeOut
-            }, "-=0.3")
+            }, "-=0.2")
             .to(hexContainer.find(".hex_purple"), .5, {
                 scale: 0,
                 rotation: -3,
                 ease: Back.easeOut
             }, "-=0.3")
+            
+            .fromTo(slideOneText.find("h2"), .5, {
+                marginLeft: MARGIN_DISTANCE - 100,
+                top: TOP_DISTANCE + 370,
+                opacity: 1
+            }, {
+                marginLeft: MARGIN_DISTANCE - 100,
+                top: TOP_DISTANCE + 450,
+                opacity: 0,
+                ease: Expo.easeOut
+            }, "-=0.5")
+            .fromTo(slideOneText.find("h3"), .5, {
+                marginLeft: MARGIN_DISTANCE - 100,
+                top: TOP_DISTANCE + 345,
+                opacity: 1
+            }, {
+                marginLeft: MARGIN_DISTANCE - 100,
+                top: TOP_DISTANCE + 410,
+                opacity: 0,
+                ease: Expo.easeOut
+            }, "-=0.4")
+            
+            .to(mountainSmallContainer.find("#mountain4"), .5, {
+                top: TOP_DISTANCE + 125,
+                marginLeft: MARGIN_DISTANCE - 140,
+                rotation: -360,
+                opacity: 0,
+                ease: Back.easeOut
+            }, "-=0.5")
+            .to(mountainSmallContainer.find("#mountain6"), .5, {
+                top: TOP_DISTANCE + 115,
+                marginLeft: MARGIN_DISTANCE - 230,
+                rotation: 360,
+                opacity: 0,
+                ease: Back.easeOut
+            }, "-=0.6")
+            .to(mountainSmallContainer.find("#mountain5"), .5, {
+                marginLeft: MARGIN_DISTANCE - 215,
+                top: TOP_DISTANCE + 130,
+                rotation: 360,
+                opacity: 0,
+                ease: Back.easeOut
+            }, "-=0.4")
 
             .to(logoContainer.find("#ak_logo"), 0.6,  {
                 top: TOP_DISTANCE - 100,
@@ -450,7 +792,29 @@ jQuery(function($) {
                 top: TOP_DISTANCE - 100,
                 scale: 0.7,
                 ease: Bounce.easeOut
-            }, "-=0.5").to(mountainContainer.find("#mountain1"), .5, {
+            }, "-=0.5")
+            
+            
+            .fromTo(skills, 0.5, {
+                opacity: 0,
+                marginLeft: MARGIN_DISTANCE - 190
+            },{
+                opacity: 1,
+                marginLeft: MARGIN_DISTANCE - 75,
+                ease: Back.easeOut
+            })
+
+            
+ 
+            
+            
+            
+            
+            
+            
+            
+            
+            .to(mountainContainer.find("#mountain1"), .5, {
                 top: TOP_DISTANCE - 170,
                 marginLeft: MARGIN_DISTANCE - 70,
                 scale: 0.5,
@@ -466,6 +830,8 @@ jQuery(function($) {
                 scale: 0.5,
                 ease: Back.easeOut
             }, "-=0.5")
+            
+
             
 
             
@@ -515,13 +881,15 @@ jQuery(function($) {
         })
             
         .fromTo(hexIcons, .5, {
+   
             top: TOP_DISTANCE + 200,
             marginLeft: MARGIN_DISTANCE - 95
         },{
+    
             top: TOP_DISTANCE + 160,
             marginLeft: MARGIN_DISTANCE - 95,
             ease: Quad.easeOut    
-        })
+        },"-=0.5")
         .add("iconLabel", "-=0.5")
 
         .to(".icon1", .5, {
@@ -532,22 +900,7 @@ jQuery(function($) {
         }, "iconLabel")
 
 
-//        .fromTo(hexIcons, .5, {
-//            top: TOP_DISTANCE + 200,
-//            marginLeft: MARGIN_DISTANCE - 60
-//        },{
-//            top: TOP_DISTANCE + 200,
-//            marginLeft: MARGIN_DISTANCE - 60,
-//            ease: Quad.easeOut    
-//        })
-//        .add("iconLabel", "-=0.5")
-//
-//        .to(".icon1", .5, {
-//            marginLeft: MARGIN_DISTANCE - 250
-//        }, "iconLabel")
-//            .to(".icon3", .5, {
-//                marginLeft: MARGIN_DISTANCE + 130
-//        }, "iconLabel")
+
 
 
 
@@ -600,18 +953,17 @@ jQuery(function($) {
             iconsSizeToggle.to(hexIcons, .5, {
                 scale:0.7,
                 top: TOP_DISTANCE + 160,
-                marginLeft: MARGIN_DISTANCE - 60,
-             
+                marginLeft: MARGIN_DISTANCE - 90,
                 ease: Quad.easeOut    
             })
             .add("iconResize", "-=0.5")
 
             .to(".icon1", .5, {
               
-                marginLeft: MARGIN_DISTANCE - 200
+                marginLeft: MARGIN_DISTANCE - 230
             }, "iconResize")
             .to(".icon3", .5, {
-                    marginLeft: MARGIN_DISTANCE + 80
+                    marginLeft: MARGIN_DISTANCE + 50
             }, "iconResize")
         }
 
@@ -619,52 +971,46 @@ jQuery(function($) {
             //here
         function clickIconAnimation(icon) {
             
+           
+            
             if(resizeFlag){
                 iconsResize();
                 resizeFlag = false;
             }
          
-            
-
-            
-            
-            hexIcons.each(function(){
-                
-                $(this).removeClass('active');
-                
-                    if(!($(this).hasClass('active'))){
-                        $(this).find('img:eq(1)').css({'opacity':'0', 'scale':'1'})
-                    }
-                $(this).find('img:eq(0)').css({'opacity':'1', 'scale':'1'})
-            });
-            
-   
-            icon.addClass('active')
-            .find('img:eq(1)').css({'opacity':'1', 'scale':'1'})
-            //.find('img:eq(0)').css({'opacity':'0', 'scale':'1'})
-            
             var f = new TimelineLite;
             
             // text and header
-            f.to([iconText, iconHeader], .5, {
-                opacity: 0,
-                ease: Expo.easeOut
-            }, "-=0.5")
-            .fromTo(icon.next("p"), .5, {
-                top: TOP_DISTANCE + 600,
-                opacity: 0
-            }, {
-                top: TOP_DISTANCE + 400,
-                opacity: 1,
-                ease: Expo.easeOut
-            }, "-=0.5").fromTo(icon.prev("h2"), .5, {
-                top: TOP_DISTANCE + 100,
-                opacity: 0
-            }, {
-                top: TOP_DISTANCE + 110,
-                opacity: 1,
-                ease: Expo.easeOut
-            }, "-=0.5")
+            if(!(icon.hasClass('active'))){
+                f.to([iconText, iconHeader], .5, {
+                    opacity: 0,
+                    ease: Expo.easeOut
+                }, "-=0.5")
+                .fromTo(icon.next(".iconText"), .5, {
+                    top: TOP_DISTANCE + 600,
+                    marginLeft: MARGIN_DISTANCE - 180,
+                    opacity: 0
+                }, {
+                    top: TOP_DISTANCE + 400,
+                    marginLeft: MARGIN_DISTANCE - 180,
+                    opacity: 1,
+                    ease: Expo.easeOut
+                }, "-=0.5").fromTo(icon.prev("h2"), .5, {
+                    top: TOP_DISTANCE + 100,
+                    opacity: 0
+                }, {
+                    top: TOP_DISTANCE + 130,
+                    opacity: 1,
+                    ease: Expo.easeOut
+                }, "-=0.5")
+            }
+            
+            // removes active
+            hexIconsReset();
+            
+            icon.addClass('active')
+            .find('img:eq(1)').css({'opacity':'1', 'scale':'1'})
+            //.find('img:eq(0)').css({'opacity':'0', 'scale':'1'})
 
         }
             
@@ -799,7 +1145,7 @@ jQuery(function($) {
                     opacity: 0,
                     rotation: 15
                 }, {
-                    marginLeft: MARGIN_DISTANCE - 235,
+                    marginLeft: MARGIN_DISTANCE - 225,
                     opacity: 1,
                     rotation: 0,
                     ease: Bounce.easeOut,
@@ -964,40 +1310,40 @@ function sliderOneIntro(){
         
         
         .fromTo(mountainSmallContainer.find("#mountain4"), .5, {
-            marginLeft: MARGIN_DISTANCE - 100,
+            marginLeft: MARGIN_DISTANCE - 140,
             top: TOP_DISTANCE + 665,
             scaleX: 0,
             rotation: -15,
             opacity: 0
         }, {
-            top: TOP_DISTANCE + 465,
-            marginLeft: MARGIN_DISTANCE - 100,
+            top: TOP_DISTANCE + 425,
+            marginLeft: MARGIN_DISTANCE - 140,
             scaleX: 1,
             rotation: 0,
             opacity: 1,
             ease: Back.easeOut
         }, "-=0.8").fromTo(mountainSmallContainer.find("#mountain6"), .5, {
-            marginLeft: MARGIN_DISTANCE - 190,
+            marginLeft: MARGIN_DISTANCE - 230,
             top: TOP_DISTANCE + 575,
             scaleX: 0,
             rotation: 15,
             opacity: 0
         }, {
-            top: TOP_DISTANCE + 455,
-            marginLeft: MARGIN_DISTANCE - 190,
+            top: TOP_DISTANCE + 415,
+            marginLeft: MARGIN_DISTANCE - 230,
             scaleX: 1,
             rotation: 0,
             opacity: 1,
             ease: Back.easeOut
         }, "-=0.6").fromTo(mountainSmallContainer.find("#mountain5"), .5, {
-            marginLeft: MARGIN_DISTANCE - 150,
+            marginLeft: MARGIN_DISTANCE - 215,
             top: TOP_DISTANCE + 630,
             scaleX: 0,
             rotation: 15,
             opacity: 0
         }, {
-            top: TOP_DISTANCE + 410,
-            marginLeft: MARGIN_DISTANCE - 150,
+            top: TOP_DISTANCE + 370,
+            marginLeft: MARGIN_DISTANCE - 215,
             scaleX: 1,
             rotation: 0,
             opacity: 1,
@@ -1009,26 +1355,24 @@ function sliderOneIntro(){
         
 
         
-//        .to(slideOne.find(".bug"), 0, {
-//            backgroundPosition: "-120px"
-//        }, "-=0.1")
-//            .to([slideOne.find(".wing_right"), slideOne.find(".wing_left")], 0, {
-//                display: "none"
-//            }, "-=0.1")
-        .fromTo(slideOne.find("h2"), .5, {
-            marginLeft: MARGIN_DISTANCE + 25,
+
+        .fromTo(slideOneText.find("h2"), .5, {
+            marginLeft: MARGIN_DISTANCE - 100,
             top: TOP_DISTANCE + 450,
             opacity: 0
         }, {
-            top: TOP_DISTANCE + 365,
+            marginLeft: MARGIN_DISTANCE - 100,
+            top: TOP_DISTANCE + 370,
             opacity: 1,
             ease: Expo.easeOut
-        }, "-=0.5").fromTo(slideOne.find("h3"), .5, {
-            marginLeft: MARGIN_DISTANCE + 25,
+        }, "-=0.5")
+        .fromTo(slideOneText.find("h3"), .5, {
+            marginLeft: MARGIN_DISTANCE - 100,
             top: TOP_DISTANCE + 410,
             opacity: 0
         }, {
-            top: TOP_DISTANCE + 340,
+            marginLeft: MARGIN_DISTANCE - 100,
+            top: TOP_DISTANCE + 345,
             opacity: 1,
             ease: Expo.easeOut
         }, "-=0.4")
@@ -1259,61 +1603,11 @@ function sliderOneIntro(){
                 }
             })
         }
+        
 
 
 
-        //genererGoutte
-        function rainGenerator() {
-            //var v = 100 * Math.random();
-            var b = (Math.round(1 * Math.random()) + 1, Math.floor(222 * Math.random()) + 50),
-                c = (Math.floor(171 * b / 272), v / 800),
-                d = $("<img>");
 
-            d[0].className = "rain";
-            var e = 1 + parseInt(4 * Math.random());
-            //stop when window out of focus
-            if (!window.blurred) {
-                d[0].src = "_include/img/layerSlider/raindrop_" + e + ".png", slideOne.find('#rain').append(d);
-            }
-            var f = (v - 540) / 2;
-
-            d[0].style.top = -f - 50 + "px", d[0].style.left = 100 * Math.random() + "%", TweenLite.to(d, c, {
-                top: v,
-                ease: Linear.easeIn,
-                onComplete: function() {
-                    d.remove()
-                }
-            });
-
-            var g = Math.round(1e3 * Math.random()) + Math.round(v / 400 * 200);
-            var interval_id;
-
-
-            if (!interval_id) {
-                myFunction();
-            }
-
-            function myFunction() {
-
-                interval_id = setTimeout(function() {
-                    if (!window.blurred) {
-                        clearTimeout(interval_id);
-                    }
-                    rainGenerator()
-
-
-                }, g);
-            }
-
-            // stop rain when window not active        
-            window.onblur = function() {
-                window.blurred = true;
-            };
-            window.onfocus = function() {
-                window.blurred = false;
-            };
-
-        }
 
 
         function changeHead() {
@@ -1362,10 +1656,12 @@ function sliderOneIntro(){
                 }
             }
         }
+        
+        
+        
 
-        /* ==================================================
-   Slide Two
-================================================== */
+
+
 
 
 

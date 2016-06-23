@@ -899,7 +899,19 @@ body * .ls-container .ls-webkit-hack,
   height: auto;    // Scale the height according to the width, otherwise you get stretching
 }
 
-/* added amendments -  slide 1 */
+/* added amendments */
+
+@font-face {
+    font-family: prototype;
+    src: url(../fonts/Prototype.ttf);
+}
+
+@font-face {
+    font-family: mp;
+    src: url(../fonts/mp.ttf);
+}
+
+/* slide 1 */
 #rain img{position:absolute}
 
 #logoSprite{
@@ -942,8 +954,11 @@ body * .ls-container .ls-webkit-hack,
 #layerslider .text .subTitle {
     position: relative;
     padding: 5px 0;
-    font: italic 14px/16px Georgia;
+/*    font: italic 14px/16px Georgia;*/
     color: #5fc8ff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.3em;
 }
 
 /* bubble icons */
@@ -1049,7 +1064,32 @@ body * .ls-container .ls-webkit-hack,
     position:absolute;
 }
 
+#slideOneOutside #rain{
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:4;
+/*    test*/
+    height:200px;
+    top:0px;
+}
 
+#slideOneText{
+    top: 0px;
+    left:50%;
+    position:absolute;
+    z-index:4;
+}
+
+#slideOneText h3.subTitle {
+
+
+}
+
+#slideOneText h2.title{
+ 
+
+}
 
 
 
@@ -1074,31 +1114,31 @@ body * .ls-container .ls-webkit-hack,
 
 
 /* added amendments -  slide 2 */
-@font-face {
-    font-family: prototype;
-    src: url(../fonts/Prototype.ttf);
-}
 
-@font-face {
-    font-family: mp;
-    src: url(../fonts/mp.ttf);
-}
 
 #layerslider h1#skills {
     font-family: prototype;
-    left:46%; 
+    left:50%;
+  
     position:absolute; 
     color:#5c226d;
     top:240px;
     font-size:52px;
+    z-index:3;
+    opacity:0;
 }
 
-
+.iconHeader{}
 
 .iconText{
-    width:50%;
-    left:25%;
-    text-align:center;
+    width:100%;
+    left:50%;
+    text-align:left;
+}
+
+.iconText ul{
+    width:225px;
+    float:left;
 }
 
 #slideTwoOutside a.icon span img{
@@ -1110,6 +1150,8 @@ body * .ls-container .ls-webkit-hack,
     position:absolute;
     left: 50%;
     z-index:3;
+    width: 183px;
+    height: 212px;
 }
 
 #slideTwoOutside .iconText{
