@@ -1286,3 +1286,117 @@ footer .credits {
     color: #5b4c5c;
     padding-bottom: 11px;
 }
+
+/*----------------------------------------------------
+ 9.	Education Style
+------------------------------------------------------*/
+
+.education {
+    background: #f8f7f8;
+}
+.education .container {
+    padding-top: 116px;
+    padding-bottom: 120px;
+}
+.education h2 {
+    color: #5b4c5c;
+    margin-bottom: 41px;
+}
+
+.education h3 {
+    color: #5fc8ff;
+}
+.education p {
+    color: #84868d;
+    /*font-size:13px;*/
+    line-height: 18px;
+}
+.education .heading p {
+    padding-bottom: 54px;
+    max-width: 660px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    color: #897f8a;
+    line-height: 27px;
+}
+.education h4 {
+    font-weight: 700;
+}
+.workDetails .rightArea {
+    border-left: dashed 1px #897f8a;
+    padding-bottom: 47px;
+}
+.workDetails:last-child .rightArea {
+    padding-bottom: 0px;
+}
+.workDetails:last-child .rightArea .exCon p:last-child {
+    padding-bottom: 0;
+}
+.workYear {
+    font-size: 17px;
+    color: #fff;
+    line-height: 40px;
+}
+.workYear span {
+    display: block;
+    font-size: 18pxpx;
+    padding: 0 21px;
+    white-space: nowrap;
+    float: right;
+    margin-bottom: 2px;
+    margin-right: 28px;
+    font-weight: bold;
+}
+.prevY {
+    background-color: #5fc8ff;
+}
+.afterY {
+    background-color: #483c49;
+}
+.arrowpart {
+    margin-left: -32px;
+    margin-top: 25px;
+    float: left;
+    width: 34px;
+    height: 34px;
+    background: url(../img/profile/arrow-minus.png) no-repeat 0 0 #f8f7f8;
+}
+
+.arrowpart a{
+    width: 34px;
+    height: 34px;
+    display: block;
+}
+
+.arrowpartActive{
+    background: url(../img/profile/arrow-plus.png) no-repeat 0 0 #f8f7f8;
+}
+.exCon {
+    width: auto;
+    padding: 0 47px 6px 70px;
+    margin-left: 15px;
+    text-align: left;
+}
+.exCon p {
+    color: #897f8a;
+    line-height: 27px;
+}
+.exCon h4 {
+    color: #5b4c5c;
+    padding-bottom: 1px;
+    margin-top: -8px;
+}
+.exCon h5 {
+    color: #5b4c5c;
+    padding-bottom: 11px;
+}
+
+/*hover on titles*/
+.exCon h4:hover{
+    color:#5fc8ff;
+}
+
+.exCon h5:hover{
+    color:#fe00fe;
+}

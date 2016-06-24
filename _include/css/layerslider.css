@@ -1122,7 +1122,7 @@ body * .ls-container .ls-webkit-hack,
   
     position:absolute; 
     color:#5c226d;
-    top:240px;
+/*    top:240px;*/
     font-size:52px;
     z-index:3;
     opacity:0;
@@ -1186,6 +1186,7 @@ body * .ls-container .ls-webkit-hack,
     opacity:1;
 }
 */
+
 
 
 
