@@ -1784,7 +1784,7 @@ function sliderOneIntro(){
             $(".fancybox-iframe")
                 //.attr('rel', 'gallery')
                 .fancybox({
-       
+                   // scrolling: 'auto',
                     padding: 0,
                     preload: true,
 //                    maxWidth: 658,
@@ -1807,11 +1807,13 @@ function sliderOneIntro(){
                         $(window).off('resize.fancybox');
                     },
                     iframe: {
-                        scrolling: 'no'
+                        scrolling: 'auto'
                     },
                     afterLoad: function(){
                        this.width = $(this.element).data("width");
                        this.height = $(this.element).data("height");
+                        
+                        
                        
                     },
                     onUpdate: function(){
