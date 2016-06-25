@@ -535,6 +535,7 @@ nav#menu #menu-nav li a:hover {
     position: relative;
     z-index: 99;
 }
+
 .page-alternate {
     background: #26292E;
     padding: 100px 0;
@@ -828,6 +829,12 @@ nav#menu #menu-nav li a:hover {
     margin-top: 20px;
     color: #FFFFFF;
 }
+
+/*added*/
+#contact h1{color:#5b4c5c}
+#contact h3{color:#5fc8ff}
+
+#contact{background:#f8f7f8}
 /* ==================================================
    Twitter Feed
 ================================================== */
@@ -1255,7 +1262,7 @@ footer .credits {
     float: left;
     width: 34px;
     height: 34px;
-    background: url(../img/profile/arrow-minus.png) no-repeat 0 0 #f8f7f8;
+    background: url(../img/profile/arrow-minus.png) no-repeat 0 0 transparent;
 }
 
 .arrowpart a{
@@ -1265,7 +1272,7 @@ footer .credits {
 }
 
 .arrowpartActive{
-    background: url(../img/profile/arrow-plus.png) no-repeat 0 0 #f8f7f8;
+    background: url(../img/profile/arrow-plus.png) no-repeat 0 0 transparent;
 }
 .exCon {
     width: auto;
@@ -1292,22 +1299,22 @@ footer .credits {
 ------------------------------------------------------*/
 
 .education {
-    background: #f8f7f8;
+    background: #2F3238;
 }
 .education .container {
     padding-top: 116px;
     padding-bottom: 120px;
 }
 .education h2 {
-    color: #5b4c5c;
+    color: #fff;
     margin-bottom: 41px;
 }
 
 .education h3 {
-    color: #5fc8ff;
+    color: #fe00fe;
 }
 .education p {
-    color: #84868d;
+    color: #fff;
     /*font-size:13px;*/
     line-height: 18px;
 }
@@ -1317,28 +1324,28 @@ footer .credits {
     text-align: center;
     display: block;
     margin: 0 auto;
-    color: #897f8a;
+    color: #fff;
     line-height: 27px;
 }
 .education h4 {
     font-weight: 700;
 }
-.workDetails .rightArea {
+.courseDetails .rightArea {
     border-left: dashed 1px #897f8a;
     padding-bottom: 47px;
 }
-.workDetails:last-child .rightArea {
+.courseDetails:last-child .rightArea {
     padding-bottom: 0px;
 }
-.workDetails:last-child .rightArea .exCon p:last-child {
+.courseDetails:last-child .rightArea .exCon p:last-child {
     padding-bottom: 0;
 }
-.workYear {
+.courseYear {
     font-size: 17px;
     color: #fff;
     line-height: 40px;
 }
-.workYear span {
+.courseYear span {
     display: block;
     font-size: 18pxpx;
     padding: 0 21px;
@@ -1354,42 +1361,29 @@ footer .credits {
 .afterY {
     background-color: #483c49;
 }
-.arrowpart {
-    margin-left: -32px;
-    margin-top: 25px;
-    float: left;
-    width: 34px;
-    height: 34px;
-    background: url(../img/profile/arrow-minus.png) no-repeat 0 0 #f8f7f8;
-}
 
-.arrowpart a{
-    width: 34px;
-    height: 34px;
-    display: block;
-}
-
-.arrowpartActive{
-    background: url(../img/profile/arrow-plus.png) no-repeat 0 0 #f8f7f8;
-}
-.exCon {
+.edCon {
     width: auto;
     padding: 0 47px 6px 70px;
     margin-left: 15px;
     text-align: left;
 }
-.exCon p {
-    color: #897f8a;
+.edCon p {
+    color: #fff;
     line-height: 27px;
 }
-.exCon h4 {
-    color: #5b4c5c;
+.edCon h4 {
+    color: #fff;
     padding-bottom: 1px;
     margin-top: -8px;
 }
-.exCon h5 {
-    color: #5b4c5c;
+.edCon h5 {
+    color: #fff;
     padding-bottom: 11px;
+}
+
+.edCon ul li{
+    color:#eee;
 }
 
 /*hover on titles*/
@@ -1398,5 +1392,14 @@ footer .credits {
 }
 
 .exCon h5:hover{
+    color:#fe00fe;
+}
+
+/*hover on titles*/
+.edCon h4:hover{
+    color:#5fc8ff;
+}
+
+.edCon h5:hover{
     color:#fe00fe;
 }
